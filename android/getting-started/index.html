@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Getting Started with the Android SDK - Geoloqi Developers</title>
+    
+    
+
+    
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   android getting-started">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div class="container">
+  <h1>Getting Started with the Android SDK</h1>
+  <div id="main" class="new-docs">
+    <section class="well">
+      <p>This is the source code for the Geoloqi Android SDK. The SDK provides
+real-time location tracking, messaging, geofencing, storage and analytics
+tools for developers working on location based apps.</p>
+
+<p>To view a sample implementation of the Geoloqi Android SDK you can check
+out the public <a href="https://github.com/geoloqi/Geoloqi-Android-SDK">Geoloqi-Android-SDK</a> project on GitHub.</p>
+
+<p>For more information, visit: <a href="https://developers.geoloqi.com/">developers.geoloqi.com</a></p>
+
+<h2 class='section-header' data-section-name='installation' ><a id='installation' class='section-link'></a>
+Installation</h2>
+
+<p>The Geoloqi Android SDK is distributed as a JAR library. Simply drop the
+.jar into your project&#39;s libs/ directory and you should be good to go.</p>
+
+<p>For developers with access to the Geoloqi Android SDK source code, you can
+also reference the SDK as an <a href="http://developer.android.com/guide/developing/projects/projects-eclipse.html#SettingUpLibraryProject">Android Library Project</a>.</p>
+
+<p>After pulling down the source you can easily reference an Android
+Library project <a href="http://developer.android.com/guide/developing/projects/projects-eclipse.html#ReferencingLibraryProject">from Eclipse</a>
+or from <a href="http://developer.android.com/guide/developing/projects/projects-cmdline.html#ReferencingLibraryProject">the command line</a>.</p>
+
+<p>If you&#39;re having trouble try checking your application&#39;s <code>project.properties</code> file.</p>
+
+<h2 class='section-header' data-section-name='packaging' ><a id='packaging' class='section-link'></a>
+Packaging</h2>
+
+<p>To generate a distribution of the SDK you need to do the following:</p>
+<pre><code class=''>$ cd Geoloqi-Android-SDK-Private
+
+# Necessary only once!
+$ android update project --path .
+
+$ ant clean dist docs
+</code></pre>
+<p>The .jar file will be generated in the <code>bin/</code> directory of your project. Javadoc
+will be generated in the <code>bin/docs/</code> directory.</p>
+
+<p>The <code>dist</code> and <code>docs</code> commands are simply two custom ant build targets and
+are declared in the project&#39;s <code>build.xml</code> file.</p>
+
+<blockquote>
+<p>Note: The default build expects Git to be located at <code>/usr/bin/git</code>. You
+can specify an alternate path in your <code>local.properties</code> file (e.g.
+<code>git.path=/usr/local/git/bin/git</code>).</p>
+</blockquote>
+
+<h2 class='section-header' data-section-name='usage' ><a id='usage' class='section-link'></a>
+Usage</h2>
+
+<p>Before you begin, you&#39;ll need to modify your application&#39;s <code>AndroidManifest.xml</code> file
+to include the following permissions.</p>
+<pre><code class='xml'>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; &#x2F;&gt;
+&lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; &#x2F;&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; &#x2F;&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; &#x2F;&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; &#x2F;&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; &#x2F;&gt;
+&lt;uses-permission android:name=&quot;android.permission.VIBRATE&quot; &#x2F;&gt;
+
+&lt;!-- Note: This custom permission name should begin with your application&#x27;s package name! --&gt;
+&lt;permission
+    android:name=&quot;com.geoloqi.android.sample.permission.C2D_MESSAGE&quot;
+    android:protectionLevel=&quot;signature&quot; &#x2F;&gt;
+
+&lt;!-- These permissions are required to enable the C2DM features of the SDK. --&gt;
+&lt;uses-permission android:name=&quot;com.geoloqi.android.sample.permission.C2D_MESSAGE&quot; &#x2F;&gt;
+&lt;uses-permission android:name=&quot;com.google.android.c2dm.permission.RECEIVE&quot; &#x2F;&gt;
+</code></pre>
+<p>Optionally, you may also want to include the <code>ACCESS_MOCK_LOCATION</code> permission if you plan on doing any testing.</p>
+<pre><code class='xml'>&lt;uses-permission android:name=&quot;android.permission.ACCESS_MOCK_LOCATION&quot; &#x2F;&gt;
+</code></pre>
+<p>To enable the tracker you&#39;ll need to declare the tracking service and
+(optionally) the push messaging receiver.</p>
+<pre><code class='xml'>&lt;application&gt;
+    &lt;service
+        android:name=&quot;com.geoloqi.android.sdk.service.LQService&quot;
+        android:exported=&quot;false&quot; &#x2F;&gt;
+    &lt;receiver
+        android:name=&quot;com.geoloqi.android.sdk.receiver.LQDeviceMessagingReceiver&quot;
+        android:permission=&quot;com.google.android.c2dm.permission.SEND&quot;&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; &#x2F;&gt;
+            &lt;action android:name=&quot;com.google.android.c2dm.intent.REGISTRATION&quot; &#x2F;&gt;
+
+            &lt;!-- This should equal your application&#x27;s package name! --&gt;
+            &lt;category android:name=&quot;com.geoloqi.android.sample&quot; &#x2F;&gt;
+        &lt;&#x2F;intent-filter&gt;
+    &lt;&#x2F;receiver&gt;
+&lt;&#x2F;application&gt;
+</code></pre>
+<h2 class='section-header' data-section-name='credentials' ><a id='credentials' class='section-link'></a>
+Credentials</h2>
+
+<p>Before starting the service you need to provide your app credentials. The
+preferred method is to create a <code>geoloqi.properties</code> file in your
+application&#39;s <code>/assets</code> directory. The properties file should follow the
+format below:</p>
+<pre><code class=''># Your Geoloqi API Key (required)
+client_id=YOUR_API_KEY
+
+# Your Geoloqi API Secret (not recommended, you shouldn&#x27;t need to set this)
+client_secret=
+
+# Your GCM sender ID. This is required for push
+# messaging to work!
+gcm_sender_id=0000000001
+
+# The name of the drawable to be displayed with incoming push
+# notifications. The image must be located in one of your
+# res&#x2F;drawable folders. Do not include the file extension here.
+# The SDK must be able to find a valid status bar icon or push
+# messages will fail!
+push_icon=ic_stat_notify
+</code></pre>
+<p>If for some reason you cannot provide a properties file, you can also
+set your client credentials manually:</p>
+<pre><code class=''>LQSharedPreferences.setClientId(&quot;YOUR_API_KEY&quot;);
+LQSharedPreferences.setClientSecret(&quot;&quot;); &#x2F;&#x2F; Don&#x27;t set this! Provide a blank string.
+LQSharedPreferences.setGcmPushAccount(&quot;4815162342&quot;);
+LQSharedPreferences.setPushIcon(&quot;ic_stat_notify&quot;);
+</code></pre>
+<blockquote>
+<p>Note: Make sure you set these values <em>before</em> starting the service!</p>
+</blockquote>
+
+<h2 class='section-header' data-section-name='starting-the-service' ><a id='starting-the-service' class='section-link'></a>
+Starting the Service</h2>
+
+<p>The easiest way to get started is to spin up the tracking service when
+the user takes some action (such as launching your app). You can start the
+Geoloqi tracker like starting any other <a href="http://developer.android.com/reference/android/app/Service.html">Android Service</a>.</p>
+<pre><code class='java'>&#x2F;&#x2F; Start the tracking service
+Intent intent = new Intent(this, LQService.class);
+startService(intent);
+</code></pre>
+<p>This code will start the background service, create an anonymous user
+account and start requesting location updates from the system. It&#39;s that easy!</p>
+
+<h2 class='section-header' data-section-name='events' ><a id='events' class='section-link'></a>
+Events</h2>
+
+<p>If you want to be notified when certain events occur, such as the logging of
+a new location fix or the triggering of a nearby geofence, you should
+extend the abstract class <code>LQBroadcastReceiver</code>, which is an implementation
+of <a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a>.</p>
+
+<p>There are several ways to do this, the quickest is to dynamically register the
+receiver as an anonymous inner class in one of your application&#39;s Activity classes.</p>
+<pre><code class='java'>@Override
+public void onResume() {
+    super.onResume();
+
+    &#x2F;&#x2F; Define what BroadcastIntent actions your receiver will
+    &#x2F;&#x2F; listen for. In this case we are registering to receive only
+    &#x2F;&#x2F; broadcast intents with the ACTION_LOCATION_CHANGED action.
+    final IntentFilter filter = new IntentFilter();
+    filter.addAction(LQBroadcastReceiver.ACTION_LOCATION_CHANGED);
+
+    &#x2F;&#x2F; Register our broadcast receiver with the IntentFilter
+    &#x2F;&#x2F; created above.
+    registerReceiver(new LQBroadcastReceiver() {
+        @Override
+        public void onLocationChanged(Context context, Location location) {
+            &#x2F;&#x2F; Let your imagination run wild here...
+        }
+    }, filter);
+}
+</code></pre>
+<p>Note that you may want to unregister the receiver in your activity&#39;s <code>onPause</code>
+method. In that case it may be easier to bind the receiver to a private
+property on the Activity.</p>
+<pre><code class='java'>private LQBroadcastReceiver mLocationReceiver = new LQBroadcastReceiver() {
+    @Override
+    public void onLocationChanged(Context context, Location location) {
+        &#x2F;&#x2F; Let your imagination run wild here...
+    }
+};
+
+@Override
+public void onResume() {
+    super.onResume();
+
+    &#x2F;&#x2F; Register our broadcast receiver
+    registerReceiver(mLocationReceiver, filter);
+}
+
+@Override
+public void onPause() {
+    super.onPause();
+
+    &#x2F;&#x2F; Unregister our broadcast receiver
+    unregisterReceiver(mLocationReceiver);
+}
+</code></pre>
+<p>In either case, your Activity will be notified only when it has focus
+and is in the foreground. If you would like to intercept broadcast intents
+from the location tracker at any point, even when your application is not in
+the foreground, you should register the broadcast receiver from your
+application&#39;s manifest file.</p>
+<pre><code class='xml'>&lt;application&gt;
+    &lt;receiver
+        android:name=&quot;.receiver.SampleReceiver&quot;
+        android:enabled=&quot;true&quot;
+        android:exported=&quot;false&quot;&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=&quot;com.geoloqi.android.sdk.action.LOCATION_CHANGED&quot; &#x2F;&gt;
+        &lt;&#x2F;intent-filter&gt;
+    &lt;&#x2F;receiver&gt;
+&lt;&#x2F;application&gt;
+</code></pre>
+<p>In this case you provide an implementation of <code>LQBroadcastReceiver</code> named
+<code>SampleReceiver</code> in the <code>receiver</code> package. The actions you would like
+your receiver to be sent are listed in the <code>&lt;intent-filter&gt;...&lt;/intent-filter&gt;</code>
+section just like the previous example.</p>
+
+<p>This will ensure your broadcast receiver will always be notified, even if your
+application is not currently running. This allows you a great deal of
+flexibility and provides you with the opportunity to do everything from
+creating a <a href="http://developer.android.com/reference/android/app/Notification.html">Notification</a>
+to launching a new Activity.</p>
+
+<p>If you would like to create a dual-purpose broadcast receiver, this is a
+good pattern to follow.</p>
+<pre><code class='java'>@Override
+public void onLocationChanged(Context context, Location location) {
+    try {
+        OnLocationChangedListener listener = (OnLocationChangedListener) context;
+        listener.onLocationChanged(location);
+    } catch (ClassCastException e) {
+        &#x2F;&#x2F; The broadcast receiver is running with a Context that
+        &#x2F;&#x2F; does not implement OnLocationChangedListener. If your activity
+        &#x2F;&#x2F; has implemented the interface, then this generally means
+        &#x2F;&#x2F; that the receiver is running in a global context and
+        &#x2F;&#x2F; is not bound to any particular activity.
+    }
+}
+
+public interface OnLocationChangedListener {
+    public void onLocationChanged(Location location);
+}
+</code></pre>
+<p>From here you can register the receiver in your activities and implement
+any of the public interfaces you&#39;ve defined on the receiver. The interface
+methods will then be called if the activity is in the foreground when
+the receiver gets a new broadcast.</p>
+
+<h2 class='section-header' data-section-name='service-binding' ><a id='service-binding' class='section-link'></a>
+Service Binding</h2>
+
+<p>Warning, here be dragons! If you are an advanced user, you can bind to the
+tracking service from your Activity and call any public methods. This may
+be useful if you want to trigger API calls from your application&#39;s UI.</p>
+
+<p>Local service binding can be <a href="http://developer.android.com/reference/android/app/Service.html#LocalServiceSample">easily achieved</a>,
+but with great power comes great responsibility.</p>
+<pre><code class='java'>@Override
+public void onResume() {
+    super.onResume();
+
+    &#x2F;&#x2F; Bind to the tracking service so we can call public methods on it
+    Intent intent = new Intent(this, LQService.class);
+    bindService(intent, mConnection, 0);
+}
+
+@Override
+public void onPause() {
+    super.onPause();
+
+    &#x2F;&#x2F; Unbind from LQService
+    if (mBound) {
+        unbindService(mConnection);
+        mBound = false;
+    }
+}
+
+private LQService mService;
+private boolean mBound;
+
+&#x2F;** Defines callbacks for service binding, passed to bindService() *&#x2F;
+private ServiceConnection mConnection = new ServiceConnection() {
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+        try {
+            &#x2F;&#x2F; We&#x27;ve bound to LocalService, cast the IBinder and get LocalService instance.
+            LQBinder binder = (LQBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        } catch (ClassCastException e) {
+            &#x2F;&#x2F; Pass
+        }
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+        mBound = false;
+    }
+};
+</code></pre>
+<p>Once the Service binding has completed you can call methods from the service
+instance like <code>mService.getTracker()</code> or <code>mService.getSession()</code>. These two
+objects are the backbone of the Geoloqi SDK and expose many useful
+methods.</p>
+
+<p>Note that you should always make sure you start the tracking service
+explicitly before attempting to bind to it. If you bind to the tracking
+service using the <code>BIND_AUTO_CREATE</code> flag the service may not continue
+to function once your Activity has stopped.</p>
+
+<h2 class='section-header' data-section-name='calling-api-methods' ><a id='calling-api-methods' class='section-link'></a>
+Calling API Methods</h2>
+
+<p>Binding to the tracking service also allows you to call Geoloqi API methods
+directly. After following the directions above, simply get an instance of
+the session.</p>
+<pre><code class='java'>&#x2F;&#x2F; Performing a basic GET request
+if (mService != null) {
+    LQSession session = mService.getSession();
+
+    &#x2F;&#x2F; Send the request
+    session.runGetRequest(&quot;account&#x2F;profile&quot;, new OnRunApiRequestListener() {
+        @Override
+        public void onSuccess(LQSession session, HttpResponse response) {
+            &#x2F;&#x2F; Consume the response!
+            &#x2F;&#x2F; ...
+        }
+        @Override
+        public void onFailure(LQSession session, LQException e) {
+            Log.e(TAG, e.getMessage());
+        }
+        @Override
+        public void onComplete(LQSession session, HttpResponse response, StatusLine status) {
+            &#x2F;&#x2F; The server did not return a 200-OK response!
+            &#x2F;&#x2F; ...
+        }
+    });
+}
+
+&#x2F;&#x2F; Performing a basic POST request
+if (mService != null) {
+    LQSession session = mService.getSession();
+
+    &#x2F;&#x2F; Build your request
+    JSONObject geonote = new JSONObject();
+    try {
+        geonote.put(&quot;text&quot;, &quot;Don&#x27;t forget the milk!&quot;);
+        geonote.put(&quot;latitude&quot;, 45.5037078163837);
+        geonote.put(&quot;longitude&quot;, -122.622699737549);
+        geonote.put(&quot;radius&quot;, 467);
+        geonote.put(&quot;place_name&quot;, &quot;Grocery Store&quot;);
+    } catch (JSONException e) {
+        &#x2F;&#x2F; Pass
+    }
+
+    &#x2F;&#x2F; Send the request
+    session.runPostRequest(&quot;geonote&#x2F;create&quot;, geonote, new OnRunAPIRequestListener() {
+        @Override
+        public void onSuccess(LQSession session, HttpResponse response) {
+            &#x2F;&#x2F; Consume the response!
+            &#x2F;&#x2F; ...
+        }
+        @Override
+        public void onFailure(LQSession session, LQException e) {
+            Log.e(TAG, e.getMessage());
+        }
+        @Override
+        public void onComplete(LQSession session, HttpResponse response, StatusLine status) {
+            &#x2F;&#x2F; The server did not return a 200-OK response!
+            &#x2F;&#x2F; ...
+        }
+    });
+}
+</code></pre>
+<p>The API request is run asynchronously on a background Thread. Simply provide
+a callback listener to receive the response and you&#39;re done! The session instance
+automagically signs the request with the credentials of the currently
+authenticated user (or with your application&#39;s client ID).</p>
+
+<h2 class='section-header' data-section-name='contributing' ><a id='contributing' class='section-link'></a>
+Contributing</h2>
+
+<p>Contributors should follow the Android <a href="http://source.android.com/source/code-style.html">Code Style Guidelines for Contributors</a>
+where appropriate.</p>
+
+<h2 class='section-header' data-section-name='license' ><a id='license' class='section-link'></a>
+License</h2>
+
+<p>Copyright 2011 by <a href="https://geoloqi.com/">Geoloqi.com</a> and contributors.</p>
+
+<p>See LICENSE</p>
+
+    </section>
+  </div>
+  <aside id="sidebar">
+    <div class="table-of-contents">
+      <nav>
+          <h4>Table of Contents</h4>
+          <ol>
+              <li><a href="#installation">
+Installation</a></li>
+              <li><a href="#packaging">
+Packaging</a></li>
+              <li><a href="#usage">
+Usage</a></li>
+              <li><a href="#credentials">
+Credentials</a></li>
+              <li><a href="#starting-the-service">
+Starting the Service</a></li>
+              <li><a href="#events">
+Events</a></li>
+              <li><a href="#service-binding">
+Service Binding</a></li>
+              <li><a href="#calling-api-methods">
+Calling API Methods</a></li>
+              <li><a href="#contributing">
+Contributing</a></li>
+              <li><a href="#license">
+License</a></li>
+          </ol>
+          <hr>
+
+        <h4>Android SDK</h4>
+        <ul>
+          <li><a href="/android/getting-started">Getting Started</a></li>
+          <li><a href="/android/making-api-requests">Making API Requests</a></li>
+          <li><a href="/android/handling-events">Handling Events</a></li>
+          <li><a href="/android/service-binding">Service Binding</a></li>
+          <li><a href="/android/push-notifications">Push Notifications</a></li>
+        <li><a href="/android/docs/index.html">SDK Documentation</a></li>
+        </ul>
+
+        <hr>
+
+        <h4>Geoloqi REST API</h4>
+<ul>
+  <li><a href="/api">List of API Methods</a></li>
+  <li><a href="/api/authentication">Authentication</a></li>
+  <li><a href="/api/trigger/create">Creating Triggers</a></li>
+</ul>
+      </nav>
+    </div>
+  </aside>
+</div>
+
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

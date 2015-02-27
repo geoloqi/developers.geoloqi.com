@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Geoloqi iOS SDK - Geoloqi Developers</title>
+    
+    
+
+    
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   ios tracking-profiles">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div class="container">
+  <h1>Geoloqi iOS SDK</h1>  
+  <div id="main" class="new-docs">
+    <section class="well">
+      <h2 class='section-header' data-section-name='about-tracking-profiles' ><a id='about-tracking-profiles' class='section-link'></a>
+About Tracking Profiles</h2>
+
+<p>The Geoloqi SDK supports location tracking by putting the SDK into various &quot;tracking profiles&quot;. These profiles are designed around specific use cases, so you should figure out which makes the most sense for your application given what you are trying to accomplish.</p>
+
+<p>You can set the profile when the app first launches in the app code, and we also have an API method to <a href="https://developers.geoloqi.com/api/location/tracking_profile">change the tracking profile remotely</a>.</p>
+
+<h2 class='section-header' data-section-name='rough' ><a id='rough' class='section-link'></a>
+Rough</h2>
+
+<p><strong>Goal:</strong> Use minimal battery power to get a general idea of where the user is.</p>
+
+<p>In &quot;rough&quot; mode, the iPhone will use &quot;significant change&quot; mode to get rough updates on the user&#39;s location. On Android, network updates are used. The result is you will get updates with an accuracy ranging from 200 meters to 2000 meters, but with virtually no battery drain. You can use this to know what city a user is in, and possibly even what neighborhood.</p>
+
+<h2 class='section-header' data-section-name='adaptive' ><a id='adaptive' class='section-link'></a>
+Adaptive</h2>
+
+<p><strong>Goal:</strong> Use as little battery life as possible while still gathering the needed data.</p>
+
+<p>In &quot;adaptive&quot; mode, the device will attempt to use as little battery and data as possible to run the nearby triggers. As such, you will not get trails of data from this profile, instead, there will be more location updates when the user is near the geotrigger areas.</p>
+
+<p>This mode is designed to have minimal battery impact while still delivering messages. In our testing, users notice slightly more battery drain than in &quot;rough&quot; mode, but far less than using the GPS constantly.</p>
+
+<h3 class='section-header' data-section-name='sample-use-cases' ><a id='sample-use-cases' class='section-link'></a>
+Sample Use Cases</h3>
+
+<h4>Daily Deals App</h4>
+
+<p>A daily deals app for travelers, sending you a deal when you get into a new city&#39;&#39;&#39;.</p>
+
+<h4>Location Based Analytics</h4>
+
+<p>This is the best mode to use with our <a href="https://developers.geoloqi.com/features/analytics">analytics</a> and <a href="https://developers.geoloqi.com/features/geofencing">geofencing</a> features.</p>
+
+<h2 class='section-header' data-section-name='realtime' ><a id='realtime' class='section-link'></a>
+Realtime</h2>
+
+<p><strong>Goal:</strong> Send accurate location data to the server as fast as possible.</p>
+
+<p>In &quot;realtime&quot; mode, the device will send data to the server as fast as possible. Internally, the SDK uses a streaming UDP protocol to send the data in a compact and efficient form. Older data is treated as irrelevant and may not be sent. The server is not guaranteed to receive all the data sent to it, although there is some level of error checking built in anyway.</p>
+
+<h3 class='section-header' data-section-name='sample-use-cases' ><a id='sample-use-cases' class='section-link'></a>
+Sample Use Cases</h3>
+
+<h4>Multiplayer Games</h4>
+
+<p>For realtime geolocation based games like <a href="http://mapattack.org">MapAttack</a> where having accurate realtime location is ideal.</p>
+
+<h4>Realtime Location Tracking</h4>
+
+<p>This mode is ideal for sharing locations between people for meeting and events.</p>
+
+<h2 class='section-header' data-section-name='logging' ><a id='logging' class='section-link'></a>
+Logging</h2>
+
+<p><strong>Goal:</strong> Record accurate logs of a trip, even when no network connection is present.</p>
+
+<p>In &quot;logging&quot; mode, every piece of data is important. You can use this mode to record trips and expect to see trails of where users have been. In this mode, the SDK requests high-resolution location data from the operating system and sends to the server at an interval of about 30 seconds if data is available. If no network connection is present, the data will be queued and sent later when the network is available.</p>
+
+<h3 class='section-header' data-section-name='sample-use-cases' ><a id='sample-use-cases' class='section-link'></a>
+Sample Use Cases</h3>
+
+<h4>Fitness Tracking</h4>
+
+<p>Track bike rides or run to record distance and speed and see your trail on a map later</p>
+
+<h2 class='section-header' data-section-name='off' ><a id='off' class='section-link'></a>
+Off</h2>
+
+<p>No location services are used. The app will not receive location updates and location will not be tracked. </p>
+
+    </section>  
+  </div>
+  <aside id="sidebar">
+    <div class="table-of-contents">
+      <nav>
+        <h3>Table of Contents</h3>
+        <ol>
+              <li><a href="#about-tracking-profiles">
+About Tracking Profiles</a></li>
+              <li><a href="#rough">
+Rough</a></li>
+              <li><a href="#adaptive">
+Adaptive</a></li>
+              <li><a href="#realtime">
+Realtime</a></li>
+              <li><a href="#logging">
+Logging</a></li>
+              <li><a href="#off">
+Off</a></li>
+        </ol>
+
+        <hr>
+        
+        <h4>iOS SDK</h4>
+<ul>
+  <li><a href="/ios/getting-started">Getting Started</a></li>
+  <li><a href="/ios/tracking-profiles">Tracking Profiles</a></li>
+  <li><a href="/ios/getting-started#handling-user-authentication">Authentication</a> </li>
+  <li><a href="/ios/push-notifications">Configuring Push Notifications</a></li>
+  <li><a href="/ios/maps">Replacing MapKit With ArcGIS Maps</a></li>
+  <li><a href="/ios/docs/Classes/LQSession.html">SDK Documentation</a></li>
+</ul>
+
+<hr>
+
+<h4>Geoloqi REST API</h4>
+<ul>
+  <li><a href="/api">List of API Methods</a></li>
+  <li><a href="/api/authentication">Authentication</a></li>
+  <li><a href="/api/trigger/create">Creating Triggers</a></li>
+</ul>
+
+
+      </nav>
+    </div>
+  </aside>
+</div>
+
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

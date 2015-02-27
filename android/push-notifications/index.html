@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Configuring Push Notifications - Android SDK - Geoloqi Developers</title>
+    
+    
+
+    
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   android push-notifications">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div class="container">
+  <h1>Configuring Push Notifications - Android SDK</h1>
+  <div id="main" class="new-docs">
+    <section class="well">
+      <p> <b>Note:</b> Google's <a href="https://developers.google.com/android/c2dm/" target="_blank">C2DM</a> service has been deprecated. Applications already using C2DM will continue to be supported, but new applications must use Google's <a href="http://developer.android.com/guide/google/gcm/index.html" target="_blank">Cloud Messaging</a> service.</p>
+
+<p>You must have a Google account set up on your device or emulator in order to register with the GCM server and receive messages.</p>
+
+<p>Geoloqi push notifications are sent to Android devices using the native <a href="http://developer.android.com/guide/google/gcm/index.html">Google Cloud Messaging for Android</a> (GCM) service.</p>
+
+<p>For details on using GCM please read the <a href="http://developer.android.com/guide/google/gcm/gs.html">Getting Started</a> guide on the Android Developers website.</p>
+
+<h2 class='section-header' data-section-name='create-a-google-api-project' ><a id='create-a-google-api-project' class='section-link'></a>
+Create a Google API Project</h2>
+
+<p>The first step is to create a new Google API Project by navigating to the <a href="https://code.google.com/apis/console">Google APIs Console</a> page. If you&#39;ve already created a project, navigate to <em>Other projects &gt; Create</em>.</p>
+
+<h3 class='section-header' data-section-name='find-your-project-id' ><a id='find-your-project-id' class='section-link'></a>
+Find your project ID</h3>
+
+<p>Take note of your project ID, which will be used later as your GCM sender ID. You can find the project ID by examining your browser URL:</p>
+<pre><code class='text'>https:&#x2F;&#x2F;code.google.com&#x2F;apis&#x2F;console&#x2F;#project:4815162342
+</code></pre>
+<p>The numeric value after <code>#project:</code> is your project ID.</p>
+
+<h3 class='section-header' data-section-name='enabling-the-gcm-service' ><a id='enabling-the-gcm-service' class='section-link'></a>
+Enabling the GCM Service</h3>
+
+<ul>
+<li>In the main Google APIs Console page, select <em>Services</em>.</li>
+<li>Turn the Google Cloud Messaging toggle to ON.</li>
+<li>In the Terms of Service page, accept the terms.</li>
+</ul>
+
+<h3 class='section-header' data-section-name='obtain-a-google-api-key' ><a id='obtain-a-google-api-key' class='section-link'></a>
+Obtain a Google API Key</h3>
+
+<ul>
+<li>In the main Google APIs Console page, select <em>API Access</em>.</li>
+<li>Click <em>Create new Server key</em>. Either a server key or a browser key should work. The advantage to using a server key is that it allows you to whitelist IP addresses.</li>
+<li>Click <em>Create</em>.</li>
+<li>Take note of the <em>API key</em> value.</li>
+</ul>
+
+<p>Once you have both your Google <em>project ID</em> and your <em>API key</em>, you&#39;re ready for step 2.</p>
+
+<p>Note: If you wish to add a whitelist of IP addresses, you&#39;ll need to add the IPs of our servers that send out notifications. Note that this list may change over time as we add more backend capacity, so you&#39;ll need to check this list periodically.</p>
+<pre><code class='text'>54.245.80.94
+50.112.248.15
+54.244.122.99
+50.112.117.204
+</code></pre>
+<h2 class='section-header' data-section-name='update-your-geoloqi-application-with-the-google-api-key' ><a id='update-your-geoloqi-application-with-the-google-api-key' class='section-link'></a>
+Update your Geoloqi Application with the Google API Key</h2>
+
+<p>Having configured your Google API project in the first step, you can now update your Geoloqi application with your Google <em>API key</em>. To do so, you must open your <a href="/account/applications">application list</a>, find the desired application, click the &quot;edit&quot; icon and expand the <em>Configure Android Push Notifications</em> section.</p>
+
+<p>From here, simply copy and paste your Google API key into the text field with the <em>API key</em> label and click the <em>Update</em> button to save your changes.</p>
+
+<p>Once completed, you&#39;ll be redirected back to the Geoloqi developer site and you can move on to the next step.</p>
+
+<h2 class='section-header' data-section-name='configure-your-android-manifest' ><a id='configure-your-android-manifest' class='section-link'></a>
+Configure Your Android Manifest</h2>
+
+<p>Having configured GCM and linked your Google API Key with your Geoloqi application, you&#39;re ready to start configuring your Android manifest.</p>
+
+<p>You can easily generate a fresh manifest with all the push notification code included by running the <code>tools/generate-manifest</code> command-line script included in the <a href="https://github.com/geoloqi/Geoloqi-Android-SDK">Geoloqi Android Sample Application</a>.</p>
+
+<p>However, if you want to manually update your existing manifest, you&#39;ll need to declare the following receiver and permissions in your <em>AndroidManifest.xml</em>. You must replace all instances of the text <em>com.geoloqi.sample</em> with your application&#39;s package name:</p>
+<pre><code class='xml'>&lt;manifest&gt;
+    &lt;!-- Note: This custom permission name should begin with your
+         application&#x27;s package name! --&gt;
+    &lt;permission
+        android:name=&quot;com.geoloqi.sample.permission.C2D_MESSAGE&quot;
+        android:protectionLevel=&quot;signature&quot; &#x2F;&gt;
+
+    &lt;!-- These permissions are required to enable the GCM features of the SDK. --&gt;
+    &lt;uses-permission android:name=&quot;com.geoloqi.sample.permission.C2D_MESSAGE&quot; &#x2F;&gt;
+    &lt;uses-permission android:name=&quot;com.google.android.c2dm.permission.RECEIVE&quot; &#x2F;&gt;
+
+    &lt;application&gt;
+        &lt;receiver
+            android:name=&quot;com.geoloqi.android.sdk.receiver.LQDeviceMessagingReceiver&quot;
+            android:permission=&quot;com.google.android.c2dm.permission.SEND&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; &#x2F;&gt;
+                &lt;action android:name=&quot;com.google.android.c2dm.intent.REGISTRATION&quot; &#x2F;&gt;
+
+                &lt;!-- This should equal your application&#x27;s package name! --&gt;
+                &lt;category android:name=&quot;com.geoloqi.sample&quot; &#x2F;&gt;
+            &lt;&#x2F;intent-filter&gt;
+        &lt;&#x2F;receiver&gt;
+    &lt;&#x2F;application&gt;
+&lt;&#x2F;manifest&gt;
+</code></pre>
+<h2 class='section-header' data-section-name='start-the-tracking-service' ><a id='start-the-tracking-service' class='section-link'></a>
+Start The Tracking Service</h2>
+
+<p>The final step is to ensure you provide the GCM Sender ID when starting the tracking service. How you do this depends on whether you&#39;re using the Geoloqi native SDK or the Titanium Module.</p>
+
+<p>Make sure you also include a valid push_icon, otherwise push messages will not be displayed to the end-user.</p>
+
+<h3 class='section-header' data-section-name='geoloqi-sdk' ><a id='geoloqi-sdk' class='section-link'></a>
+Geoloqi SDK</h3>
+
+<p>If you&#39;re using the native Geoloqi SDK you just need to provide the GCM Sender ID in your <code>geoloqi.properties</code> file (in your application&#39;s <code>assets</code> directory).</p>
+
+<p>See the <a href="https://github.com/geoloqi/Geoloqi-Android-SDK/blob/master/assets/geoloqi.properties.sample">geoloqi.properties.sample</a> file for an example configuration.</p>
+
+<h3 class='section-header' data-section-name='titanium-module' ><a id='titanium-module' class='section-link'></a>
+Titanium Module</h3>
+
+<p>If you&#39;re using the Geoloqi Titanium module you must provide the GCM Sender ID in the init method when starting the module. Leave clientSecret blank for security reasons.</p>
+<pre><code class='javascript'>&#x2F;&#x2F; import the Geoloqi Module
+var geoloqi = require(&#x27;ti.geoloqi&#x27;);
+
+geoloqi.init({
+    clientId: &quot;YOUR_API_KEY&quot;,
+    clientSecret: &quot;&quot;,
+    pushSender: &quot;0000000001&quot;,
+    pushIcon: &quot;push_icon&quot;,
+    trackingProfile: &quot;PASSIVE&quot;
+},{
+    onSuccess: function() {
+        &#x2F;&#x2F; ...
+    },
+    onFailure: function() {
+        &#x2F;&#x2F; ...
+    }
+});
+</code></pre>
+<h2 class='section-header' data-section-name='optional:-disable-automatic-display-of-notifications' ><a id='optional:-disable-automatic-display-of-notifications' class='section-link'></a>
+Optional: Disable Automatic Display of Notifications</h2>
+
+<p>You can optionally disable the SDK handling push messages. If you do this, the location service will still receive push messages, but will not automatically create a status bar notification. This will allow you to manually handle incoming push messages.</p>
+
+<p>To do this, run <code>LQSharedPreferences.disablePushNotificationHandling()</code> after setting the API Key.</p>
+
+<p>To manually handle push messages you can should:</p>
+
+<ul>
+<li>Subclass <code>LQBroadcastReceiver</code> and implement the abstract method <code>LQBroadcastReceiver.onPushMessageReceived(android.content.Context, android.os.Bundle)</code>.</li>
+<li>Register your broadcast receiver to Listen for the <code>LQBroadcastReceiver.ACTION<em>PUSH</em>MESSAGE_RECEIVED</code> broadcast intent.</li>
+</ul>
+
+    </section>
+  </div>
+  <aside id="sidebar">
+    <div class="table-of-contents">
+      <nav>
+          <h4>Table of Contents</h4>
+          <ol>
+              <li><a href="#create-a-google-api-project">
+Create a Google API Project</a></li>
+              <li><a href="#update-your-geoloqi-application-with-the-google-api-key">
+Update your Geoloqi Application with the Google API Key</a></li>
+              <li><a href="#configure-your-android-manifest">
+Configure Your Android Manifest</a></li>
+              <li><a href="#start-the-tracking-service">
+Start The Tracking Service</a></li>
+              <li><a href="#optional:-disable-automatic-display-of-notifications">
+Optional: Disable Automatic Display of Notifications</a></li>
+          </ol>
+          <hr>
+
+        <h4>Android SDK</h4>
+        <ul>
+          <li><a href="/android/getting-started">Getting Started</a></li>
+          <li><a href="/android/making-api-requests">Making API Requests</a></li>
+          <li><a href="/android/handling-events">Handling Events</a></li>
+          <li><a href="/android/service-binding">Service Binding</a></li>
+          <li><a href="/android/push-notifications">Push Notifications</a></li>
+        <li><a href="/android/docs/index.html">SDK Documentation</a></li>
+        </ul>
+
+        <hr>
+
+        <h4>Geoloqi REST API</h4>
+<ul>
+  <li><a href="/api">List of API Methods</a></li>
+  <li><a href="/api/authentication">Authentication</a></li>
+  <li><a href="/api/trigger/create">Creating Triggers</a></li>
+</ul>
+      </nav>
+    </div>
+  </aside>
+</div>
+
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

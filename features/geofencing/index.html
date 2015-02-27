@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Battery Safe Geofencing - Geoloqi Developers</title>
+    
+    
+
+    <meta name='description' content='Use Geoloqi\'s battery safe geofencing features to add location to your applicaitons'>
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   features geofencing">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li class="active"><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<header class="feature-page topo-background">
+  <div class="container">
+    <hgroup>
+      <h1 class="leading">Battery Safe Geofencing</h1>
+      <h3>Trigger custom actions or callback URLs when users enter leave or dwell in places</h3>
+    </hgroup>
+    <figure>
+      <img src="/img/diagrams/geofencing.png" alt="Battery Safe Geofencing Diagram">
+    </figure>
+  </div>
+</header>
+
+<div class="container feature-container">  
+  <section id="main">
+    <h2 class='section-header' data-section-name='introduction' ><a id='introduction' class='section-link'></a>
+Introduction</h2>
+
+<p>Say you want to build an app that will push a message to a user when they&#39;re near a certain location at a certain time of day. Perhaps you think, based on data you&#39;ve gathered about this person, that they&#39;d be interested in a particular museum tour. If the tour starts at 2:00 and the person is within a half-mile of it at that time, your app could let them know. With the Geotrigger SDK, you can accomplish this quickly and easily. Our geofencing libraries are more accurate than native ones and we&#39;ve fine-tuned our algorithms to make them fast and use minimal computing power, thus making your user&#39;s phone batteries last longer.</p>
+
+<p>Events can be triggered in a variety of ways, too. For example, you could trigger an event when a user arrives at a place, after they&#39;ve been in a location for a certain length of time, or when they leave a geofenced area.</p>
+
+<p>Geoloqi can notify your server so you can script custom events that engage users. You can use the API to programmatically create a collection of places and set up triggers on those places. You can use this to integrate Geoloqi with your existing data sets, or automate the creation of places.</p>
+
+<h5>Trigger geofences based on events like</h5>
+
+<ul>
+<li>entering, dwelling, or leaving a place</li>
+<li>time of day</li>
+<li>crossing a speed threshold</li>
+<li>entering a city, state or country (coming soon)</li>
+<li>after traveling a given distance (coming soon)</li>
+<li>after a particular change in altitude (coming soon)</li>
+</ul>
+
+<h2 class='section-header' data-section-name='sample-code' ><a id='sample-code' class='section-link'></a>
+Sample Code</h2>
+<pre><code class='ruby'># Create a new place with a radius of 1500 meters
+
+place = geoloqi.post &quot;place&#x2F;create&quot;, {
+  :latitude  =&gt; 45.5246,
+  :longitude =&gt; -122.6843,
+  :radius    =&gt; 1500,
+  :text      =&gt; &quot;Downtown Portland&quot;
+}
+
+# Trigger the API to send a callback to your server
+# when a device&#x2F;user enters this place.
+
+trigger = geoloqi.post &quot;trigger&#x2F;create&quot;, {
+  :place_id =&gt; place.place_id,
+  :type     =&gt; &quot;callback&quot;,
+  :url      =&gt; &quot;http:&#x2F;&#x2F;example.com&#x2F;your_app&quot;
+}
+</code></pre>
+  </section>
+  <aside id="sidebar" class="offset1 span5">
+  <a href="/pricing" class="btn x-large primary fill">Pricing/Sign Up</a>
+  <div class="center-text"><small>Start Developing For Free, No Credit Card Required</small></div>
+  <section class="sdk-listing push-up-double">
+    <h3>Start your Application</h3>
+    <ul class="unstyled">
+  <li class="ios">
+    <h4 class="compress-bottom"><a href="/ios">iPhone SDK</a></h4>
+    <p>Create location aware, battery safe iOS applications with our SDK.</p>
+  </li>
+
+  <li class="android">
+    <h4 class="compress-bottom"><a href="/android">Android SDK</a></h4>
+    <p>Develop Android apps with our battery safe SDK.</p>
+  </li>
+
+  <li class="titanium">
+    <h4 class="compress-bottom"><a href="/titanium">Appcelerator Titanium Module</a></h4>
+    <p>Develop native, location aware applications using JavaScript with the Geoloqi module for Titanium.</p>
+  </li>
+
+  <li class="api">
+    <h4 class="compress-bottom"><a href="/api">Geoloqi API</a></h4>
+    <p>Access the Geoloqi API directly using one of our client libraries.</p>
+  </li>
+</ul>
+  </section>
+</aside>
+</div>
+
+<div class="topo-background">
+  <h1 class="center-text compress-bottom">Explore The Geoloqi Platform</h1>  
+  <div id="platform-overview">
+  <div class="container">
+    <div class="center">
+
+      <section>
+        <a href="/features/geofencing">
+          <img src="/img/platform-icons/geofencing.png" alt="Geofencing">
+          <h3 class="center-text">Geofencing</h3>
+        </a>
+      </section>
+
+      <section>
+        <a href="/features/geocoding">
+          <img src="/img/platform-icons/geocoding.png" alt="Geocoding">
+          <h3 class="">Geocoding</h3>
+        </a>
+      </section>
+
+      <section>
+        <a href="/features/location-tracking">
+          <img src="/img/platform-icons/tracking.png" alt="Tracking">
+          <h3 class="center-text">Tracking</h3>
+        </a>
+      </section>
+
+      <section>
+        <a href="/features/storage">
+          <img src="/img/platform-icons/storage.png" alt="Storage">
+          <h3 class="center-text">Storage</h3>
+        </a>
+      </section>
+
+      <section>
+        <a href="/features/analytics">
+          <img src="/img/platform-icons/analytics.png" alt="Analytics">
+          <h3 class="">Analytics</h3>
+        </a>
+      </section>
+
+      <section>
+        <a href="/features/maps">
+          <img src="/img/platform-icons/maps.png" alt="Maps">
+          <h3 class="">Maps</h3>
+        </a>
+      </section>
+    </div>
+  </div>
+</div>  
+</div>
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

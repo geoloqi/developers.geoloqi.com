@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Replacing MapKit with ArcGIS - Geoloqi Developers</title>
+    
+    
+
+    <meta name='description' content='examples of how to accomplish common MapKit functionality with ArcGIS SDK for iOS'>
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   ios maps">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div class="container">
+  <h1>Replacing MapKit with ArcGIS</h1>  
+  <div id="main" class="new-docs">
+    <section class="well">
+      <p><a href="/ios/maps2">Next Page</a></p>
+
+<p>The ArcGIS SDK for iOS provides just as much and even more functionality as
+Apple&#39;s standard MapKit framework. Some of the vocabulary and terms used may
+be unfamiliar to those coming from the MapKit APIs. Below are some common
+and simple examples of the basics of replacing MapKit with ArcGIS.</p>
+
+<h2 class='section-header' data-section-name='install-the-sdk-and-configure-your-xcode-project' ><a id='install-the-sdk-and-configure-your-xcode-project' class='section-link'></a>
+Install the SDK and configure your XCode project</h2>
+
+<p>ESRI&#39;s ArcGIS resource center has good instructions on how to accomplish this.
+See these pages:</p>
+
+<ul>
+<li><a href="http://resources.arcgis.com/en/help/runtime-ios-sdk/concepts/index.html#/Installation/00pw0000000w000000/">Installation</a></li>
+<li><a href="http://resources.arcgis.com/en/help/runtime-ios-sdk/concepts/index.html#/Configuring_an_Xcode_Project/00pw00000044000000/">Configuring an XCode project</a></li>
+</ul>
+
+<h2 class='section-header' data-section-name='replace-mkmapview-with-agsmapview' ><a id='replace-mkmapview-with-agsmapview' class='section-link'></a>
+Replace MKMapView with AGSMapView</h2>
+
+<p>Let&#39;s say you have a standard <code>MKMapView</code> in your XIB, with <code>@property</code> and
+<code>@synthesize</code> directives for it in your interface and implementation:</p>
+
+<p><a href="/img/ios/maps/mapkit_replacement_1.png"><img src="/img/ios/maps/mapkit_replacement_1.png" alt=""></a></p>
+
+<p>Once you&#39;ve installed the ArcGIS SDK for iOS and configured your project, you
+should have access to <code>&lt;ArcGIS/ArcGIS.h&gt;</code>:</p>
+
+<p><a href="/img/ios/maps/mapkit_replacement_2.png"><img src="/img/ios/maps/mapkit_replacement_2.png" alt=""></a></p>
+
+<p>You can then select and delete the MKMapView from your XIB, and drag in a
+vanilla <code>UIView</code> object to replace it. With the new <code>UIView</code> selected, change
+the class field in the Identity Inspector view on the Utilities sidebar to
+<code>AGSMapView</code> and wire it up to your interface:</p>
+
+<p><a href="/img/ios/maps/mapkit_replacement_3.png"><img src="/img/ios/maps/mapkit_replacement_3.png" alt=""></a></p>
+
+<p>You could build and run your application now, but this view would not show you
+anything. Since ArcGIS has the ability to use many different <a href="http://server.arcgisonline.com/ArcGIS/rest/services/">basemaps</a>, you
+need to create a <code>AGSTiledMapServiceLayer</code>, feed it the basemap you want, and
+add it to the <code>AGSMapView</code>. For this example, I chose &quot;World Street Map&quot;:</p>
+<pre><code class='objectivec'>#define BASEMAP_URL @&quot;http:&#x2F;&#x2F;server.arcgisonline.com&#x2F;ArcGIS&#x2F;rest&#x2F;services&#x2F;World_Street_Map&#x2F;MapServer&quot;
+
+...
+
+- (void)viewDidLoad
+{
+    ...
+    NSURL *basemap = [NSURL URLWithString:BASEMAP_URL];
+    [self.mapView addMapLayer:[AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:basemap]
+                     withName:@&quot;Tiled Layer&quot;];
+    ...
+}
+</code></pre>
+<p>Now you should be able to run this application and see an <code>AGSMapView</code> with tiles
+loading in:</p>
+
+<p><a href="/img/ios/maps/mapkit_replacement_4.png"><img src="/img/ios/maps/mapkit_replacement_4.png" alt=""></a></p>
+
+<h2 class='section-header' data-section-name='configuring-agsmapview' ><a id='configuring-agsmapview' class='section-link'></a>
+Configuring AGSMapView</h2>
+
+<p>As you can see in the image above, we are zoomed all the way out, and the map
+does not wrap when you scroll. <code>MKMapView</code> maps don&#39;t wrap either, but this is
+an easy place to start:</p>
+<pre><code class='objectivec'>&#x2F;&#x2F; AGSMapView objects have a `wrapAround` property
+self.mapView.wrapAround = YES;
+</code></pre>
+<p>It would also be very handy if the map started out life by showing us our
+immediate vicinity. This entails a few steps that can be generified as:</p>
+
+<ul>
+<li>find out the device&#39;s current location in latitude and longitude</li>
+<li>create a box around that location</li>
+<li>zoom the map to that box</li>
+</ul>
+
+<p>These steps are the same regardless of using MapKit or ArcGIS so let&#39;s go
+through each one in a bit more detail.</p>
+
+<h3 class='section-header' data-section-name='getting-the-device&#39;s-current-location' ><a id='getting-the-device&#39;s-current-location' class='section-link'></a>
+Getting the device&#39;s current location</h3>
+
+<p><code>CoreLocation</code> is fantastic, albeit opaque. However, for our current purposes,
+it will do just fine. In this first step, this process is the same for both
+types of map views:</p>
+<pre><code class='objectivec'>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    &#x2F;&#x2F; locationManager is a private instance var
+    locationManager = [CLLocationManager new];
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
+}
+
+&#x2F;&#x2F; this method is deprecated in iOS 6
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSMutableArray *locations = [NSMutableArray arrayWithObject:newLocation];
+    if (oldLocation) [locations insertObject:oldLocation atIndex:0];
+    [self locationManager:locationManager didUpdateLocations:locations];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    &#x2F;&#x2F; most recent is last in the list
+    CLLocation *location = [locations objectAtIndex:(locations.count - 1)];
+
+    &#x2F;&#x2F; let&#x27;s wait until we get a good enough fix...
+    if (location.horizontalAccuracy &lt; 100.0) {
+
+        CLLocationCoordinate2D latlng = location.coordinate;
+
+        &#x2F;&#x2F; TODO make bounding box
+
+        &#x2F;&#x2F; TODO tell map to zoom to it
+
+        &#x2F;&#x2F; got a good fix, stop updating
+        [locationManager stopUpdatingLocation];
+    }
+}
+</code></pre>
+<h3 class='section-header' data-section-name='creating-a-bounding-box-around-the-location' ><a id='creating-a-bounding-box-around-the-location' class='section-link'></a>
+Creating a bounding box around the location</h3>
+
+<p>In normal MapKit programming, you would now build up a <code>MKCoordinateRegion</code>
+data structure so that you can &quot;zoom&quot; the map to it. You would replace that
+first <code>TODO</code> above with something like this:</p>
+<pre><code class='objectivec'>&#x2F;&#x2F; MKCoordinateSpan values are for the whole screen...
+float extentDelta = 0.05;
+MKCoordinateRegion region = {latlng, (MKCoordinateSpan){extendDelta, extentDelta}};
+</code></pre>
+<p>However, in GIS terms, this is usually not called a &quot;Coordinate Region&quot;, but
+instead is known as an &quot;Extent&quot; or &quot;Envelope&quot;. The ArcGIS classes are named
+accordingly. Also, ArcGIS classes know about another term, &quot;Spatial Reference&quot;.
+Discussion of different types of spatial references is beyond the scope of this
+document. Here is the equivalent code when using ArcGIS:</p>
+<pre><code class='objectivec'>&#x2F;&#x2F; ... while these X&#x2F;Y max&#x2F;min values represent corners
+float extentDelta = 0.025;
+AGSEnvelope *envelope = [AGSEnvelope envelopeWithXmin:(latlng.longitude - extentDelta)
+                                                 ymin:(latlng.latitude -  extentDelta)
+                                                 xmax:(latlng.longitude + extentDelta)
+                                                 ymax:(latlng.latitude +  extentDelta)
+                                     spatialReference:[AGSSpatialReference wgs84SpatialReference]];
+</code></pre>
+<p>As you can see, <code>AGSEnvelope</code> gives you much finer control of the &quot;box&quot;,
+requiring you to set your SW and NE corners individually.</p>
+
+<p>Also note that <code>AGSEnvelope</code>, like many things in ArcGIS SDK for iOS, uses
+<code>x</code> and <code>y</code> terminology instead of <code>latitude</code> and <code>longitude</code>. It is important to
+realize that <strong>x corresponds to longitude</strong> and <strong>y corresponds to latitude</strong>.
+This may seem backwards at first, but it does makes sense.</p>
+
+<h3 class='section-header' data-section-name='&quot;zooming&quot;-the-map-to-the-bounding-box' ><a id='&quot;zooming&quot;-the-map-to-the-bounding-box' class='section-link'></a>
+&quot;Zooming&quot; the map to the bounding box</h3>
+
+<p>With an <code>MKCoordinateRegion</code> in hand, we can tell <code>MKMapView</code> to show it very
+easily. You could replace the second <code>TODO</code> above with:</p>
+<pre><code class='objectivec'>[self.mapView setRegion:region animated:YES];
+</code></pre>
+<p>It is equally easy to acheive the same result with <code>AGSMapView</code>:</p>
+<pre><code class='objectivec'>[self.mapView zoomToEnvelope:envelope animated:YES];
+</code></pre>
+<p>Here are comparison screenshots, MapKit on the left, and ArcGIS Maps on the right.</p>
+
+<p>
+  <div class="clearfix">
+    <img src="/img/ios/maps/mapkit_replacement_5.png" alt="Apple MapKit" style="float:left; width:48%;" title="Apple MapKit">
+    <img src="/img/ios/maps/mapkit_replacement_6.png" alt="ArcGIS Maps" style="float:right; width:48%;" title="ArcGIS AGSMapView">
+  </div>
+</p>
+
+<p><a href="/ios/maps2">Next Page</a></p>
+
+    </section>  
+  </div>
+  <aside id="sidebar">
+    <div class="table-of-contents">
+      <nav>
+        <h3>Table of Contents</h3>
+        <ol>
+              <li><a href="#install-the-sdk-and-configure-your-xcode-project">
+Install the SDK and configure your XCode project</a></li>
+              <li><a href="#replace-mkmapview-with-agsmapview">
+Replace MKMapView with AGSMapView</a></li>
+              <li><a href="#configuring-agsmapview">
+Configuring AGSMapView</a></li>
+        </ol>
+
+        <hr>
+        
+        <h4>iOS SDK</h4>
+<ul>
+  <li><a href="/ios/getting-started">Getting Started</a></li>
+  <li><a href="/ios/tracking-profiles">Tracking Profiles</a></li>
+  <li><a href="/ios/getting-started#handling-user-authentication">Authentication</a> </li>
+  <li><a href="/ios/push-notifications">Configuring Push Notifications</a></li>
+  <li><a href="/ios/maps">Replacing MapKit With ArcGIS Maps</a></li>
+  <li><a href="/ios/docs/Classes/LQSession.html">SDK Documentation</a></li>
+</ul>
+
+<hr>
+
+<h4>Geoloqi REST API</h4>
+<ul>
+  <li><a href="/api">List of API Methods</a></li>
+  <li><a href="/api/authentication">Authentication</a></li>
+  <li><a href="/api/trigger/create">Creating Triggers</a></li>
+</ul>
+
+
+      </nav>
+    </div>
+  </aside>
+</div>
+
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

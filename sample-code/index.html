@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Sample applications built with Geoloqi - Geoloqi Developers</title>
+    
+    
+
+    <meta name='description' content='Building a location-based app? Browse sample code written on the Geoloqi platform.'>
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   sample-code">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li class="active"><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<h1 class="center-text">Sample Code and Guides</h1>
+
+<div class="container thirds">
+  <section class="sdk-listing">
+    <h3>Getting Started Guides</h3>
+    <ul class="unstyled">
+  <li class="ios">
+    <h4 class="compress-bottom"><a href="/ios">iPhone SDK</a></h4>
+    <p>Create location aware, battery safe iOS applications with our SDK.</p>
+  </li>
+
+  <li class="android">
+    <h4 class="compress-bottom"><a href="/android">Android SDK</a></h4>
+    <p>Develop Android apps with our battery safe SDK.</p>
+  </li>
+
+  <li class="titanium">
+    <h4 class="compress-bottom"><a href="/titanium">Appcelerator Titanium Module</a></h4>
+    <p>Develop native, location aware applications using JavaScript with the Geoloqi module for Titanium.</p>
+  </li>
+
+  <li class="api">
+    <h4 class="compress-bottom"><a href="/api">Geoloqi API</a></h4>
+    <p>Access the Geoloqi API directly using one of our client libraries.</p>
+  </li>
+</ul>
+  </section>
+
+  <section>
+    <h3>Client Libaries</h3>
+    <p>Get started with the Geoloqi API with one of our client libraries.</p>
+    <ul class="larger">
+      <li><a href="/client-libraries/curl">cURL</a></li>
+      <li><a href="/client-libraries/ruby">Ruby</a></li>
+      <li><a href="/client-libraries/javascript">Javascript</a></li>
+      <li><a href="/client-libraries/nodejs">Node.js</a></li>
+      <li><a href="/client-libraries/php">PHP</a></li>
+      <li><a href="/client-libraries/python">Python</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Misc. Guides</h3>
+    <h4 class="compress-bottom"><a href="/widgets">Embed a Live Map</a></h4>
+    <p>Embed a Live map to a user on a webpage with this simple guide.</p>
+    <h4 class="compress-bottom"><a href="api/create_a_layer">Creating a Layer</a></h4>
+    <p>Learn how to make a Layer for users of the Geoloqi App.</p>
+  </section>
+</div>
+  
+<div class="container">
+	<div id="main">
+
+    <!-- 
+      -
+      - Dino Deals
+      - 
+      -->
+    <hgroup>
+      <h2 id="map-attack">DinoDeals</h2>
+      <h6>DinoDeals sends you a notification when you are within a few blocks of a deal!</h6>
+    </hgroup>
+  
+    <section class="well clearfix" style="position:relative;">
+      <!-- <a href="https://github.com/geoloqi/DinoDeals"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a> -->
+      <a href="https://github.com/geoloqi/DinoDeals" class="right push-left-half"><img src="/img/sample-apps/dinodeals-app-screenshot.png" width="130" height="259" /></a>
+      <p>Using <a href="http://www.appcelerator.com/">Appcelerator</a>, <a href="https://www.sqoot.com/">Sqoot</a> and <a href="https://developers.geoloqi.com/">Geoloqi</a>, this application allows you to easily deploy a location-based deals app. You can use this as a template for any location-aware application.</p>
+      <p>
+        The source code is available for:
+        <ul>
+          <li><a href="https://github.com/geoloqi/DinoDeals/tree/master/iPhone">iPhone as a native application</a></li>
+          <li><a href="https://github.com/geoloqi/DinoDeals/tree/master/Titanium">iPhone as a Titanium application</a></li>
+          <li><a href="https://github.com/geoloqi/DinoDeals/tree/master/Titanium">Android as a Titanium application</a></li>
+        </ul>
+      </p>
+      <p>Want additional help, or do you want to create a more complicated app? Check out the <a href="/api">API docs</a>, or contact us at <a href="mailto:info@geoloqi.com">info@geoloqi.com</a>.</p>
+      <p><a href="http://loqi.me/dinodeals-source" class="btn primary">View on Github</a></p>
+    </section>
+
+    <!-- 
+      -
+      - Sample iPhone App
+      - 
+      -->
+    <hgroup>
+      <h2 id="map-attack">Sample iPhone App</h2>
+      <h6>Download an XCode project of an iPhone app using the SDK</h6>
+    </hgroup>
+  
+    <section class="well clearfix" style="position:relative;">
+      <!--<a href="https://github.com/geoloqi/Sample-Geoloqi-Layer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>-->
+      <a href="/ios/sample-project/source" class="right push-left-half"><img src="/img/sample-apps/geoloqi-iphone-sample-app-screenshot.png" width="130" height="259" /></a>
+      <p>This sample app includes everything you need to get started, including switching between tracking modes and some help setting up push notifications. Download this project and see how to integrate the SDK into your apps!</p>
+      <p>
+        With this sample app, you can do things like
+        <ul>
+          <li>Track the location of the phone in "adaptive" mode to save battery</li>
+          <li>Set up push notifications to be delivered to your app</li>
+          <li>See an example of making an API request to the <a href="/api">Geoloqi API</a></li>
+        </ul>
+      </p>
+      <p>Want additional help, or do you want to create a more complicated app? Check out the API docs, or contact us at <a href="mailto:info@geoloqi.com">info@geoloqi.com</a>.</p>
+      <p><a href="/ios/sample-project/source" class="btn primary">View on Github</a> <a href="https://github.com/geoloqi/Geoloqi-iPhone-SDK/zipball/master" class="btn action">Download Zip</a></p>
+    </section>
+
+      <!-- 
+        -
+        - Sample Android App
+        - 
+        -->
+      <hgroup>
+        <h2 id="map-attack">Sample Android App</h2>
+        <h6>Download a sample Android project using the SDK</h6>
+      </hgroup>
+    
+      <section class="well clearfix" style="position:relative;">
+        <!--<a href="https://github.com/geoloqi/Sample-Geoloqi-Layer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>-->
+        <a href="/android/sample-project/source" class="right push-left-half"><img src="/img/sample-apps/geoloqi-android-sample-app-screenshot.png" width="167" height="264" /></a>
+        <p>This sample app includes everything you need to get started, including switching between tracking modes and some examples of making API requests. Download this project and see how to integrate the SDK into your apps!</p>
+        <p>
+          With this sample app, you can do things like
+          <ul>
+            <li>Track the location of the phone in "adaptive" mode to save battery</li>
+            <li>See an example of making an API request to the <a href="/api">Geoloqi API</a></li>
+          </ul>
+        </p>
+        <p>Want additional help, or do you want to create a more complicated app? Check out the API docs, or contact us at <a href="mailto:info@geoloqi.com">info@geoloqi.com</a>.</p>
+        <p><a href="/android/sample-project/source" class="btn primary">View on Github</a> <a href="https://github.com/geoloqi/Geoloqi-Android-SDK/zipball/master" class="btn action">Download Zip</a></p>
+      </section>
+
+      <!-- 
+        -
+        - Sample Layer 
+        - 
+        -->
+			<hgroup>
+				<h2 id="map-attack">Sample Layer</h2>
+				<h6>Have a dataset that you want to bring to life? Build a layer with Geoloqi!</h6>
+			</hgroup>
+		
+			<section class="well" style="position:relative;">
+				<!--<a href="https://github.com/geoloqi/Sample-Geoloqi-Layer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>-->
+				<a href="https://github.com/geoloqi/Sample-Geoloqi-Layer" class="left push-right-half"><img src="/img/sample-apps/sample-layer-code.png" width="80" height="80" /></a>
+				<p>This sample code includes everything you need to get started, including how to format your data and set it up for Geoloqi to read.</p>
+	      <p>Want additional help, or do you want to create a more complicated layer? Check out the API docs, or contact us at <a href="mailto:info@geoloqi.com">info@geoloqi.com</a>.</p>
+	      <p>Want to see a layer in action? Check out the <a href="https://github.com/geoloqi/Wikipedia-Articles">Wikipedia Articles layer</a>. It's based on an external dataset from InfoChimps.</p>
+				<p><a href="https://github.com/geoloqi/Sample-Geoloqi-Layer" class="btn primary">View on Github</a> <a href="https://github.com/geoloqi/Sample-Geoloqi-Layer/zipball/master" class="btn action">Download Zip</a></p>
+			</section>
+
+      <!-- 
+        -
+        - Wikipedia Layer 
+        - 
+        -->
+			<hgroup>
+				<h2 id="map-attack">Wikipedia Layer</h2>
+				<h6>Send yourself articles based on your location as you go around town with the <a href="https://geoloqi.com/layer/1Wn">Wikipedia layer</a>!</h6>
+			</hgroup>
+
+			<section class="well" style="position:relative;">
+				<!--<a href="https://github.com/geoloqi/Wikipedia-Articles"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>-->
+				<a href="https://github.com/geoloqi/Wikipedia-Articles" class="left push-right-half"><img src="/img/sample-apps/wikipedia-layer.png" width="80" height="80" /></a>
+				<p> It's based on the <a href="http://www.infochimps.com/datasets/wikipedia-articles">InfoChimps Geo API</a>, and you can use this code to see how we set up the dataset to be used by Geoloqi.</p>
+	      <p>Want additional help, or do you want to create a more complicated layer? Check out the API docs, or contact us at <a href="mailto:info@geoloqi.com">info@geoloqi.com</a>.</p>
+	      <h6>Press</h6>
+	      <ul>
+	        <li><a href="http://www.readwriteweb.com/archives/new_wikipedia_layer_on_geoloqi_gives_you_vision_be.php">New Wikipedia Layer on Geoloqi Gives You Vision Beyond the Greek Gods</a> (readwriteweb.com)</li>
+	        <li><a href="https://geoloqi.com/blog/2011/10/bring-wikipedia-to-life-with-geoloqi-real-time-content-based-on-your-location/">Bring Wikipedia to Life with Geoloqi! Real-time Content Based on Your Location</a> (geoloqi.com)</li>
+	      </ul>
+	      
+				<p><a href="https://github.com/geoloqi/Wikipedia-Articles/" class="btn primary">View on Github</a> <a href="https://github.com/geoloqi/Wikipedia-Articles/zipball/master" class="btn action">Download Zip</a></p>
+			</section>
+  			
+      <!-- 
+        -
+        - MapAttack!
+        - 
+        -->
+			<hgroup>
+			<h2 id="map-attack">MapAttack!</h2>
+			<h6>A real-time location based game built on top of the Geoloqi Platform!</h6>
+			</hgroup>
+
+			<section class="well" style="position:relative;">
+				<!--<a href="https://github.com/geoloqi/MapAttack"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>-->
+				<a href="https://github.com/geoloqi/MapAttack" class="right push-left-half"><img src="/img/mapattack-game-map-iphone.png" width="200" /></a>			
+				<a href="https://github.com/geoloqi/MapAttack" class="left push-right-half"><img src="/img/sample-apps/map-attack-featured-app.png" width="80" height="80" /></a>
+				<p>MapAttack is a game of territory capture using Geofences and smartphones. Players join the game and are automatically assigned to one of two teams. Players then run around to capture invisible coins only visible on their mobile phone screen. When a coin is captured, the coin changes color and the team gets points! We've hosted games in Portland and at Stanford University for up to 20 players.</p>
+				<h6>Blog Posts</h6>
+				<ul>
+					<li><a href="http://geoloqi.com/blog/2011/04/geoloqi-launches-mapattack-a-real-time-location-based-mobile-gaming-platform-of-awesomeness/">Blog Post: Geoloqi launches MapAttack!</a></li>
+					<li><a href="http://geoloqi.com/blog/2011/04/mapattack-at-stanford-university-results-from-game-2/">Blog Post: MapAttack Weekend Timelapse Footage!</a></li>
+				</ul>
+				<p>Want to bring a game to your school or company? Contact us at <a href="mailto:mapattack@geoloqi.com">mapattack@geoloqi.com</a> and we'll be glad to help you out! You can also follow <a href="http://www.twitter.com/playmapattack">@playmapattack</a> on Twitter for the latest games and news! We'll be bringing it to more campuses and cities starting in Summer 2011.</p>
+				
+        <p><a href="https://github.com/geoloqi/MapAttack" class="btn primary">View on Github</a> <a href="https://github.com/geoloqi/MapAttack/zipball/master" class="btn action">Download Zip</a></p>
+			</section>
+
+      <!-- 
+        -
+        - Home Automation
+        - 
+        -->
+			<hgroup>
+			<h2 id="home-automation">Home Automation</h3>
+			</hgroup>
+			
+			<section class="well" style="position:relative;">
+				<!--<a href="https://github.com/aaronpk/Geolocation-Examples/blob/master/Web/home-automation/controller.rb"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>-->
+				<a href="https://github.com/aaronpk/Geolocation-Examples/blob/master/Web/home-automation/controller.rb" class="left push-right-half"><img src="/img/sample-apps/home-automation-icon.png" width="80" height="80" /></a>
+				<p>Have you ever wanted your lights to automatically turn on when you get home and turn off when you leave?</p>
+				<p>Check out this sample code which communicates with an X10 light controller when you enter or leave your house, and can send SMSs when you're on your way home from work!</p>
+				<style type="text/css">/*<![CDATA[*/
+.source-code .source-ruby {line-height: normal;}
+.source-ruby li, .source-ruby pre {
+	line-height: normal; 
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for ruby
+ * CSS class: source-ruby, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-ruby .de1, .source-ruby .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-ruby  {font-family: monospace;}
+.source-ruby .imp {font-weight: bold; color: red;}
+.source-ruby li, .source-ruby li.li1 {font-weight: normal;}
+.source-ruby li.li2 {font-weight: bold;}
+.source-ruby .kw1 {color:#9966CC; font-weight:bold;}
+.source-ruby .kw2 {color:#0000FF; font-weight:bold;}
+.source-ruby .kw3 {color:#CC0066; font-weight:bold;}
+.source-ruby .kw4 {color:#CC00FF; font-weight:bold;}
+.source-ruby .co1 {color:#008000; font-style:italic;}
+.source-ruby .coMULTI {color:#000080; font-style:italic;}
+.source-ruby .es0 {color:#000099;}
+.source-ruby .br0 {color:#006600; font-weight:bold;}
+.source-ruby .sy0 {color:#006600; font-weight:bold;}
+.source-ruby .st0 {color:#996600;}
+.source-ruby .nu0 {color:#006666;}
+.source-ruby .me1 {color:#9900CC;}
+.source-ruby .re0 {color:#ff6633; font-weight:bold;}
+.source-ruby .re1 {color:#0066ff; font-weight:bold;}
+.source-ruby .re2 {color:#6666ff; font-weight:bold;}
+.source-ruby .re3 {color:#ff3333; font-weight:bold;}
+.source-ruby .ln-xtra, .source-ruby li.ln-xtra, .source-ruby div.ln-xtra {background-color: #ffc;}
+.source-ruby span.xtra { display:block; }
+
+/*]]>*/
+</style>
+
+<div class="source-ruby" style="font-family: monospace;"><pre>    <span class="kw1">case</span> trigger.<span class="me1">place</span>.<span class="me1">name</span>
+      <span class="kw1">when</span> <span class="st0">&quot;Home&quot;</span>
+        <span class="kw1">if</span><span class="br0">&#40;</span>trigger.<span class="me1">triggered_on</span> == <span class="st0">&quot;enter&quot;</span><span class="br0">&#41;</span>
+          lamp.<span class="me1">on</span>
+          SMSified.<span class="me1">send</span> <span class="st0">&quot;+13605551212&quot;</span>, <span class="st0">&quot;Honey, I'm home!&quot;</span>
+        <span class="kw1">else</span>
+          lamp.<span class="me1">off</span>
+        <span class="kw1">end</span>
+&nbsp;
+      <span class="kw1">when</span> <span class="st0">&quot;Work&quot;</span>
+        <span class="kw1">if</span><span class="br0">&#40;</span>trigger.<span class="me1">triggered_on</span> == <span class="st0">&quot;enter&quot;</span><span class="br0">&#41;</span>
+          SMSified.<span class="me1">send</span> <span class="st0">&quot;+13605551212&quot;</span>, <span class="st0">&quot;I'm at work!&quot;</span>
+        <span class="kw1">else</span>
+          SMSified.<span class="me1">send</span> <span class="st0">&quot;+13605551212&quot;</span>, <span class="st0">&quot;I'm on my way home!&quot;</span>
+        <span class="kw1">end</span>
+    <span class="kw1">end</span></pre></div>
+
+
+				
+				<h6>Related API Documentation</h6>
+				<ul>
+					<li><a href="/api/Trigger_Callback">Trigger Callback</a></li>
+					<li><a href="/api/trigger/create">Create a trigger</a></li>
+				</ul>
+				<p><a href="https://github.com/aaronpk/Geolocation-Examples/blob/master/Web/home-automation/controller.rb" class="btn primary">View on Github</a> <a href="https://raw.github.com/aaronpk/Geolocation-Examples/master/Web/home-automation/controller.rb" class="btn action">Download</a></p>
+			</section>
+    </div>
+    
+    <aside id="sidebar">
+  	    <a href="/get-an-api-key" class="btn x-large primary fill">Get an API Key!</a>
+
+      <h3 class="compress-bottom">Submit Your App</h3>
+      <p>If your app uses Geoloqi's SDKs we would love to feature it here.</p>
+      <a href="https://twitter.com/geoloqi" class="btn large blue icon-twitter">Tell Us On Twitter</a>
+    </aside>
+
+</div>  
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

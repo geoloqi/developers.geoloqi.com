@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>A powerful location-based API for application development - Geoloqi Developers</title>
+    
+    
+
+    <meta name='description' content='Geoloqi allows you to quickly build powerful, location-based mobile applications.'>
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+    // geoloqi.com A/B Testing
+    _gaq.push(['gwo._setAccount', 'UA-25750303-7']);
+    _gaq.push(['gwo._trackPageview', '/0594274968/goal']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news  home">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div id="home-landing" class="topo-background">
+  <section class="container">
+  	<div class="row">
+      <div class="span16">
+        <h1 class="center-text larger">Geoloqi makes it easy to add location <br>to your applications</h1>
+        <img id="lead-image?cachebust=2" src="/img/home-banner.png" alt="Geoloqi banner">
+        <div class="center-text">
+          <span class="primary-wrapper">
+           <a href="https://geoloqi.com/apps" class="btn transparent small">Get Our Mobile App</a> <a href="/pricing" class="btn primary x-large">Pricing/Signup</a> <a href="/features" class="btn transparent small">Platform Features</a>
+          </span>
+        </div>
+      </div>
+  	</div>
+  </section>
+</div>
+
+<div id="geocoding">
+    <h2>Geocoding services now available</h2>
+    <p>Our new Esri-powered Geocoding tools allow you to create triggers on addresses and find cities where your apps are used!</p>
+    <p><a href="https://developers.geoloqi.com/api/geocoding">Documentation</a> | <a href="https://developers.geoloqi.com/features/geocoding">Check It Out!</a> | <a href="https://developers.geoloqi.com/pricing">Geocoding Pricing</a></p>
+</div>
+
+<div id="press-section" class="container">
+  <h2 class="center-text">See what people are saying:</h2>
+  <div id="video">
+    <div class="box" style="padding-bottom:10px;">
+      <iframe width="426" height="245" src="https://www.youtube.com/embed/sPp0SYznbiY?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  
+  <div id="quotes">
+    <blockquote>
+      <div class="box">
+        "Geoloqi is great because it takes care of the hard parts of geo for me."
+        <cite><a href="https://twitter.com/Wraithan">- Chris McDonald, Mozilla</a></cite>
+      </div>          
+    </blockquote>
+
+    <blockquote>
+      <div class="box">
+        "The holy grail of rich location data made easy with new SDKs from Geoloqi."
+        <cite><a href="http://www.readwriteweb.com/mobile/2012/02/the-holy-grail-of-rich-locatio.php">- Dan Rowinski, ReadWriteWeb</a></cite>
+      </div>
+    </blockquote>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="center-text">A powerful platform for location based applications</h2>
+  <div class="feature">
+  <section>
+    <header>
+      <h2><a href="/features/geofencing">Battery-Safe Geotrigger&#8480; Service</a></h2>
+    </header>
+    <p>Our Geotrigger service automatically manages a device's battery life while using location services, so your users can run the app all day without significant battery drain. Geofences can be triggered by time of day, speed or position.</p>
+    <h6 class="compress">Features of the Geotrigger&#8480; Service</h6>
+    <ul class="push-down">
+      <li>Trigger actions on enter, dwell or exit</li>
+      <li>Write custom events to be triggered</li>
+      <li><b>Battery-Safe</b> - the Geotrigger service automatically manages battery life on mobile devices</li>
+    </ul>
+    <a href="/pricing" class="btn primary large">Pricing/Sign Up</a>
+    <a href="/features/geofencing" class="btn light large">Learn More</a>
+    <small class="sub-pricing">Start Developing For Free!<br>No Credit Card Required</small>
+  </section>
+
+  <figure class="omega">
+    <img src="/img/diagrams/geofencing.png" alt="Geoloqi Battery-Safe Geotrigger SDK">
+  </figure>
+</div>
+
+  <div class="feature">
+  <figure>
+    <img src="/img/diagrams/geocoding.png" alt="Geocoding Powered By Esri">
+  </figure>      
+
+  <section class="omega">
+    <header>
+      <h2><a href="/features/geocoding">Geocoding</a></h2>
+    </header>
+    <p>Now you can have worldwide coverage for geocoding, reverse geocoding and point of interest search, powered by Esri!</p>
+    <h6 class="compress">Geocoding Features</h6>
+    <ul class="push-down">
+      <li>Find geographic coordinates of addresses</li>
+      <li>Search for places and points of interest</li>
+      <li>Convert geographic coordinates into human-readable addresses</li>
+      <li>Worldwide coverage in <a href="http://geocode.arcgis.com/arcgis/index.html#/Service_coverage/02q000000005000000/">102 countries</a></li>
+      <li>Over 26 million points of interest</li>
+    </ul>
+    <a href="/pricing" class="btn primary large">Pricing/Sign Up</a>
+    <a href="/features/geocoding" class="btn light large">Learn More</a>
+    <small class="sub-pricing">Free trial until January 15<br>No Credit Card Required</small>
+  </section>
+</div>
+  <div class="feature">
+  <section>
+    <header>
+      <h2><a href="/features/location-tracking">Real-time Location Tracking</a></h2>
+    </header>
+    <p>Whether you're making an application for tracking assets, finding friends nearby, or setting up a location-based game, Geoloqi makes it simple to implement full-featured tracking systems with minimal time and effort.</p>
+    <h6 class="compress">Location Tracking Features</h6>
+    <ul class="push-down">
+      <li>Track Location in Real-time</li>
+      <li>Battery Safe Tracking </li>
+      <li>Customizable Tracking Rates</li>
+      <li>Works Indoors and Outdoors </li>
+      <li>SDKs for iOS, Android, Javascript, Ruby, PHP and more</li>
+    </ul>
+    <a href="/pricing" class="btn primary large">Pricing/Sign Up</a>
+    <a href="/features/location-tracking" class="btn light large">Learn More</a>
+    <small class="sub-pricing">Start Developing For Free!<br>No Credit Card Required</small>
+  </section>
+
+  <figure class="omega">
+    <img src="/img/diagrams/tracking.png" alt="Geoloqi Real-Time Location Tracking">
+  </figure>
+</div>
+  <div class="feature">
+  <figure>
+    <img src="/img/diagrams/storage.png" alt="Geoloqi Hosted Spatial Storage">
+  </figure>      
+
+  <section class="omega">
+    <header>
+      <h2><a href="/features/storage">Hosted Spatial Storage</a></h2>
+    </header>
+    <p>Create and store location based data with Geoloqi's spatial storage solutions. Create and store places, messages, and geofences. The Geoloqi SDK will Automatically sync geo-relevant data to users and work to maximize battery life.</p>
+    <h6 class="compress">Storage Solutions</h6>
+    <ul class="push-down">
+      <li>Create private places</li>
+      <li>Quickly import your datasets</li>
+      <li>Search for nearby places</li>
+      <li>Automatically sync relevant data to users</li>
+      <li>Optimized for use with real-time applications and battery-safe operations</li>
+    </ul>
+    <a href="/pricing" class="btn primary large">Pricing/Sign Up</a>
+    <a href="/features/storage" class="btn light large">Learn More</a>
+    <small class="sub-pricing">Start Developing For Free!<br>No Credit Card Required</small>
+  </section>
+</div>
+  <div class="feature">
+  <figure class="omega">
+    <img src="/img/diagrams/map.png" alt="Esri Map Example">
+  </figure>
+
+  <section>
+    <header>
+      <h2><a href="/features/maps">ArcGIS maps for iOS</a></h2>
+    </header>
+    <p>The ArcGIS SDK for iOS provides an alternative to using Apple's MapKit. </p>
+    <h6 class="compress">Maps Features</h6>
+    <ul>
+      <li>Use any tile service that ArcGIS supports (including Bing)</li>
+      <li>Add layers from any ArcGIS feature service</li>
+      <li>Use tasks for common uses like geocoding/locating, routing/directions, and querying</li>
+      <li>Enable collaboration via WebMaps</li>
+    </ul>
+    <a href="/pricing" class="btn primary large">Pricing/Sign Up</a>
+    <a href="/features/maps" class="btn light large">Learn More</a>
+    <small class="sub-pricing">Start Developing For Free!<br>No Credit Card Required</small>
+  </section>
+</div>
+
+  <div class="feature">
+  <section class="omega">
+    <header>
+      <h2><a href="/features/analytics">Developer Metrics</a></h2>
+    </header>
+    <p>See how your apps are being used. Gain insight into your user's behavior. Geoloqi's location based analytics tools provide rich analytics and visualizations for tracking users, geofences and message conversions.</p>
+    <h6 class="compress">Analytics Features</h6>
+    <ul>
+      <li>Track message conversions, dwell time and visitor metrics</li>
+      <li>Track the dwell time of people, places and things</li>
+      <li>Access User Location History</li>
+      <li>See the devices your apps are being used on</li>
+      <li>Track the number of Geotrigger events</li>
+      <li>Included with your account</li>
+    </ul>
+    <a href="/pricing" class="btn primary large">Pricing/Sign Up</a>
+    <a href="/features/analytics" class="btn light large">Learn More</a>
+    <small class="sub-pricing">Start Developing For Free!<br>No Credit Card Required</small>
+  </section>
+
+  <figure>
+    <img src="/img/diagrams/analytics.png" alt="Analytics Diagram">
+  </figure>
+</div>
+
+</div>
+
+<section id="sdk-banner" class="container">
+  <header class="center-text">
+    <h2>See how easy it is to add location to your applications</h2> 
+  </header>
+  <section>
+    <div class="box">
+      <img src="/img/icon-sdk-ios.png" class="left" alt="">
+      <div style="margin-left:56px;">
+        <h4 class="compress"><a href="/ios">iOS SDK</a></h4>
+        <p class="push-down-half">Create location-aware, battery-<br>safe iOS apps with our SDK.</p>
+        <a href="/ios" class="btn small primary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="box">
+      <img src="/img/icon-sdk-android.png" class="left" alt="">
+      <div style="margin-left:56px;">
+        <h4 class="compress"><a href="/android">Android SDK</a></h4>
+        <p class="push-down-half">Develop location-aware battery-safe Android apps.</p>
+        <a href="/android" class="btn small primary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="box">
+      <img src="/img/icon-sdk-api.png" class="left" alt="">
+      <div style="margin-left:56px;">
+        <h4 class="compress"><a href="/api">Geoloqi API</a></h4>
+        <p class="push-down-half">Access the Geoloqi API directly using one of our client libraries.</p>
+        <a href="/api" class="btn small primary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+</section>
+<div class="topo-background">
+  <div class="container">
+    <div class="left">
+      <h2>Partners and OEMs</h2>
+      <p>Ready to partner with us or license our platform? <a href="http://developers.geoloqi.com/partners-and-oems" class="btn primary">Contact Us</a></p>
+    </div>
+    <div class="partner-logos">
+      <img src="/img/partners-locaid.png" class="locaid" alt="LocAid">
+      <img src="/img/partners-factual.png" class="factual" alt="Factual">
+      <img src="/img/partners-appcelerator.png" class="appcelerator" alt="Appcelerator">
+    </div>
+  </div>
+</div>
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

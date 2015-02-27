@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Appcelerator Titanium Module - Geoloqi Developers</title>
+    
+    
+
+    
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   titanium">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<header class="feature-page topo-background">
+    <div style="background-color: #f9ed88; padding: 3px; text-align: center;">
+    The Titanium module is no longer supported. Please see <a href="https://geoloqi.com/blog/2013/04/update-on-the-geoloqi-for-titanium-module/">our blog post</a> for more info.
+  </div>
+
+
+  <div class="container">
+    <hgroup>
+      <h1>Geoloqi Titanium Module</h1>
+      <h3>Start developing location aware apps with Titanium.</h3>
+      <a href="/titanium/getting-started" class="btn primary">Getting Started</a>
+      <a href="http://loqi.me/geoloqi-titanium-module" class="btn light">Download Module</a>
+    </hgroup>
+    <figure>
+      <img src="/img/geoloqi-titanium-module.png" style="margin-top:42px;">
+    </figure>
+  </div>
+</header>
+
+<div class="container">  
+  <div id="main">
+    <style type="text/css">/*<![CDATA[*/
+.source-code .source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+	line-height: normal; 
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-javascript .de1, .source-javascript .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-javascript  {font-family: monospace;}
+.source-javascript .imp {font-weight: bold; color: red;}
+.source-javascript li, .source-javascript li.li1 {font-weight: normal;}
+.source-javascript li.li2 {font-weight: bold;}
+.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.source-javascript .kw3 {color: #000066;}
+.source-javascript .co1 {color: #006600; font-style: italic;}
+.source-javascript .co2 {color: #009966; font-style: italic;}
+.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.source-javascript .es0 {color: #000099; font-weight: bold;}
+.source-javascript .br0 {color: #009900;}
+.source-javascript .sy0 {color: #339933;}
+.source-javascript .st0 {color: #3366CC;}
+.source-javascript .nu0 {color: #CC0000;}
+.source-javascript .me1 {color: #660066;}
+.source-javascript .ln-xtra, .source-javascript li.ln-xtra, .source-javascript div.ln-xtra {background-color: #ffc;}
+.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!-- start content -->
+					<a name="Introduction" id="Introduction"></a><h2> <span class="mw-headline">Introduction</span></h2>
+<div class="well">
+<p>
+Titanium from Appcelerator allows developers to create native iOS and Android applications from a single JavaScript-based SDK. This enables you to build a single application in JavaScript, which is then compiled into native code, with the same look and feel as a native application.
+</p>
+<p>
+Geoloqi has partnered with Appcelerator to provide a module for Titanium, enabling developers to quickly create rich, location aware applications.
+</p>
+</div>
+<a name="Use_Cases" id="Use_Cases"></a><h2> <span class="mw-headline">Use Cases</span></h2>
+<div class="well">
+<ul><li> Easily send messages or offers to users when they arrive at certain areas
+</li><li> Create a fitness tracking app without needing to build your own backend, or learn native phone development
+</li><li> Quickly track whether people are using your app more in your stores or at home
+</li></ul>
+</div>
+<a name="Creating_an_account" id="Creating_an_account"></a><h2> <span class="mw-headline">Creating an account</span></h2>
+<div class="well">
+<p><a href="/pricing">Click here</a> to see the Geoloqi pricing, and choose the plan that works best for you.
+</p><p>After you create an account, you are ready to build applications. There are no additional fees or monthly payments required for the Titanium module.
+</p>
+</div>
+<a name="Installation" id="Installation"></a><h2> <span class="mw-headline">Installation</span></h2>
+<div class="well">
+<p>The Geoloqi module is available from <a href="http&#58;//loqi.me/geoloqi-titanium-module">Github</a>, and acts like a standard Titanium module. You can read about how to install Titanium Modules <a href="https&#58;//wiki.appcelerator.org/display/tis/Using+Titanium+Modules">here</a>.
+</p><p>First, configure the application by adding a config.js in your Resources directory:
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre>exports <span class="sy0">=</span> <span class="br0">&#123;</span>
+  clientId<span class="sy0">:</span> <span class="st0">&quot;get your clientId at http://developers.geoloqi.com&quot;</span><span class="sy0">,</span>
+  clientSecret<span class="sy0">:</span> <span class="st0">&quot;get your clientSecret at http://developers.geoloqi.com&quot;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>Now you need to initialize the Geoloqi module, by adding it to your Resources/app.js file:
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre><span class="co1">// import the Geolqoi Module</span>
+<span class="kw2">var</span> geoloqi <span class="sy0">=</span> require<span class="br0">&#40;</span><span class="st0">'ti.geoloqi'</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+geoloqi.<span class="me1">init</span><span class="br0">&#40;</span><span class="br0">&#123;</span>
+  clientId<span class="sy0">:</span> Config.<span class="me1">clientId</span><span class="sy0">,</span>
+  clientSecret<span class="sy0">:</span> Config.<span class="me1">clientSecret</span><span class="sy0">,</span>
+  trackingProfile<span class="sy0">:</span> <span class="st0">&quot;PASSIVE&quot;</span>
+<span class="br0">&#125;</span><span class="sy0">,</span><span class="br0">&#123;</span>
+  onSuccess<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+    <span class="co1">// You can now use all methods of the geoloqi module.</span>
+    Ti.<span class="me1">API</span>.<span class="me1">info</span><span class="br0">&#40;</span><span class="st0">&quot;Tracking Profile: &quot;</span> <span class="sy0">+</span> geoloqi.<span class="me1">tracker</span>.<span class="me1">getProfile</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    Ti.<span class="me1">API</span>.<span class="me1">info</span><span class="br0">&#40;</span><span class="st0">&quot;Access Token: &quot;</span> <span class="sy0">+</span> geoloqi.<span class="me1">session</span>.<span class="me1">getAccessToken</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    Ti.<span class="me1">API</span>.<span class="me1">info</span><span class="br0">&#40;</span><span class="st0">&quot;User ID: &quot;</span> <span class="sy0">+</span> geoloqi.<span class="me1">session</span>.<span class="me1">getUserId</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    Ti.<span class="me1">API</span>.<span class="me1">info</span><span class="br0">&#40;</span><span class="st0">&quot;Username: &quot;</span> <span class="sy0">+</span> geoloqi.<span class="me1">session</span>.<span class="me1">getUsername</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    Ti.<span class="me1">API</span>.<span class="me1">info</span><span class="br0">&#40;</span><span class="st0">&quot;Anonymous User?: &quot;</span> <span class="sy0">+</span> geoloqi.<span class="me1">session</span>.<span class="me1">isAnonymous</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+    <span class="co1">// This will setup push notifications for the device    </span>
+    Ti.<span class="me1">Network</span>.<span class="me1">registerForPushNotifications</span><span class="br0">&#40;</span><span class="br0">&#123;</span>
+      types<span class="sy0">:</span><span class="br0">&#91;</span>
+        Titanium.<span class="me1">Network</span>.<span class="me1">NOTIFICATION_TYPE_ALERT</span>
+      <span class="br0">&#93;</span><span class="sy0">,</span>
+      callback<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span><span class="br0">&#123;</span>
+        geoloqi.<span class="me1">iOS</span>.<span class="me1">handlePush</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span><span class="sy0">,</span>
+      success<span class="sy0">:</span><span class="kw2">function</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span><span class="br0">&#123;</span>
+        geoloqi.<span class="me1">iOS</span>.<span class="me1">registerDeviceToken</span><span class="br0">&#40;</span>data.<span class="me1">deviceToken</span><span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span><span class="sy0">,</span>
+      error<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span><span class="br0">&#123;</span>
+        Ti.<span class="me1">API</span>.<span class="me1">error</span><span class="br0">&#40;</span><span class="st0">&quot;Could Not Register For Push&quot;</span> <span class="sy0">+</span> data.<span class="me1">error</span> <span class="sy0">+</span> data.<span class="me1">type</span><span class="br0">&#41;</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span><span class="sy0">,</span>
+  onFailure<span class="sy0">:</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+    Ti.<span class="me1">API</span>.<span class="me1">error</span><span class="br0">&#40;</span><span class="st0">&quot;Geoloqi Config Failed&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></pre></div></div>
+<p>That's it! Your application should now be sending location updates to Geoloqi in battery safe mode.
+</p>
+</div>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline">Examples</span></h2>
+<div class="well">
+<p>Geoloqi has developed a demo app called Dino Deals! You can get the source code on <a href="http&#58;//loqi.me/dinodeals-source">Github</a>.
+</p>
+</div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 16/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key geoloqi_wiki:pcache:idhash:394-0!1!0!!en!2!edit=0 and timestamp 20141229233525 -->
+
+  </div>
+  <aside id="sidebar">
+    <h4>Get Started</h4>
+    <p>Check out our getting started guide and download the module.<p>
+    <p>
+      <a href="/titanium/getting-started" class="btn primary">Getting Started</a>
+    </p>
+    <nav>
+  <div class="documentation-section">
+    <h4>Sample Deals App</h4>
+    <p><a href="http://loqi.me/dinodeals-source">Download</a> the sample DinoDeals project from Github to get a quick look at a Geoloqi project.<p>
+      <p>
+      <a href="https://geoloqi.com/app-store/dinodeals/iphone" class="btn green icon-android">Android</a>
+      <a href="https://geoloqi.com/app-store/dinodeals/android" class="btn blue icon-apple">iPhone</a>
+      <a href="http://loqi.me/dinodeals-source" class="btn primary light icon-github">Github</a>    
+      </p>
+  </div>
+
+  <div class="documentation-section">
+    <h4>Titanium Module Documentation</h4>
+    <ul>
+      <li><a href="/titanium/getting-started">Getting Started</a></li>
+      <li><a href="/titanium/getting-started#installing">Getting the Module</a></li>
+      <li><a href="/titanium/getting-started#create_geoloqi_application">Creating a Geoloqi Application</a></li>
+      <li><a href="/titanium/getting-started#configure_the_module">Configuring the Module</a></li>
+      <li><a href="/titanium/getting-started#push_notifications_ios">iOS Push Notifications</a></li>
+      <li><a href="/titanium/getting-started#push_notifications_android">Android Push Notifications</a></li>
+      <li><a href="/titanium/getting-started#tracking_profiles">Tracking Profiles</a></li>
+      <li><a href="/titanium/getting-started#api_requests">Making API Requests</a></li>
+      <li><a href="/titanium/getting-started#sample_app">Sample App</a></li>
+    </ul>
+  </div>
+
+  <div class="documentation-section">
+    <h4>API Overview</h4>
+    <ul>
+      <li><a href="/api">List of API Methods</a></li>
+      <li><a href="/api/trigger/create">Creating Location-Based Triggers</a></li>
+      <li><a href="/api/De-Duplication_and_Extra_Parameters">De-Duplication and Extra Parameters</a></li>
+      <li><a href="/api/Time_and_Dates">Time and Dates</a></li>
+      <li><a href="/api/Paging">Paging</a></li>
+    </ul>
+  </div>
+</nav>
+
+  </aside>
+</div>
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

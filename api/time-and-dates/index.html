@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Time and Dates - Geoloqi Developers</title>
+    
+    
+
+    
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   api time-and-dates">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div class="container">
+  <h1>Time and Dates</h1>  
+  <div id="main" class="new-docs">
+    <section class="well">
+      <h2 class='section-header' data-section-name='user-timezone' ><a id='user-timezone' class='section-link'></a>
+User Timezone</h2>
+
+<p>By default, the API accepts and returns times in the timezone set in the user&#39;s profile. If there is no timezone set, it defaults to UTC. If the request is made without any user context, it defaults to UTC.</p>
+
+<h2 class='section-header' data-section-name='request-timezone' ><a id='request-timezone' class='section-link'></a>
+Request Timezone</h2>
+
+<p>The best way to handle dates and times properly is to include a &quot;Timezone&quot; HTTP header in your requests. Sending a header like the following will cause your input to be parsed in the timezone specified in the header, and any times output by the API will also be in your timezone.</p>
+<pre><code class='text'>Timezone: 2011-03-26T15:36:00-07:00;;America&#x2F;Los_Angeles
+</code></pre>
+<p>Any date value in the API can accept a Unix timestamp, or a date formatted according to the ISO-8601 standard. The most common format for sending datestamps to the API should be &quot;YYYY-mm-ddThh:mm:ss+tzoffset&quot;, such as &quot;2011-03-26T15:36:00-07:00&quot;.</p>
+
+<p>Many methods have a similar format for handling dates and times, there is often a <code>date_from</code>, <code>date_to</code>, <code>time_from</code>, and <code>time_to</code>. The date pair exists to set the absolute start and end date/time for the item. The time pair exists to specify recurring times for the item. </p>
+
+<p>For example, when <a href="/api/place/create">creating a place</a>, you can specify start and end date.</p>
+
+    </section>  
+  </div>
+  <aside id="sidebar">
+    <div class="table-of-contents">
+      <nav>
+        <h3>Table of Contents</h3>
+        <ul>
+              <li><a href="#user-timezone">
+User Timezone</a></li>
+              <li><a href="#request-timezone">
+Request Timezone</a></li>
+        </ul>
+      </nav>
+    </div>
+    <hr>
+    <h3 style="padding-bottom: 10px"><a href="/api">API Overview</a></h3>
+    <h3 class='section-header' data-section-name='introduction' ><a id='introduction' class='section-link'></a>
+Introduction</h3>
+
+<ul>
+<li><a href="/api/authentication">Authentication</a></li>
+<li><a href="/api/deduplication-and-extra-parameters">De-Duplication and Extra Parameters</a></li>
+<li><a href="/api/time-and-dates">Time and Dates</a></li>
+<li><a href="/api/paging">Paging</a></li>
+<li><a href="/api/layers-places-and-triggers">Layers, Places and Triggers</a></li>
+<li><a href="/api/geocoding">Geocoding</a></li>
+<li><a href="/api/error-codes">Error Codes</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='triggers' ><a id='triggers' class='section-link'></a>
+Triggers</h3>
+
+<ul>
+<li><a href="/api/trigger/create">trigger/create</a></li>
+<li><a href="/api/trigger/delete">trigger/delete</a></li>
+<li><a href="/api/trigger/list">trigger/list</a></li>
+<li><a href="/api/trigger/history">trigger/history</a></li>
+<li><a href="/api/trigger/run/:id">trigger/run/:id</a></li>
+<li><a href="/api/Trigger_Callback">Trigger Callback</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='geonotes' ><a id='geonotes' class='section-link'></a>
+Geonotes</h3>
+
+<ul>
+<li><a href="/api/geonote/create">geonote/create</a></li>
+<li><a href="/api/geonote/list_set">geonote/list_set</a></li>
+<li><a href="/api/geonote/list_recent">geonote/list_recent</a></li>
+<li><a href="/api/geonote/info/:id">geonote/info/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='location' ><a id='location' class='section-link'></a>
+Location</h3>
+
+<ul>
+<li><a href="/api/location/last">location/last</a></li>
+<li><a href="/api/location/history">location/history</a></li>
+<li><a href="/api/location/update">location/update</a></li>
+<li><a href="/api/location/delete_batch/:id">location/delete_batch/:id</a></li>
+<li><a href="/api/location/tracking_profile">location/tracking_profile</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='places' ><a id='places' class='section-link'></a>
+Places</h3>
+
+<ul>
+<li><a href="/api/place/create">place/create</a></li>
+<li><a href="/api/place/update/:id">place/update/:id</a></li>
+<li><a href="/api/place/list">place/list</a></li>
+<li><a href="/api/place/nearby">place/nearby</a></li>
+<li><a href="/api/place/info/:id">place/info/:id</a></li>
+<li><a href="/api/place/delete/:id">place/delete/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='layers' ><a id='layers' class='section-link'></a>
+Layers</h3>
+
+<ul>
+<li><a href="/api/layer/create">layer/create</a></li>
+<li><a href="/api/layer/nearby">layer/nearby</a></li>
+<li><a href="/api/layer/list">layer/list</a></li>
+<li><a href="/api/layer/info/:id">layer/info/:id</a></li>
+<li><a href="/api/layer/update/:id">layer/update/:id</a></li>
+<li><a href="/api/layer/delete/:id">layer/delete/:id</a></li>
+<li><a href="/api/layer/subscribe/:id">layer/subscribe/:id</a></li>
+<li><a href="/api/layer/unsubscribe/:id">layer/unsubscribe/:id</a></li>
+<li><a href="/api/layer/subscription/:id">layer/subscription/:id</a></li>
+<li><a href="/api/layer/users/:id">layer/users/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='users' ><a id='users' class='section-link'></a>
+Users</h3>
+
+<ul>
+<li><a href="/api/user/create">user/create</a></li>
+<li><a href="/api/user/create_anon">user/create_anon</a></li>
+<li><a href="/api/user/list">user/list</a></li>
+<li><a href="/api/user/info/:id">user/info/:id</a></li>
+<li><a href="/api/user/update/:id">user/update/:id</a></li>
+<li><a href="/api/user/delete/:id">user/delete/:id</a></li>
+<li><a href="/api/user/secure_delete/:id">user/secure_delete/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='groups' ><a id='groups' class='section-link'></a>
+Groups</h3>
+
+<ul>
+<li><a href="/api/group/create">group/create</a></li>
+<li><a href="/api/group/update/:token">group/update/:token</a></li>
+<li><a href="/api/group/delete/:token">group/delete/:token</a></li>
+<li><a href="/api/group/join/:token">group/join/:token</a></li>
+<li><a href="/api/group/leave/:token">group/leave/:token</a></li>
+<li><a href="/api/group/message/:token">group/message/:token</a></li>
+<li><a href="/api/group/list">group/list</a></li>
+<li><a href="/api/group/info/:token">group/info/:token</a></li>
+<li><a href="/api/group/members/:token">group/members/:token</a></li>
+<li><a href="/api/group/subscriptions">group/subscriptions</a></li>
+<li><a href="/api/group/messages/:token">group/messages/:token</a></li>
+<li><a href="/api/group/locations/:token">group/locations/:token</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='real-time-streaming' ><a id='real-time-streaming' class='section-link'></a>
+Real-Time Streaming</h3>
+
+<ul>
+<li><a href="/api/Streaming">Using the Geoloqi Streaming Server</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='account-methods' ><a id='account-methods' class='section-link'></a>
+Account Methods</h3>
+
+<ul>
+<li><a href="/api/account/username">account/username</a></li>
+<li><a href="/api/account/check_username">account/check_username</a></li>
+<li><a href="/api/account/profile">account/profile</a></li>
+<li><a href="/api/account/privacy">account/privacy</a></li>
+<li><a href="/api/account/connections">account/connections</a></li>
+<li><a href="/api/account/set_apn_token">account/set_apn_token</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='messaging' ><a id='messaging' class='section-link'></a>
+Messaging</h3>
+
+<ul>
+<li><a href="/api/message/send">message/send</a></li>
+<li><a href="/api/message/broadcast">message/broadcast</a></li>
+<li><a href="/api/message/count_broadcast">message/count_broadcast</a></li>
+<li><a href="/api/message/device">message/device</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='batching' ><a id='batching' class='section-link'></a>
+Batching</h3>
+
+<ul>
+<li><a href="/api/batch/run">batch/run</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='applications' ><a id='applications' class='section-link'></a>
+Applications</h3>
+
+<ul>
+<li><a href="/api/application/list">application/list</a></li>
+<li><a href="/api/application/info/:id">application/info/:id</a></li>
+<li><a href="/api/application/layers/:id">application/layers/:id</a></li>
+<li><a href="/api/application/usage/:id">application/usage/:id</a></li>
+<li><a href="/api/application/api_hits/:id">application/api_hits/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='share-links' ><a id='share-links' class='section-link'></a>
+Share Links</h3>
+
+<ul>
+<li><a href="/api/link/create">link/create</a></li>
+<li><a href="/api/link/expire">link/expire</a></li>
+<li><a href="/api/link/activate">link/activate</a></li>
+<li><a href="/api/link/deactivate">link/deactivate</a></li>
+<li><a href="/api/link/stats">link/stats</a></li>
+<li><a href="/api/share/last">share/last</a></li>
+<li><a href="/api/share/history">share/history</a></li>
+<li><a href="/api/share/info">share/info</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='oauth-2.0' ><a id='oauth-2.0' class='section-link'></a>
+OAuth 2.0</h3>
+
+<ul>
+<li><a href="/api/authentication">Authentication</a></li>
+<li><a href="/api/oauth/token">oauth/token</a></li>
+</ul>
+
+  </aside>
+</div>
+
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

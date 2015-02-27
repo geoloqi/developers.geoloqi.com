@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Geoloqi Titanium Module Documentation - Geoloqi Developers</title>
+    
+    
+
+    <meta name='description' content='This quick getting started guide has everything you need to know about the Geoloqi Titanium module.'>
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   titanium getting-started">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div style="margin-top: -15px;">  <div style="background-color: #f9ed88; padding: 3px; text-align: center;">
+    The Titanium module is no longer supported. Please see <a href="https://geoloqi.com/blog/2013/04/update-on-the-geoloqi-for-titanium-module/">our blog post</a> for more info.
+  </div>
+</div>
+
+<div class="container">
+  <h1>Geoloqi Titanium Module Documentation</h1>  
+  <div id="main" class="new-docs">
+    <section class="well">
+      <h2 class='section-header' data-section-name='getting-started' ><a id='getting-started' class='section-link'></a>
+Getting Started</h2>
+
+<p>You will need to download the Geoloqi module from <a href="http://loqi.me/geoloqi-titanium-module">Github</a>. Once you have downloaded the module follow the guide on the <a href="http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Using_a_Module">Appcelerator Documentation</a> on how to install a module.</p>
+
+<p>If you haven&#39;t already signed up for a Geoloqi developer account you should <a href="/pricing">sign up</a> now.</p>
+
+<p><a href="/pricing" class="btn primary small">Sign Up</a> <a href="http://loqi.me/geoloqi-titanium-module" class="btn action small">Download the Module</a></p>
+
+<h3 class='section-header' data-section-name='create-a-geoloqi-application' ><a id='create-a-geoloqi-application' class='section-link'></a>
+Create a Geoloqi application</h3>
+
+<p>Once you have the module installed you will need to create a new Geoloqi application. Or you can use a <code>client_id</code> key from an existing app.</p></p>
+
+<p><a href="/account/applications" class="btn small action">Get Keys</a></p>
+
+<h2 class='section-header' data-section-name='configuring-the-module' ><a id='configuring-the-module' class='section-link'></a>
+Configuring the module</h2>
+
+<p>At the top of your <code>app.js</code> file add the following line.</p>
+<pre><code class='javascript'>var geoloqi = require(&quot;ti.geoloqi&quot;);
+</code></pre>
+<p>This will make the Geoloqi modele accessable in your code. Now you need to initialize the module using the <code>geoloqi.init()</code> method. For security reasons, you should leave clientSecret empty.</p>
+<pre><code class='javascript'>geoloqi.init({
+clientId: &quot;Your application client_id&quot;,
+clientSecret: &quot;&quot;,
+trackingProfile: &quot;PASSIVE&quot;,
+},{
+onSuccess: function(){
+  Ti.API.info(&quot;Tracking Profile: &quot; + geoloqi.tracker.getProfile());
+  Ti.API.info(&quot;Access Token: &quot; + geoloqi.session.getAccessToken());
+  Ti.API.info(&quot;User ID: &quot; + geoloqi.session.getUserId());
+  Ti.API.info(&quot;Username: &quot; + geoloqi.session.getUsername());
+  Ti.API.info(&quot;Anonymous?: &quot; + geoloqi.session.isAnonymous());
+},
+onFailure: function(){
+  Ti.API.error(&quot;Geoloqi Config Failed&quot;);
+}
+});
+</code></pre>
+<p>The <code>geoloqi.init();</code> call will create a anonymous user account ont the Geoloqi API to store location information in or load a previous session if the app has launched before. It will also start the tracking the users location with the specified tracking profile.</p>
+
+<div class="alert info " style="text-align:left; line-height: 1.4em;">
+  Because <code>geoloqi.init();</code> runs ansynchronously (Creating a new anonymous user) You should put all Geoloqi specific code in the <code>onSuccess</code> callback.
+</div>
+
+<p>Once the geoloqi module has sucessfully initialized you can call a number of helper methods to get information about the state of the module.</p>
+
+<h5>Helper Methods</h5>
+
+<ul>
+<li><strong>geoloqi.tracker.getProfile()</strong> return the current tracking profile.</li>
+<li><strong>geoloqi.session.getAccessToken()</strong> return the current users access token. This is helpful if you want to create your own login system and store the users access token yourself.</li>
+<li><strong>geoloqi.session.getUserId()</strong> return the userId of the current user.</li>
+<li><strong>geoloqi.session.getUsername()</strong> return the username of the currently logged in user</li>
+<li><strong>geoloqi.session.isAnonymous()</strong> returns true if the user was created anonymously.</li>
+</ul>
+
+<h2 class='section-header' data-section-name='ios-push-notifciations' ><a id='ios-push-notifciations' class='section-link'></a>
+iOS Push Notifciations</h2>
+
+<p>To setup push notifications for iOS please follow our <a href="/ios/push-notifications">iOS push notification guide.</a></p>
+
+<p>Once you have uploaded your P12 Certificates to Geoloqi you should add this code block to the <code>onSuccess</code> callback of <code>geoloqi.init();</code></p>
+<pre><code class='javascript'>Ti.Network.registerForPushNotifications({
+  types:[
+    Titanium.Network.NOTIFICATION_TYPE_ALERT
+  ],
+  callback: function(data){
+    geoloqi.iOS.handlePush(data);
+  },
+  success:function(data){
+    geoloqi.iOS.registerDeviceToken(data.deviceToken);
+  },
+  error: function(data){
+    Ti.API.error(&quot;Could Not Register For Push&quot; + data.error + data.type);
+  }
+});
+</code></pre>
+<p>This code instructs Titanium to let Geoloqi handle push notifications for your applicaiton.</p>
+
+<h2 class='section-header' data-section-name='android-push-notifications' ><a id='android-push-notifications' class='section-link'></a>
+Android Push Notifications</h2>
+
+<p>To setup push notifications for Android please follow our <a href="">Android Push Notification Guide</a>.</p>
+
+<p>Once you have authorized your account, pass <code>pushAccount</code> and <code>pushIcon</code>  parameters to the <code>geoloqi.init();</code> configuration. For security reasons, you should leave clientSecret blank.</p>
+<pre><code class='javascript'>geoloqi.init({
+  clientId: &quot;Your clientId&quot;,
+  clientSecret: &quot;&quot;,
+  trackingProfile: &quot;PASSIVE&quot;,
+  pushAccount: &quot;[mailto:example@gmail.com&quot;,](example@gmail.com&quot;,)
+  pushIcon: &quot;push_icon&quot;
+}, callbacks)
+</code></pre>
+<p>Next open up your application&#39;s <code>tiapp.xml</code> file and copy and paste the below xml into the <code>android</code> block and replace, <code>com.geoloqi.example</code> with your application id.</p>
+<pre><code class='xml'>&lt;manifest&gt;
+  &lt;permission
+      android:name=&quot;com.geoloqi.example.permission.C2D_MESSAGE&quot;
+      android:protectionLevel=&quot;signature&quot; &#x2F;&gt;
+  &lt;uses-permission android:name=&quot;com.geoloqi.example.permission.C2D_MESSAGE&quot; &#x2F;&gt;
+  &lt;uses-permission android:name=&quot;com.google.android.c2dm.permission.RECEIVE&quot; &#x2F;&gt;
+
+  &lt;application&gt;
+      &lt;receiver
+          android:name=&quot;com.geoloqi.android.sdk.receiver.LQDeviceMessagingReceiver&quot;
+          android:permission=&quot;com.google.android.c2dm.permission.SEND&quot;&gt;
+          &lt;intent-filter&gt;
+              &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; &#x2F;&gt;
+              &lt;action android:name=&quot;com.google.android.c2dm.intent.REGISTRATION&quot; &#x2F;&gt;
+              &lt;category android:name=&quot;com.geoloqi.example&quot; &#x2F;&gt;
+          &lt;&#x2F;intent-filter&gt;
+      &lt;&#x2F;receiver&gt;
+  &lt;&#x2F;application&gt;
+&lt;&#x2F;manifest&gt;
+</code></pre>
+<h2 class='section-header' data-section-name='tracking-profiles' ><a id='tracking-profiles' class='section-link'></a>
+Tracking Profiles</h2>
+
+<p>The Geoloqi module uses several differnet &quot;tracking profiles&quot; to determine the behavior of the how to check and upload location data to Geoloqi. They are all designed around specific use cases and goals devleopers may need to accomplish.</p>
+
+<h5>Tracking Profiles</h5>
+
+<ul>
+<li><strong>Adaptive:</strong> Use as little battery life as possible while still gathering the needed data.</li></li>
+<li><strong>Realtime:</strong> Send accurate location data to the server as fast as possible.</li></li>
+<li><strong>Logging:</strong> Record accurate logs of a trip, even when no network connection is present.</li></li>
+<li><strong>Off:</strong> No location services are used. The app will not receive location updates and location will not be tracked.</li></li>
+</ul>
+
+<h5>Changing profiles</h5>
+
+<p>If you need to change profiles as a part of your applicaiton to can do so like this.</p>
+<pre><code class='javascript'>geoloqi.tracker.setProfile(&quot;REALTIME&quot;);
+</code></pre>
+<p>You can pass a string (uppercase) of the profile you would like to use. <code>REALTIME</code>, <code>PASSIVE</code>, <code>LOGGING</code> and <code>OFF</code> are accepted.</p>
+
+<h3 class='section-header' data-section-name='get-the-current-profile' ><a id='get-the-current-profile' class='section-link'></a>
+Get the current profile</h3>
+
+<p>If you need to read the curent profile you can use.</p>
+<pre><code class='javascript'>geoloqi.tracker.getProfile();
+</code></pre>
+<h2 class='section-header' data-section-name='user-authentication' ><a id='user-authentication' class='section-link'></a>
+User Authentication</h2>
+
+<p>If you want to allow users to create and authenticate against a Geoloqi account, you can do so like this.</p>
+
+<h5>Creating an anonymous user</h5>
+<pre><code class='javascript'>params = {
+  key: &#x27;unique_identifier&#x27;, &#x2F;&#x2F; optional
+  layerIds: [&#x27;xxx&#x27;, &#x27;yyy&#x27;], &#x2F;&#x2F; optional
+  groupTokens: [&#x27;abcdefg&#x27;] &#x2F;&#x2F; optional
+}
+
+geoloqi.createUser(params, {
+  onSuccess: function(data) {
+    Ti.API.info(data);
+  },
+  onFailure: function(data) {
+    Ti.API.error(data);
+  }
+});
+</code></pre>
+<h5>Creating a named user</h5>
+<pre><code class='javascript'>params = {
+  username: &#x27;loqi&#x27;,
+  password: &#x27;secret&#x27;,
+  layerIds: [&#x27;xxx&#x27;, &#x27;yyy&#x27;], &#x2F;&#x2F; optional
+  groupTokens: [&#x27;abcdefg&#x27;] &#x2F;&#x2F; optional
+}
+
+geoloqi.createUser(params, {
+  onSuccess: function(data) {
+    Ti.API.info(data);
+  },
+  onFailure: function(data) {
+    Ti.API.error(data);
+  }
+});
+</code></pre>
+<h5>Authenticating a user</h5>
+<pre><code class='javascript'>geoloqi.authenticateUser(&#x27;loqi&#x27;, &#x27;secret&#x27;, {
+  onSuccess: function(data) {
+    Ti.API.info(data);
+  },
+  onFailure: function(data) {
+    Ti.API.error(data);
+  }
+});
+</code></pre>
+<h2 class='section-header' data-section-name='making-api-requests' ><a id='making-api-requests' class='section-link'></a>
+Making API Requests</h2>
+
+<p>Once the module is initialized you can make requests to the <a href="/api">Geoloqi API</a>. All requests are made in the context of the user.</p>
+
+<h5>Making GET Requests</h5>
+
+<p>The method signature for making GET requests if <code>geoloqi.session.getRequest(&quot;method&quot;, params, callbacks)</code>. <code>method</code> is a method of the <a href="/api">Geoloqi API</a> such as <code>&quot;account/profile&quot;</code>. The params object will be encoded as a query string before sending to the API. the callback object has 2 parameters <code>onSuccess(response)</code> and <code>onFailure(response)</code> which</p>
+
+<h5>Get the current users profile</h5>
+<pre><code class='javascript'>geoloqi.session.getRequest(&quot;account&#x2F;profile&quot;, {}, {
+  onSuccess: function(data){
+    Ti.API.info(data);
+  },
+  onFailure: function(data){
+    Ti.API.error(data);
+  }
+});
+</code></pre>
+<h5>Making POST requests</h5>
+
+<p>The method signature for making POST requests is <code>geoloqi.session.postRequest(&quot;method&quot;, params, callbacks)</code>. <code>method</code> is a method of the <a href="/api">Geoloqi API</a> such as <code>&quot;trigger/create&quot;</code>. The params object will be sent to the API as JSON. The callback object has 2 parameters <code>onSuccess(response)</code> and <code>onFailure(response)</code> which</p>
+
+<h5>Creating a geotrigger</h5>
+<pre><code class='javascript'>geoloqi.session.postRequest(&quot;trigger&#x2F;create&quot;, {
+  &quot;type&quot;: &quot;message&quot;,
+  &quot;text&quot;: &quot;Welcome to Powells Books&quot;,
+  &quot;latitude&quot;: 45.523334,
+  &quot;longitude&quot;: -122.681612,
+  &quot;radius&quot;: 300
+  }, {
+  onSuccess: function(data){
+    Ti.API.info(data);
+  },
+  onFailure: function(data){
+    Ti.API.error(data);
+  }
+});
+</code></pre>
+<h2 class='section-header' data-section-name='sample-deals-app' ><a id='sample-deals-app' class='section-link'></a>
+Sample Deals App</h2>
+
+<p>Download the sample DinoDeals app to see how you can use Geoloqi to deliver relevant local deals to your users.</p>
+
+<h2 class='section-header' data-section-name='method-reference' ><a id='method-reference' class='section-link'></a>
+Method Reference</h2>
+
+<h3 class='section-header' data-section-name='geoloqi-module' ><a id='geoloqi-module' class='section-link'></a>
+Geoloqi Module</h3>
+
+<h4>init(object params, object callback)</h4>
+
+<p>This method is used to initialize the Geoloqi module.</p>
+
+<h5>Parameters</h5>
+
+<ul>
+  <li><strong>clientId</strong>: <em>string</em> Geoloqi API Key</li>
+  <li><strong>clientSecret</strong>: <em>string</em> Geoloqi API Secret. We strongly recommend you leave this blank for security reasons</li>
+  <li><strong>trackingProfile</strong>: <em>string</em> One of: "OFF", "ROUGH", "ADAPTIVE", "REALTIME", "LOGGING"</li>
+  <li><strong>lowBatteryTracking</strong>: <em>boolean</em> Allow tracking when batteries are low?</li>
+  <li><strong>vibrate</strong>: <em>boolean</em> Vibrate when receiving push notifications?</li>
+  <li><strong>pushSender</strong>: <em>string</em> Used for Google Cloud Messaging on Android</li>
+  <li><strong>pushIcon</strong>: <em>string</em> Used to set the icon used for push notifications on Android</li>
+</ul>
+
+<p>When <code>geoloqi.init()</code> is called, an anonymous user account will be created automatically. If you would like to give the anonymous user a unique key, subscribe to layers, or join groups, you may provide the following optional parameters:
+<ul>
+  <li><strong>key</strong>: <em>string</em> A unique identifier for the user. Repeated calls with the same key will not create a new account and will instead use the existing account&#39;s access token.</li>
+  <li><strong>layerIds</strong>: <em>string[]</em> array of layers to subscribe the new user to.</li>
+  <li><strong>groupTokens</strong>: <em>string[]</em> array of groups to make the new user a member of.</li>
+</ul></p>
+
+<p><a name="createUser"></a></p>
+
+<h4>createUser(object params, object callback)</h4>
+
+<p>Make a request to the Geoloqi API to create a new user.</p>
+
+<h5>Parameters</h5>
+
+<ul>
+  <li><strong>username</strong>: <em>string</em> Username or email is required.</li>
+  <li><strong>email</strong>:  <em>string</em> Username or email is required.</li>
+  <li><strong>password</strong>: <em>string</em> (optional) If provided, allows the user to log back in via oauth.</li>
+  <li><strong>layerIds</strong>: <em>string[]</em> (optional) array of layers to subscribe the new user to.</li>
+  <li><strong>groupTokens</strong>: <em>string[]</em> (optional) array of groups to make the new user a member of.</li>
+  <li><strong>extra</strong>: <em>object</em> A hash of keys and values to store along with the user.</li>
+</ul>
+
+<h4>authenticateUser(string username, string password, object callback)</h4>
+
+<p>Authenticate a user.</p>
+
+<h4>getSession()</h4>
+
+<p>Returns the Session object.</p>
+
+<h4>getTracker()</h4>
+
+<p>Returns the Tracker object.</p>
+
+<h4>setDebug(boolean isDebug)</h4>
+
+<p>Enable or disable debug logging.</p>
+
+<h4>isLowBatteryTrackingEnabled()</h4>
+
+<p>Returns a boolean indicating whether or not the tracking service will be allowed to run while device reports low battery.</p>
+
+<h4>enableLowBatteryTracking()</h4>
+
+<p>Enable tracking under low battery conditions.</p>
+
+<h4>disableLowBatteryTracking()</h4>
+
+<p>Disable tracking under low battery conditions.</p>
+
+<h3 class='section-header' data-section-name='session-object' ><a id='session-object' class='section-link'></a>
+Session Object</h3>
+
+<h4>getAccessToken()</h4>
+
+<p>Get the access token for the currently authenticated user.</p>
+
+<h4>getUserId()</h4>
+
+<p>Get the user ID for the currently authenticated user.</p>
+
+<h4>getUsername()</h4>
+
+<p>Get the username for the currently authenticated user.</p>
+
+<h4>isAnonymous()</h4>
+
+<p>Determine if the session is currently configured with an anonymous user.</p>
+
+<h4>getRequest(string path, object params, object callback)</h4>
+
+<p>Send a get request to the Geoloqi API.</p>
+
+<h5>Parameters</h5>
+
+<ul>
+  <li><strong>path</strong>: The path to the API endpoint you wish to query.</li>
+  <li><strong>params</strong>: Get paramters to send along with the request.</li>
+</ul>
+
+<h4>postRequest(string path, object params, object callback)</h4>
+
+<p>Send a post request to the Geoloqi API.</p>
+
+<h5>Parameters</h5>
+
+<ul>
+  <li><strong>path</strong>: The path to the API endpoint you wish to query.</li>
+  <li><strong>params</strong>: Get paramters to send along with the request.</li>
+</ul>
+
+<h3 class='section-header' data-section-name='tracker-object' ><a id='tracker-object' class='section-link'></a>
+Tracker Object</h3>
+
+<h4>getProfile()</h4>
+
+<p>Get the current tracking profile.</p>
+
+<h4>setProfile(string profile)</h4>
+
+<p>Request that the tracker switch to a different profile (&quot;OFF&quot;, &quot;ROUGH&quot;, &quot;ADAPTIVE&quot;, &quot;REALTIME&quot;, &quot;LOGGING&quot;).</p>
+
+<h4>getStatus()</h4>
+
+<p>Get the current tracker status (&quot;LIVE&quot;, &quot;QUEUEING&quot;, or &quot;NOTTRACKING&quot;).</p>
+
+<h4>getDateOfLastLocationUpdate()</h4>
+
+<p>Returns the date and time of the last location update in yyyy-MM-dd&#39;T&#39;HH:mm:ssZ format.</p>
+
+<h4>getDateOfLastSyncedLocationUpdate()</h4>
+
+<p>Returns the date and time of the last synced location update in yyyy-MM-dd&#39;T&#39;HH:mm:ssZ format.</p>
+
+    </section>  
+  </div>
+  <aside id="sidebar">
+    <div class="table-of-contents">
+      <nav>
+        <h3>Table of Contents</h3>
+        <ul>
+              <li><a href="#getting-started">
+Getting Started</a></li>
+              <li><a href="#configuring-the-module">
+Configuring the module</a></li>
+              <li><a href="#ios-push-notifciations">
+iOS Push Notifciations</a></li>
+              <li><a href="#android-push-notifications">
+Android Push Notifications</a></li>
+              <li><a href="#tracking-profiles">
+Tracking Profiles</a></li>
+              <li><a href="#user-authentication">
+User Authentication</a></li>
+              <li><a href="#making-api-requests">
+Making API Requests</a></li>
+              <li><a href="#sample-deals-app">
+Sample Deals App</a></li>
+              <li><a href="#method-reference">
+Method Reference</a></li>
+        </ul>
+      </nav>
+    </div>
+    <hr>
+    <p><nav>
+  <div class="documentation-section">
+    <h4>Sample Deals App</h4>
+    <p><a href="http://loqi.me/dinodeals-source">Download</a> the sample DinoDeals project from Github to get a quick look at a Geoloqi project.<p>
+      <p>
+      <a href="http://geoloqi.com/app-store/dinodeals/iphone" class="btn small green icon-android">Android</a>
+      <a href="http://geoloqi.com/app-store/dinodeals/android" class="btn small blue icon-apple">iPhone</a>
+      <a href="http://loqi.me/dinodeals-source" class="btn small light icon-github">Github</a><br>
+      </p>
+  </div></p>
+
+<p><div class="documentation-section">
+    <h4>API Overview</h4>
+    <ul>
+      <li><a href="/api">List of API Methods</a></li>
+      <li><a href="/api/trigger/create">Creating Location-Based Triggers</a></li>
+      <li><a href="/api/De-Duplication_and_Extra_Parameters">De-Duplication and Extra Parameters</a></li>
+      <li><a href="/api/Time_and_Dates">Time and Dates</a></li>
+      <li><a href="/api/Paging">Paging</a></li>
+    </ul>
+  </div>
+</nav></p>
+
+  </aside>
+</div>
+
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>

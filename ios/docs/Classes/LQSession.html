@@ -1,0 +1,1225 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>LQSession Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 752)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Geoloqi SDK </a></h1>
+				<a id="developerHome" href="../index.html">Geoloqi Inc.</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">LQSession Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/httpRequestQueue">&nbsp;&nbsp;&nbsp;&nbsp;httpRequestQueue</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/application:didFinishLaunchingWithOptions:">&nbsp;&nbsp;&nbsp;&nbsp;+ application:didFinishLaunchingWithOptions:</option>
+	
+	<option value="//api/name/createAccountWithUsername:password:extra:completion:">&nbsp;&nbsp;&nbsp;&nbsp;+ createAccountWithUsername:password:extra:completion:</option>
+	
+	<option value="//api/name/createAnonymousUserAccountWithUserInfo:completion:">&nbsp;&nbsp;&nbsp;&nbsp;+ createAnonymousUserAccountWithUserInfo:completion:</option>
+	
+	<option value="//api/name/deviceIdentifier">&nbsp;&nbsp;&nbsp;&nbsp;+ deviceIdentifier</option>
+	
+	<option value="//api/name/handlePush:">&nbsp;&nbsp;&nbsp;&nbsp;+ handlePush:</option>
+	
+	<option value="//api/name/pushDisabled">&nbsp;&nbsp;&nbsp;&nbsp;+ pushDisabled</option>
+	
+	<option value="//api/name/registerDeviceToken:">&nbsp;&nbsp;&nbsp;&nbsp;+ registerDeviceToken:</option>
+	
+	<option value="//api/name/registerForPushNotificationsWithCallback:">&nbsp;&nbsp;&nbsp;&nbsp;+ registerForPushNotificationsWithCallback:</option>
+	
+	<option value="//api/name/requestSessionWithUsername:password:completion:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestSessionWithUsername:password:completion:</option>
+	
+	<option value="//api/name/sessionWithAccessToken:">&nbsp;&nbsp;&nbsp;&nbsp;+ sessionWithAccessToken:</option>
+	
+	<option value="//api/name/setAPIKey:secret:">&nbsp;&nbsp;&nbsp;&nbsp;+ setAPIKey:secret:</option>
+	
+	<option value="//api/name/setSavedSession:">&nbsp;&nbsp;&nbsp;&nbsp;+ setSavedSession:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/associatePushDeviceToken:">&nbsp;&nbsp;&nbsp;&nbsp;- associatePushDeviceToken:</option>
+	
+	<option value="//api/name/cancelRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- cancelRequest:</option>
+	
+	<option value="//api/name/requestWithMethod:path:payload:">&nbsp;&nbsp;&nbsp;&nbsp;- requestWithMethod:path:payload:</option>
+	
+	<option value="//api/name/runAPIRequest:completion:">&nbsp;&nbsp;&nbsp;&nbsp;- runAPIRequest:completion:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_LQSession_PushTracking Methods">LQSession_PushTracking Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_LQSession_Settings Methods">LQSession_Settings Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_LQSession_UniqueDeviceIdentifier Methods">LQSession_UniqueDeviceIdentifier Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/httpRequestQueue">httpRequestQueue</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/application:didFinishLaunchingWithOptions:">application:didFinishLaunchingWithOptions:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createAccountWithUsername:password:extra:completion:">createAccountWithUsername:password:extra:completion:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createAnonymousUserAccountWithUserInfo:completion:">createAnonymousUserAccountWithUserInfo:completion:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deviceIdentifier">deviceIdentifier</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/handlePush:">handlePush:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pushDisabled">pushDisabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registerDeviceToken:">registerDeviceToken:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registerForPushNotificationsWithCallback:">registerForPushNotificationsWithCallback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestSessionWithUsername:password:completion:">requestSessionWithUsername:password:completion:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sessionWithAccessToken:">sessionWithAccessToken:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setAPIKey:secret:">setAPIKey:secret:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setSavedSession:">setSavedSession:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/associatePushDeviceToken:">associatePushDeviceToken:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelRequest:">cancelRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestWithMethod:path:payload:">requestWithMethod:path:payload:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/runAPIRequest:completion:">runAPIRequest:completion:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="LQSession Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">LQSession Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">LQSession.h<br />LQSession.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><a href="LQSession.html">LQSession</a> is a wrapper around the Geoloqi Web Service API, providing authentication and asynchronous APIs for making web services.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setAPIKey:secret:">+&nbsp;setAPIKey:secret:</a></code>
+		<span class="tooltip"><p>Call this method first in your application delegate to set up Geoloqi api.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/application:didFinishLaunchingWithOptions:">+&nbsp;application:didFinishLaunchingWithOptions:</a></code>
+		<span class="tooltip"><p>Pass off the applicationDidFinishLaunching call to the SDK</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/registerDeviceToken:">+&nbsp;registerDeviceToken:</a></code>
+		<span class="tooltip"><p>Pass off the didRegisterForRemoteNotifications call to the SDK</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/registerForPushNotificationsWithCallback:">+&nbsp;registerForPushNotificationsWithCallback:</a></code>
+		<span class="tooltip"><p>Call this to register for push notifications</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handlePush:">+&nbsp;handlePush:</a></code>
+		<span class="tooltip"><p>If a push notification is received when your app is in the foreground, you can call this method
+from the app delegate and the SDK will handle everything for you</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setSavedSession:">+&nbsp;setSavedSession:</a></code>
+		<span class="tooltip"><p><a href="LQSession.html">LQSession</a> can persist a session for you in the keychain, or use the +sessionWithAccessToken below.
+This is the same session as <a href="../Classes/LQTracker.html#//api/name/sharedTracker">[LQTracker sharedTracker]</a>&rsquo;s session.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sessionWithAccessToken:">+&nbsp;sessionWithAccessToken:</a></code>
+		<span class="tooltip"><p>Creates an <a href="LQSession.html">LQSession</a> object given an existing access token that is stored in
+some sort of permanent storage on the phone or an external API.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestSessionWithUsername:password:completion:">+&nbsp;requestSessionWithUsername:password:completion:</a></code>
+		<span class="tooltip"><p>Log in to an existing Geoloqi account given a username and password.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createAnonymousUserAccountWithUserInfo:completion:">+&nbsp;createAnonymousUserAccountWithUserInfo:completion:</a></code>
+		<span class="tooltip"><p>Create a new anonymous user account. Geoloqi will have no identifying
+information for the user other than the properties you pass in the extraData.
+This will actually create a new user on the Geoloqi API.
+The SDK stores the session token locally so the account can be restored when
+the app re-launches.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createAccountWithUsername:password:extra:completion:">+&nbsp;createAccountWithUsername:password:extra:completion:</a></code>
+		<span class="tooltip"><p>Create a new Geoloqi account with the requested username and password.
+The Geoloqi API will return an error if there is already a user with the
+requested username.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/httpRequestQueue">&nbsp;&nbsp;httpRequestQueue</a></code>
+		<span class="tooltip"><p>By default, a session creates an NSOperationQueue to talk to the server. If you want your own queue, you can do that here.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestWithMethod:path:payload:">&ndash;&nbsp;requestWithMethod:path:payload:</a></code>
+		<span class="tooltip"><p>As a convenience, you can use these methods to run an arbitrary API request with the current session.
+Payload should be a JSON-compatible object of the type that the API is expecting (NSDictionary or NSArray)
+OAuth 2.0 authorization is implemented automatically.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/runAPIRequest:completion:">&ndash;&nbsp;runAPIRequest:completion:</a></code>
+		<span class="tooltip"><p><a href="#//api/name/runAPIRequest:completion:">runAPIRequest:completion:</a> will attempt to load the resource specified by the request parameter from the geoloqi server.
+If there is an error with HTTP loading or JSON deserialization, it will be return in the error paramater and responseDictionary will be nil,
+while the response paramater may still contain the response recieved as applicable.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelRequest:">&ndash;&nbsp;cancelRequest:</a></code>
+		<span class="tooltip"><p>Any of methods on <a href="LQSession.html">LQSession</a> that return &lsquo;id&rsquo; can be passed to this method to indicate the request is no longer necessary.
+It is not guaranteed that the request will not go through, however. The server may already have processed
+the request, so be prepared to respond accordingly.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="LQSession_PushTracking Methods" name="task_LQSession_PushTracking Methods"></a>
+						<h3 class="subsubtitle task-title">LQSession_PushTracking Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/associatePushDeviceToken:">&ndash;&nbsp;associatePushDeviceToken:</a></code>
+		<span class="tooltip"><p>Associate the given push device token with the session&rsquo;s account.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="LQSession_Settings Methods" name="task_LQSession_Settings Methods"></a>
+						<h3 class="subsubtitle task-title">LQSession_Settings Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pushDisabled">+&nbsp;pushDisabled</a></code>
+		<span class="tooltip"><p>If you don&rsquo;t want to use Geoloqi&rsquo;s push notification implementation, call +setPushDisabled:YES before you create an <a href="LQSession.html">LQSession</a>.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="LQSession_UniqueDeviceIdentifier Methods" name="task_LQSession_UniqueDeviceIdentifier Methods"></a>
+						<h3 class="subsubtitle task-title">LQSession_UniqueDeviceIdentifier Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deviceIdentifier">+&nbsp;deviceIdentifier</a></code>
+		<span class="tooltip"><p>A device identifier will be generated and stored to NSUserDefaults unless you call <a href="#//api/name/setDeviceIdentifier:">setDeviceIdentifier:</a> with a different value</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/httpRequestQueue" title="httpRequestQueue"></a>
+	<h3 class="subsubtitle method-title">httpRequestQueue</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>By default, a session creates an NSOperationQueue to talk to the server. If you want your own queue, you can do that here.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSOperationQueue *httpRequestQueue</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>By default, a session creates an NSOperationQueue to talk to the server. If you want your own queue, you can do that here.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/application:didFinishLaunchingWithOptions:" title="application:didFinishLaunchingWithOptions:"></a>
+	<h3 class="subsubtitle method-title">application:didFinishLaunchingWithOptions:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pass off the applicationDidFinishLaunching call to the SDK</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)application:(UIApplication *)<em>application</em> didFinishLaunchingWithOptions:(NSDictionary *)<em>launchOptions</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Pass off the applicationDidFinishLaunching call to the SDK</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createAccountWithUsername:password:extra:completion:" title="createAccountWithUsername:password:extra:completion:"></a>
+	<h3 class="subsubtitle method-title">createAccountWithUsername:password:extra:completion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a new Geoloqi account with the requested username and password.
+The Geoloqi API will return an error if there is already a user with the
+requested username.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (id)createAccountWithUsername:(NSString *)<em>username</em> password:(NSString *)<em>password</em> extra:(NSDictionary *)<em>extraData</em> completion:(void ( ^ ) ( LQSession *session , NSError *error ))<em>block</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create a new Geoloqi account with the requested username and password.
+The Geoloqi API will return an error if there is already a user with the
+requested username.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createAnonymousUserAccountWithUserInfo:completion:" title="createAnonymousUserAccountWithUserInfo:completion:"></a>
+	<h3 class="subsubtitle method-title">createAnonymousUserAccountWithUserInfo:completion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a new anonymous user account. Geoloqi will have no identifying
+information for the user other than the properties you pass in the extraData.
+This will actually create a new user on the Geoloqi API.
+The SDK stores the session token locally so the account can be restored when
+the app re-launches.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (id)createAnonymousUserAccountWithUserInfo:(NSDictionary *)<em>extraData</em> completion:(void ( ^ ) ( LQSession *session , NSError *error ))<em>block</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Create a new anonymous user account. Geoloqi will have no identifying
+information for the user other than the properties you pass in the extraData.
+This will actually create a new user on the Geoloqi API.
+The SDK stores the session token locally so the account can be restored when
+the app re-launches.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deviceIdentifier" title="deviceIdentifier"></a>
+	<h3 class="subsubtitle method-title">deviceIdentifier</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A device identifier will be generated and stored to NSUserDefaults unless you call <a href="#//api/name/setDeviceIdentifier:">setDeviceIdentifier:</a> with a different value</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (NSData *)deviceIdentifier</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A device identifier will be generated and stored to NSUserDefaults unless you call <a href="#//api/name/setDeviceIdentifier:">setDeviceIdentifier:</a> with a different value</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/handlePush:" title="handlePush:"></a>
+	<h3 class="subsubtitle method-title">handlePush:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If a push notification is received when your app is in the foreground, you can call this method
+from the app delegate and the SDK will handle everything for you</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)handlePush:(NSDictionary *)<em>userInfo</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If a push notification is received when your app is in the foreground, you can call this method
+from the app delegate and the SDK will handle everything for you</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pushDisabled" title="pushDisabled"></a>
+	<h3 class="subsubtitle method-title">pushDisabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If you don&rsquo;t want to use Geoloqi&rsquo;s push notification implementation, call +setPushDisabled:YES before you create an <a href="LQSession.html">LQSession</a>.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (BOOL)pushDisabled</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If you don&rsquo;t want to use Geoloqi&rsquo;s push notification implementation, call +setPushDisabled:YES before you create an <a href="LQSession.html">LQSession</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/registerDeviceToken:" title="registerDeviceToken:"></a>
+	<h3 class="subsubtitle method-title">registerDeviceToken:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pass off the didRegisterForRemoteNotifications call to the SDK</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)registerDeviceToken:(NSData *)<em>deviceToken</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Pass off the didRegisterForRemoteNotifications call to the SDK</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/registerForPushNotificationsWithCallback:" title="registerForPushNotificationsWithCallback:"></a>
+	<h3 class="subsubtitle method-title">registerForPushNotificationsWithCallback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Call this to register for push notifications</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)registerForPushNotificationsWithCallback:(void ( ^ ) ( NSData *deviceToken , NSError *error ))<em>block</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Call this to register for push notifications</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestSessionWithUsername:password:completion:" title="requestSessionWithUsername:password:completion:"></a>
+	<h3 class="subsubtitle method-title">requestSessionWithUsername:password:completion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Log in to an existing Geoloqi account given a username and password.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (id)requestSessionWithUsername:(NSString *)<em>username</em> password:(NSString *)<em>password</em> completion:(void ( ^ ) ( LQSession *session , NSError *error ))<em>block</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Log in to an existing Geoloqi account given a username and password.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sessionWithAccessToken:" title="sessionWithAccessToken:"></a>
+	<h3 class="subsubtitle method-title">sessionWithAccessToken:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates an <a href="LQSession.html">LQSession</a> object given an existing access token that is stored in
+some sort of permanent storage on the phone or an external API.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (LQSession *)sessionWithAccessToken:(NSString *)<em>inAccessToken</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Creates an <a href="LQSession.html">LQSession</a> object given an existing access token that is stored in
+some sort of permanent storage on the phone or an external API.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setAPIKey:secret:" title="setAPIKey:secret:"></a>
+	<h3 class="subsubtitle method-title">setAPIKey:secret:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Call this method first in your application delegate to set up Geoloqi api.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)setAPIKey:(NSString *)<em>APIKey</em> secret:(NSString *)<em>APISecret</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Call this method first in your application delegate to set up Geoloqi api.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setSavedSession:" title="setSavedSession:"></a>
+	<h3 class="subsubtitle method-title">setSavedSession:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p><a href="LQSession.html">LQSession</a> can persist a session for you in the keychain, or use the +sessionWithAccessToken below.
+This is the same session as <a href="../Classes/LQTracker.html#//api/name/sharedTracker">[LQTracker sharedTracker]</a>&rsquo;s session.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)setSavedSession:(LQSession *)<em>session</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p><a href="LQSession.html">LQSession</a> can persist a session for you in the keychain, or use the +sessionWithAccessToken below.
+This is the same session as <a href="../Classes/LQTracker.html#//api/name/sharedTracker">[LQTracker sharedTracker]</a>&rsquo;s session.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/associatePushDeviceToken:" title="associatePushDeviceToken:"></a>
+	<h3 class="subsubtitle method-title">associatePushDeviceToken:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Associate the given push device token with the session&rsquo;s account.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)associatePushDeviceToken:(NSData *)<em>deviceToken</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Associate the given push device token with the session&rsquo;s account.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession+Private.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/cancelRequest:" title="cancelRequest:"></a>
+	<h3 class="subsubtitle method-title">cancelRequest:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Any of methods on <a href="LQSession.html">LQSession</a> that return &lsquo;id&rsquo; can be passed to this method to indicate the request is no longer necessary.
+It is not guaranteed that the request will not go through, however. The server may already have processed
+the request, so be prepared to respond accordingly.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)cancelRequest:(id)<em>request</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Any of methods on <a href="LQSession.html">LQSession</a> that return &lsquo;id&rsquo; can be passed to this method to indicate the request is no longer necessary.
+It is not guaranteed that the request will not go through, however. The server may already have processed
+the request, so be prepared to respond accordingly.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/requestWithMethod:path:payload:" title="requestWithMethod:path:payload:"></a>
+	<h3 class="subsubtitle method-title">requestWithMethod:path:payload:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>As a convenience, you can use these methods to run an arbitrary API request with the current session.
+Payload should be a JSON-compatible object of the type that the API is expecting (NSDictionary or NSArray)
+OAuth 2.0 authorization is implemented automatically.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSMutableURLRequest *)requestWithMethod:(NSString *)<em>httpMethod</em> path:(NSString *)<em>requestPath</em> payload:(id)<em>object</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>As a convenience, you can use these methods to run an arbitrary API request with the current session.
+Payload should be a JSON-compatible object of the type that the API is expecting (NSDictionary or NSArray)
+OAuth 2.0 authorization is implemented automatically.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/runAPIRequest:completion:" title="runAPIRequest:completion:"></a>
+	<h3 class="subsubtitle method-title">runAPIRequest:completion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p><a href="#//api/name/runAPIRequest:completion:">runAPIRequest:completion:</a> will attempt to load the resource specified by the request parameter from the geoloqi server.
+If there is an error with HTTP loading or JSON deserialization, it will be return in the error paramater and responseDictionary will be nil,
+while the response paramater may still contain the response recieved as applicable.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)runAPIRequest:(NSURLRequest *)<em>inRequest</em> completion:(void ( ^ ) ( NSHTTPURLResponse *response , NSDictionary *responseDictionary , NSError *error ))<em>block</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p><a href="#//api/name/runAPIRequest:completion:">runAPIRequest:completion:</a> will attempt to load the resource specified by the request parameter from the geoloqi server.
+If there is an error with HTTP loading or JSON deserialization, it will be return in the error paramater and responseDictionary will be nil,
+while the response paramater may still contain the response recieved as applicable.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">LQSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Geoloqi Inc.. All rights reserved. (Last updated: 2012-03-21)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 752)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+		</script>
+	</body>
+</html>

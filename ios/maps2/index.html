@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Replacing MapKit with ArcGIS - Geoloqi Developers</title>
+    
+    
+
+    <meta name='description' content='examples of how to accomplish common MapKit functionality with ArcGIS SDK for iOS'>
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   ios maps2">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div class="container">
+  <h1>Replacing MapKit with ArcGIS</h1>  
+  <div id="main" class="new-docs">
+    <section class="well">
+      <p><a href="/ios/maps">Previous Page</a> | <a href="/ios/maps3">Next Page</a></p>
+
+<h2 class='section-header' data-section-name='tracking-the-user' ><a id='tracking-the-user' class='section-link'></a>
+Tracking the user</h2>
+
+<p>One of the most useful features of <code>MKMapView</code> is
+<code>setUserTrackingMode:(MKUserTrackingMode)</code>. It is a very easy way to trigger
+zooming to and following the user&#39;s vicinity:</p>
+<pre><code class='objectivec'>[self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+</code></pre>
+<p>This results in the map displaying a blue dot where the user is at and the
+map pans to follow the dot as the user moves through the world:</p>
+
+<p><img src="/img/ios/maps/mapkit_replacement_7.png" alt=""></p>
+
+<p>ArcGIS SDK for iOS includes a similarly easy functionality through the <code>AGSGPS</code>
+class, available via the <code>gps</code> property of <code>AGSMapView</code> objects. It also gives
+the developer flexibility by being able to set both &quot;auto-panning&quot; and &quot;wander
+extent&quot; properties. Auto-panning is to set if the map should pan to follow the
+user dot or not; wander extent is a float between 0 and 1 to set a threshold
+to being auto-panning at. It is calculated as a percent of the visible area.</p>
+<pre><code class='objectivec'>self.mapView.autoPanMode = AGSGPSAutoPanModeDefault;
+self.mapView.wanderExtentFactor = 0.25;
+[self.mapView.gps start];
+</code></pre>
+<p><img src="/img/ios/maps/mapkit_replacement_8.png" alt=""></p>
+
+<p>NOTE: you may notice that the extent of the ArcGIS Map is much smaller than
+the MapKit map. Currently, this is unsettable when using the convenience
+method <code>AGSGPS#start</code>. As noted on the <a href="http://resources.arcgis.com/en/help/runtime-ios-sdk/apiref/index.htm">ArcGIS resources site</a>,
+<code>AGSGPS</code> &quot;provides a simple façade over the CoreLocation framework and greatly
+simplifies working with location services.&quot; However, you <strong>can</strong> implement
+auto-panning on your own...</p>
+
+<h3 class='section-header' data-section-name='handrolling-autopanning' ><a id='handrolling-autopanning' class='section-link'></a>
+Handrolling Autopanning</h3>
+
+<p>If the zoom level that <code>AGSGPS#start</code> uses is a bit too close for you, it is
+simple enough to implement your own auto-panning feature:</p>
+<pre><code class='objectivec'>- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *location = [locations objectAtIndex:(locations.count - 1)];
+    CLLocationCoordinate2D latlng = location.coordinate;
+
+    float extentDelta = 0.01;
+    AGSEnvelope *envelope = [AGSEnvelope envelopeWithXmin:(latlng.longitude - extentDelta)
+                                                     ymin:(latlng.latitude -  extentDelta)
+                                                     xmax:(latlng.longitude + extentDelta)
+                                                     ymax:(latlng.latitude +  extentDelta)
+                                         spatialReference:[AGSSpatialReference wgs84SpatialReference]];
+    [self.mapView zoomToEnvelope:envelope animated:YES];
+}
+</code></pre>
+<h2 class='section-header' data-section-name='handling-user-pan-and-zoom' ><a id='handling-user-pan-and-zoom' class='section-link'></a>
+Handling User Pan and Zoom</h2>
+
+<p>Apple provides a lot of helpful delegate methods in the <code>MKMapKitDelegate</code>
+protocol. Two of these are:</p>
+
+<ul>
+<li><code>– mapView:regionWillChangeAnimated:</code></li>
+<li><code>– mapView:regionDidChangeAnimated:</code></li>
+</ul>
+
+<p>Implementing these delegate methods allows you to respond to common events such
+as the user panning around or zooming in or out. This is very simple in MapKit:</p>
+<pre><code class='objectivec'>- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+    NSLog(@&quot;started panning or zooming&quot;);
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    NSLog(@&quot;stopped panning or zooming&quot;);
+}
+</code></pre>
+<p>The same thing can be done using <a href="https://developer.apple.com/library/mac/#documentation/cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html">Key-Value Observation</a> with ArcGIS SDK for iOS.</p>
+
+<p>To acheive the same result as handling <code>regionWillChangeAnimated</code>, the value of
+the <code>AGSMapView</code> object that you want to observe is keyed at <code>visibleArea</code>. For
+<code>regionDidChangeAnimated</code>, you want to listen for two <code>NSNotifications</code>:</p>
+
+<ul>
+<li>MapDidEndPanning</li>
+<li>MapDidEndZooming</li>
+</ul>
+
+<p>Here is some example code for this scenario:</p>
+<pre><code class='objectivec'>&#x2F;&#x2F; key to watch on the AGSMapView object
+static NSString *const LQRegionWillChangeObserverKeyPath = @&quot;self.mapView.visibleArea&quot;;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    [self addObserver:self forKeyPath:LQRegionWillChangeObserverKeyPath options:NSKeyValueObservingOptionNew context:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mimicRegionDidChange) name:@&quot;MapDidEndPanning&quot; object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mimicRegionDidChange) name:@&quot;MapDidEndZooming&quot; object:nil];
+
+}
+
+- (void)dealloc {
+    [self removeObserver:self forKeyPath:LQRegionWillChangeObserverKeyPath];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:LQRegionWillChangeObserverKeyPath]) {
+        [self mimicRegionWillChange];
+    }
+}
+</code></pre>
+<p><a href="/ios/maps">Previous Page</a> | <a href="/ios/maps3">Next Page</a></p>
+
+    </section>  
+  </div>
+  <aside id="sidebar">
+    <div class="table-of-contents">
+      <nav>
+        <h3>Table of Contents</h3>
+        <ol>
+              <li><a href="#tracking-the-user">
+Tracking the user</a></li>
+              <li><a href="#handling-user-pan-and-zoom">
+Handling User Pan and Zoom</a></li>
+        </ol>
+
+        <hr>
+        
+        <h4>iOS SDK</h4>
+<ul>
+  <li><a href="/ios/getting-started">Getting Started</a></li>
+  <li><a href="/ios/tracking-profiles">Tracking Profiles</a></li>
+  <li><a href="/ios/getting-started#handling-user-authentication">Authentication</a> </li>
+  <li><a href="/ios/push-notifications">Configuring Push Notifications</a></li>
+  <li><a href="/ios/maps">Replacing MapKit With ArcGIS Maps</a></li>
+  <li><a href="/ios/docs/Classes/LQSession.html">SDK Documentation</a></li>
+</ul>
+
+<hr>
+
+<h4>Geoloqi REST API</h4>
+<ul>
+  <li><a href="/api">List of API Methods</a></li>
+  <li><a href="/api/authentication">Authentication</a></li>
+  <li><a href="/api/trigger/create">Creating Triggers</a></li>
+</ul>
+
+
+      </nav>
+    </div>
+  </aside>
+</div>
+
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>
