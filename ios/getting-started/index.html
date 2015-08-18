@@ -139,11 +139,11 @@ Set your Application API Key</h2>
 
 <p>The Sample iPhone app project will get you started quickly using the SDK. When you open the XCode project, all you need to do is fill in your Application API Key in LQConfig.h, which you can <a href="/get-an-api-key">get from our developer site</a>. <strong>For security reasons, you should leave LQ_APISecret as an empty string.</strong></p>
 
-<p><a href="https://developer-site-content.geoloqi.com/wiki/images/thumb/0/06/TrackerSample_set_your_api_key_and_secret.png/670px-TrackerSample_set_your_api_key_and_secret.png"><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/0/06/TrackerSample_set_your_api_key_and_secret.png/670px-TrackerSample_set_your_api_key_and_secret.png" alt=""></a></p>
+<p><a href="http://developers.geoloqi.com/wiki/images/thumb/0/06/TrackerSample_set_your_api_key_and_secret.png/670px-TrackerSample_set_your_api_key_and_secret.png"><img src="http://developers.geoloqi.com/wiki/images/thumb/0/06/TrackerSample_set_your_api_key_and_secret.png/670px-TrackerSample_set_your_api_key_and_secret.png" alt=""></a></p>
 
 <p>After you build the project, you should see the sample app in the simulator.</p>
 
-<p><a href="https://developer-site-content.geoloqi.com/wiki/images/thumb/1/1f/TrackerSample_iPhone_App.png/280px-TrackerSample_iPhone_App.png"><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/1/1f/TrackerSample_iPhone_App.png/280px-TrackerSample_iPhone_App.png" alt=""></a></p>
+<p><a href="http://developers.geoloqi.com/wiki/images/thumb/1/1f/TrackerSample_iPhone_App.png/280px-TrackerSample_iPhone_App.png"><img src="http://developers.geoloqi.com/wiki/images/thumb/1/1f/TrackerSample_iPhone_App.png/280px-TrackerSample_iPhone_App.png" alt=""></a></p>
 
 <p>You can choose the &quot;adaptive&quot; mode to start tracking in background mode which will conserve as much battery power as possible.</p>
 
@@ -163,15 +163,15 @@ Add the library to your project</h2>
 
 <p>Copy the GeoloqiSDK folder, including libGeoloqi-Debug.a, libGeoloqi-Release.a, and the *.h files, to your project&#39;s folder. You can do this outside of XCode, since you will be linking it to XCode in the next step. Your project folder should look something like the following.</p>
 
-<p><a href="https://developer-site-content.geoloqi.com/wiki/images/4/45/XCode_Project_Folder.png"><img src="https://developer-site-content.geoloqi.com/wiki/images/4/45/XCode_Project_Folder.png" alt=""></a></p>
+<p><a href="http://developers.geoloqi.com/wiki/images/4/45/XCode_Project_Folder.png"><img src="http://developers.geoloqi.com/wiki/images/4/45/XCode_Project_Folder.png" alt=""></a></p>
 
 <p>Add a linker flag to link your project with the libraries.</p>
 
-<p><a href="https://developer-site-content.geoloqi.com/wiki/images/thumb/8/84/Link_with_the_Geoloqi_Library.png/670px-Link_with_the_Geoloqi_Library.png"><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/8/84/Link_with_the_Geoloqi_Library.png/670px-Link_with_the_Geoloqi_Library.png" alt=""></a></p>
+<p><a href="http://developers.geoloqi.com/wiki/images/thumb/8/84/Link_with_the_Geoloqi_Library.png/670px-Link_with_the_Geoloqi_Library.png"><img src="http://developers.geoloqi.com/wiki/images/thumb/8/84/Link_with_the_Geoloqi_Library.png/670px-Link_with_the_Geoloqi_Library.png" alt=""></a></p>
 
 <p>Add the GeoloqiSDK folder to your library and header search paths. You should enter <code>&quot;$(SRCROOT)/GeoloqiSDK&quot;</code> in the field, and it will automatically expand to the full path like in the screenshot.</p>
 
-<p><a href="https://developer-site-content.geoloqi.com/wiki/images/9/92/Xcode_Library_Search_Paths.png"><img src="https://developer-site-content.geoloqi.com/wiki/images/9/92/Xcode_Library_Search_Paths.png" alt=""></a></p>
+<p><a href="http://developers.geoloqi.com/wiki/images/9/92/Xcode_Library_Search_Paths.png"><img src="http://developers.geoloqi.com/wiki/images/9/92/Xcode_Library_Search_Paths.png" alt=""></a></p>
 
 <h2 class='section-header' data-section-name='add-the-required-frameworks-to-your-project.' ><a id='add-the-required-frameworks-to-your-project.' class='section-link'></a>
 Add the required frameworks to your project.</h2>
@@ -181,7 +181,7 @@ Add the required frameworks to your project.</h2>
 <li>libsqlite3.dylib</li>
 </ul>
 
-<p><a href="https://developer-site-content.geoloqi.com/wiki/images/thumb/9/98/Add_required_frameworks.png/670px-Add_required_frameworks.png"><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/9/98/Add_required_frameworks.png/670px-Add_required_frameworks.png" alt=""></a></p>
+<p><a href="http://developers.geoloqi.com/wiki/images/thumb/9/98/Add_required_frameworks.png/670px-Add_required_frameworks.png"><img src="http://developers.geoloqi.com/wiki/images/thumb/9/98/Add_required_frameworks.png/670px-Add_required_frameworks.png" alt=""></a></p>
 
 <p>The SDK relies on JSONKit, since the iPhone&#39;s native JSON was only added in iOS 5, so you&#39;ll also need to add it to your project. If you are not already using JSONKit, you can simply drag the JSONKit folder from the sample project into your XCode project. It should just be the two <code>JSONKit.h</code> and <code>JSONKit.m</code> files.</p>
 

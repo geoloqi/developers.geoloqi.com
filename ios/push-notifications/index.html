@@ -126,47 +126,47 @@
     <section class="well">
       <p>First, you need to create a new unique App ID for your app. It must be fully qualified, it can&#39;t be a wildcard ID that you&#39;ve previously used.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/7/7b/Create_a_new_App_ID_for_APNS.png/640px-Create_a_new_App_ID_for_APNS.png" alt="Create new app for APNS"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/7/7b/Create_a_new_App_ID_for_APNS.png/640px-Create_a_new_App_ID_for_APNS.png" alt="Create new app for APNS"></p>
 
 <p>After creating the App ID, click the &quot;Configure&quot; button to begin the process of setting up a certificate. Check the &quot;Enable for Apple Push Notification Service&quot; checkbox and click &quot;Configure&quot; under development.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/f/f9/Configure-App-ID-for-APNS.png/640px-Configure-App-ID-for-APNS.png" alt="Configure-App-ID-for-APNS"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/f/f9/Configure-App-ID-for-APNS.png/640px-Configure-App-ID-for-APNS.png" alt="Configure-App-ID-for-APNS"></p>
 
 <p>The first thing you&#39;ll need to do is generate a certificate signing request.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/e/e1/Generate-Certificate-Signing-Request.png/440px-Generate-Certificate-Signing-Request.png" alt="Generate-Certificate-Signing-Request"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/e/e1/Generate-Certificate-Signing-Request.png/440px-Generate-Certificate-Signing-Request.png" alt="Generate-Certificate-Signing-Request"></p>
 
 <p>Open up Keychain Access and click the &quot;Request a Certificate from a Certificate Authority&quot; option under the main menu.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/1/1a/Request-a-Certificate-From-a-Certificate-Authority.png/640px-Request-a-Certificate-From-a-Certificate-Authority.png" alt="Request-a-Certificate-From-a-Certificate-Authority"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/1/1a/Request-a-Certificate-From-a-Certificate-Authority.png/640px-Request-a-Certificate-From-a-Certificate-Authority.png" alt="Request-a-Certificate-From-a-Certificate-Authority"></p>
 
 <p>After you go through that process, you will end up with a file on disk. Upload that to the Apple developer site.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/a/a2/Upload-Certificate-Signing-Request.png/440px-Upload-Certificate-Signing-Request.png" alt="Upload-Certificate-Signing-Request"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/a/a2/Upload-Certificate-Signing-Request.png/440px-Upload-Certificate-Signing-Request.png" alt="Upload-Certificate-Signing-Request"></p>
 
 <p>You will see the site generating a certificate, and it will be done in a few seconds.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/d/d1/Generating-your-Apple-Push-Notification-Certificate.png/440px-Generating-your-Apple-Push-Notification-Certificate.png" alt="Generating-your-Apple-Push-Notification-Certificate"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/d/d1/Generating-your-Apple-Push-Notification-Certificate.png/440px-Generating-your-Apple-Push-Notification-Certificate.png" alt="Generating-your-Apple-Push-Notification-Certificate"></p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/2/29/Your-APNs-SSL-Certificate-has-been-generated.png/440px-Your-APNs-SSL-Certificate-has-been-generated.png" alt="Your-APNs-SSL-Certificate-has-been-generated"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/2/29/Your-APNs-SSL-Certificate-has-been-generated.png/440px-Your-APNs-SSL-Certificate-has-been-generated.png" alt="Your-APNs-SSL-Certificate-has-been-generated"></p>
 
 <p>Download the generated certificate and open it, and it will add it to your keychain.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/a/ab/Download-and-install-your-apple-push-notification-certificate.png/440px-Download-and-install-your-apple-push-notification-certificate.png" alt="Download-and-install-your-apple-push-notification-certificate"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/a/ab/Download-and-install-your-apple-push-notification-certificate.png/440px-Download-and-install-your-apple-push-notification-certificate.png" alt="Download-and-install-your-apple-push-notification-certificate"></p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/thumb/4/43/New-Push-Certificate-in-the-keychain.png/640px-New-Push-Certificate-in-the-keychain.png" alt="New-Push-Certificate-in-the-keychain"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/thumb/4/43/New-Push-Certificate-in-the-keychain.png/640px-New-Push-Certificate-in-the-keychain.png" alt="New-Push-Certificate-in-the-keychain"></p>
 
 <p>From the Keychain Access, right click on the certificate and click &quot;Export&quot;. </p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/c/c9/Export-Push-Certificate-from-the-Keychain.png" alt="Export-Push-Certificate-from-the-Keychain"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/c/c9/Export-Push-Certificate-from-the-Keychain.png" alt="Export-Push-Certificate-from-the-Keychain"></p>
 
 <p>Export the certificate as a .p12 file without a password. This is the file you will upload to the Geoloqi Developer website.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/2/25/Export-.p12-Certificate.png" alt="Export-.p12-Certificate"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/2/25/Export-.p12-Certificate.png" alt="Export-.p12-Certificate"></p>
 
 <p>On the Geoloqi developer website, upload the .p12 file to the appropriate section of your application&#39;s page.</p>
 
-<p><img src="https://developer-site-content.geoloqi.com/wiki/images/f/fe/Upload-.p12-Certificate.png" alt="Upload-.p12-Certificate"></p>
+<p><img src="http://developers.geoloqi.com/wiki/images/f/fe/Upload-.p12-Certificate.png" alt="Upload-.p12-Certificate"></p>
 
     </section>  
   </div>
