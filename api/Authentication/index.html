@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 7 ]><html class="no-js ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+      
+      <title>Authentication - Geoloqi Developers</title>
+    
+    
+
+    
+
+    
+
+    <script src="/js/libs/modernizr.js"></script>
+    
+    <link rel='stylesheet' href='/assets/main.046639.css' />
+    
+       
+  
+    
+    
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/geoloqi-common/js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+
+      <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-25750303-2']);
+    _gaq.push(['_trackPageview']);
+
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+    <link rel="pingback" href="http://pingback.me/geoloqi/xmlrpc" />
+  </head>
+	
+	<body class="with-news   api authentication">
+		<div id="wrapper">
+      <div id="page" class="with-news">
+  		
+          <div id="news-banner" class="hide-tablet-portrait">
+  <p>Geoloqi is now part of Esri! <a href="https://geoloqi.com/blog/2012/10/geoloqi-is-now-part-of-esri/">Learn More</a> | <a href="https://geoloqi.com/esri-faq">FAQ</a></p>
+</div>
+
+  				<header id="header">
+
+		<a href="/" id="logo">Developers</a>
+<nav id="site-selector">
+  <ul>
+    <li class="dropdown">
+      <a href="/">Developers</a>
+      <div class="dropdown-menu">
+        <ul>
+          <li>
+            <a href="https://geoloqi.com">
+              <h6>Geoloqi</h6>
+              <small>Learn more about Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <h6>Developers</h6>
+              <small>Build location-aware applications with Geoloqi</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://geoloqi.com/apps">
+              <h6>Apps</h6>
+              <small>See what we have built with our native SDKs</small>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+  	<nav id="main-nav">
+			<ul>
+				<li ><a href="/features">Features</a></li>
+				<li ><a href="/pricing">Pricing</a></li>
+				<li ><a href="/support">Support</a></li>
+				<li ><a href="/sample-code">Sample Code</a></li>
+				<li class="dropdown">
+		      <a href="#" class="dropdown-toggle">Docs</a>
+		      <div class="dropdown-menu">
+			      <ul>
+	    				<li><a href="/ios">iOS SDK</a></li> 
+	    				<li><a href="/android">Android SDK</a></li>
+	    				<li><a href="/titanium">Titanium Module</a></li>
+			        <li><a href="/api">Geoloqi API</a></li>
+			        <li><a href="/client-libraries">Client Libraries</a></li>
+			        <li><a href="/api/create_a_layer">Layers</a></li>
+			      </ul>
+		      </div>
+		     </li>
+			</ul>
+		</nav>
+
+		    <nav class="secondary">
+      <ul id="user-dropdown-menu">
+        <li><a href="/session/new">Log In</a></li>
+      </ul>
+    </nav>
+</nav>
+
+</header>
+
+          
+            <div class="flash-container container">
+              
+            </div>
+
+				<div class="container">
+  <h1>Authentication</h1>  
+  <div id="main" class="new-docs">
+    <section class="well">
+      <h2 class='section-header' data-section-name='authentication-mechanisms' ><a id='authentication-mechanisms' class='section-link'></a>
+Authentication Mechanisms</h2>
+
+<p>The Geoloqi API provides three authentication mechanisms depending on what kind of API request you are making.</p>
+
+<ul>
+<li><strong>Application Access Tokens</strong> are used when making requests for your application, such as setting up layers and triggers for an application, as well as managing users and <a href="/api/layers-places-and-triggers">subscribing to layers</a> or groups.</li>
+<li><strong>User Access Tokens</strong> are used by apps when a user is logged in and making API requests. </li>
+<li><strong>API Key and Secret</strong> are used when applications need to create or delete users.</li>
+</ul>
+
+<h3 class='section-header' data-section-name='application-access-tokens' ><a id='application-access-tokens' class='section-link'></a>
+Application Access Tokens</h3>
+
+<p>To make requests on behalf of an application, you need an Application Access Token.</p>
+
+<p>You can find an Application Access Token for your apps on your <a href="/account/applications">application list</a>.</p>
+
+<p>You can also programmatically create an Application Access Token by exchanging the API key and secret for an access token. Make a POST request like the following:</p>
+<pre><code class='text'>https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;oauth&#x2F;token
+Post Body:
+grant_type=client_credentials&amp;client_id=YOUR_API_KEY
+  &amp;client_secret=YOUR_API_SECRET
+</code></pre>
+<p>You will get back an Application Access Token in the response.</p>
+
+<p>You can use this access token for all regular API methods, such as creating layers, and you can use it to subscribe users you&#39;ve created to those layers.</p>
+
+<h3 class='section-header' data-section-name='user-access-tokens' ><a id='user-access-tokens' class='section-link'></a>
+User Access Tokens</h3>
+
+<p>User access tokens are primarily used by mobile apps after a user has been created. The first time you create a user account, an access token is returned. If you wish to use the Geoloqi API to provide a &quot;login&quot; functionality for your app, you can use the API to get a new access token given a username (or email address) and password.</p>
+
+<h4>Username and Password</h4>
+
+<p>To get a User Access Token from a username and password, you can use one of the SDK methods (<code><a href="/ios/docs/Classes/LQSession.html#//api/name/requestSessionWithUsername:password:completion:">[LQSession requestSessionWithUsername:password:]</a></code> on iPhone), or you can make an API request directly. The API request would look like this:</p>
+<pre><code class='text'>https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;oauth&#x2F;token
+Post Body:
+grant_type=password&amp;client_id=YOUR_API_KEY&amp;username=USERNAME&amp;password=PASSWORD
+</code></pre>
+<h3 class='section-header' data-section-name='api-key-and-secret' ><a id='api-key-and-secret' class='section-link'></a>
+API Key and Secret</h3>
+
+<p>The only time you need to use the API key and secret directly is when creating and deleting users, and using the authentication methods. In other words, only the <code>user/*</code> and <code>oauth/token</code> methods require API key and secret authentication.</p>
+
+<p>You can get an API key and secret for your applications by visiting the <a href="/account/applications">application list</a> page.</p>
+
+<h2 class='section-header' data-section-name='creating-user-accounts' ><a id='creating-user-accounts' class='section-link'></a>
+Creating User Accounts</h2>
+
+<p>There are three primary ways to create user accounts. Which you use is up to you and will depend on the kind of application you are making.</p>
+
+<ul>
+<li><strong>Anonymous Users</strong> have no login information, and require no identifier to be created. This method is typically used if you are making an application where you do not ask your users to log in, and you want the app to &quot;just work&quot; when they first download it.</li>
+<li><strong>Named Users</strong> have an email address or username as well as a password. Using this method, the Geoloqi API can be the account database for your application.</li>
+<li><strong>Unique Key</strong>: You can use a unique key to associate users in the Geoloqi API with your own user database.</li>
+</ul>
+
+<h3 class='section-header' data-section-name='anonymous-users' ><a id='anonymous-users' class='section-link'></a>
+Anonymous Users</h3>
+
+<p>The mobile SDKs provide methods you can use to quickly create anonymous users. The methods also handle storing the tokens returned to make the experience seamless when the user opens the app a second time.</p>
+
+<ul>
+<li>iPhone: <a href="https://developers.geoloqi.com/ios/docs/Classes/LQSession.html#//api/name/createAnonymousUserAccountWithUserInfo:completion:">createAnonymousUserAccountWithUserInfo:</a></li>
+<li>Android: <a href="https://developers.geoloqi.com/android/docs/com/geoloqi/android/sdk/LQSession.html#createAnonymousUserAccount%28com.geoloqi.android.sdk.LQSession.OnRunApiRequestListener,%20android.os.Handler,%20android.content.Context%29">createAnonymousUserAccount()</a></li>
+<li>Titanium: <a href="/titanium/getting-started#method-reference">createAnonymousUser()</a></li>
+</ul>
+
+<p>When using any of these methods, the SDKs handle creating the account and registering a device with that account.</p>
+
+<p>If you need to create an anonymous user account outside the SDKs, you can do so with the following POST request:</p>
+<pre><code class='text'>https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;user&#x2F;create_anon
+Post Body:
+client_id=YOUR_API_KEY
+</code></pre>
+<p>You can optionally store other properties in the user record if you need to store preferences or other things. This is done using the &quot;extra&quot; parameter as shown in the following request. Also see <a href="/api/deduplication-and-extra-parameters">De-Duplication and Extra Parameters</a> for more information.</p>
+<pre><code class='text'>https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;user&#x2F;create_anon
+Post Body:
+client_id=YOUR_API_KEY&amp;extra[key]=value
+</code></pre>
+<p>You can also read the full API documentation for the <a href="/api/user/create_anon">user/create_anon</a> method.</p>
+
+<h3 class='section-header' data-section-name='named-users' ><a id='named-users' class='section-link'></a>
+Named Users</h3>
+
+<p>If you would like the Geoloqi API to handle user logins for your application, you can use this method to create accounts in your app. Using this method is similar to creating anonymous users, except you provide an email address or username, and a password when creating the account. The SDKs have helper methods for this, or you can use the API directly.</p>
+
+<ul>
+<li>iPhone: <a href="https://developers.geoloqi.com/ios/docs/Classes/LQSession.html#//api/name/createAccountWithUsername:password:extra:completion:">createAccountWithUsername:password:</a></li>
+<li>Android: <a href="https://developers.geoloqi.com/android/docs/com/geoloqi/android/sdk/LQSession.html#createUserAccount%28java.lang.String,%20java.lang.String,%20com.geoloqi.android.sdk.LQSession.OnRunApiRequestListener,%20android.os.Handler,%20android.content.Context%29">createUserAccount()</a></li>
+<li>Titanium: <a href="/titanium/getting-started#method-reference">createUser()</a></li>
+</ul>
+
+<p>You can also create a user using the <a href="/api/user/create">user/create</a> API method directly.</p>
+<pre><code class='text'>https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;user&#x2F;create
+Post Body:
+client_id=YOUR_API_KEY&amp;username=USERNAME&amp;password=PASSWORD
+</code></pre>
+<p>You can optionally store other properties in the user record if you need to store preferences or other things. This is done using the &quot;extra&quot; parameter. See <a href="/api/deduplication-and-extra-parameters">De-Duplication and Extra Parameters</a> for more information.</p>
+
+<h3 class='section-header' data-section-name='unique-key' ><a id='unique-key' class='section-link'></a>
+Unique Key</h3>
+
+<p>The easiest way to link an existing user database with the Geoloqi API is to use the unique key on user accounts. You can specify a &quot;key&quot; when using the <a href="/api/user/create_anon">user/create_anon</a> method, and repeated calls with the same key will not create new accounts.</p>
+
+<p>If a user already exists with the given key, that user&#39;s access token will be returned in the same way it was when the user was first created.</p>
+
+<p>You can use this to easily tie your existing user database to Geoloqi accounts by using the primary key of your users as the &quot;key&quot; in the Geoloqi API. If you are building an SMS-based app, you could use the phone number as the key.</p>
+
+<p>Here is an example request and response:</p>
+<pre><code class='text'>https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;user&#x2F;create_anon
+Post Body:
+client_id=YOUR_API_KEY&amp;client_secret=YOUR_API_SECRET&amp;key=1234567890
+</code></pre>
+<p>Response:</p>
+<pre><code class='text'>{
+  &quot;display_name&quot;: &quot;Anonymous&quot;,
+  &quot;username&quot;: &quot;_VcHVV1jAMgAqspHFz&quot;,
+  &quot;user_id&quot;: &quot;PAE&quot;,
+  &quot;is_anonymous&quot;: 1,
+  &quot;key&quot;: &quot;1234567890&quot;,
+  &quot;access_token&quot;: &quot;56e-6d0916f445a2711d7e0eb61d1d5b47059c45be62&quot;,
+  &quot;extra&quot;: {
+  }
+}
+</code></pre>
+<p>Note that because this method can return an access token for an existing account, you <strong>must</strong> provide the API secret in addition to the API key. This means you can not use this from within an app or from the Javascript API, as it is not safe to include the API secret in distributed apps.</p>
+
+<p>If you didn&#39;t provide the API secret, you will get the following error:</p>
+<pre><code class='text'>{
+  &quot;error_code&quot;: 409,
+  &quot;error&quot;: &quot;duplicate_key&quot;,
+  &quot;error_description&quot;: &quot;A user already exists with this key.&quot;
+}
+</code></pre>
+<h2 class='section-header' data-section-name='using-a-user-access-token' ><a id='using-a-user-access-token' class='section-link'></a>
+Using a User Access Token</h2>
+
+<p>Once you have obtained a User Access Token, you will need to include it in every request made on behalf of that user. The SDKs and <a href="/client-libraries">client libraries</a> will handle this automatically, and the SDKs will handle storing and retrieving the access token when the application re-launches.</p>
+
+<p>If you are accessing the API directly, then you will need to include the access token in every request by adding an &quot;Authorization&quot; header as follows:</p>
+<pre><code class='text'>$ curl https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;account&#x2F;profile \
+  -H &quot;Authorization: OAuth 56f-e09938afd4c2a37908b1f69e7f75c449b16d689a&quot;
+</code></pre>
+<p>It is also possible to pass the access token in the query string, but this is not a recommended solution. You should only do this if absolutely necessary, such as when using the API from Javascript and can&#39;t add HTTP headers.</p>
+<pre><code class='text'>https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;account&#x2F;profile?access_token=56f-e09938afd4c2a37908b1f69e7f75c449b16d689a
+</code></pre>
+<h2 class='section-header' data-section-name='using-an-application-access-token' ><a id='using-an-application-access-token' class='section-link'></a>
+Using an Application Access Token</h2>
+
+<p>Once you have obtained an Application Access Token, you will need to include it in every request made to the API. The <a href="/client-libraries">client libraries</a> will handle this automatically. If you are accessing the API directly, you will need to include the access token in the &quot;Authorization&quot; header of every request:</p>
+<pre><code class='text'>$ curl https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;layer&#x2F;info&#x2F;XXX \
+  -H &quot;Authorization: OAuth 56f-e09938afd4c2a37908b1f69e7f75c449b16d689a&quot;
+</code></pre>
+<p>Some examples of things you can do with an Application Access Token:</p>
+
+<ul>
+<li>Create a public layer that your users will be subscribed to when they download your app</li>
+<li>Subscribe or un-subscribe users to your layers</li>
+<li>Retrieve a list of users at each place on a layer by using <a href="/api/layer/users/:id">layer/users/:id</a></li>
+</ul>
+
+<p>When you are manipulating user accounts as the application, you will always need to include the <code>user_id</code> in the request. For example, to subscribe user NNN to layer YYY, make a request like the following:</p>
+<pre><code class='text'>$ curl https:&#x2F;&#x2F;api.geoloqi.com&#x2F;1&#x2F;layer&#x2F;subscribe&#x2F;YYY \
+  -H &quot;Authorization: OAuth 56f-e09938afd4c2a37908b1f69e7f75c449b16d689a&quot; \
+  -d user_id=NNN
+</code></pre>
+<h2 class='section-header' data-section-name='how-the-geoloqi-sdks-manage-authentication' ><a id='how-the-geoloqi-sdks-manage-authentication' class='section-link'></a>
+How the Geoloqi SDKs Manage Authentication</h2>
+
+<p>The Geoloqi iOS and Android SDKs will handle most of the authentication process for you. Both provide methods to create users and log users in, and they store the access token on the device.</p>
+
+<p>When making API requests from the SDKs, the access token will automatically be included in the request, so you don&#39;t have to worry about it. </p>
+
+<p>Note that you should never include the API Secret in your app&#39;s source code, as it is possible for someone to reverse engineer and discover the secret. The API secret can be used to get access to your application account and the user data associated with all users, so this must be kept confidential.</p>
+
+    </section>  
+  </div>
+  <aside id="sidebar">
+    <div class="table-of-contents">
+      <nav>
+        <h3>Table of Contents</h3>
+        <ul>
+              <li><a href="#authentication-mechanisms">
+Authentication Mechanisms</a></li>
+              <li><a href="#creating-user-accounts">
+Creating User Accounts</a></li>
+              <li><a href="#using-a-user-access-token">
+Using a User Access Token</a></li>
+              <li><a href="#using-an-application-access-token">
+Using an Application Access Token</a></li>
+              <li><a href="#how-the-geoloqi-sdks-manage-authentication">
+How the Geoloqi SDKs Manage Authentication</a></li>
+        </ul>
+      </nav>
+    </div>
+    <hr>
+    <h3 style="padding-bottom: 10px"><a href="/api">API Overview</a></h3>
+    <h3 class='section-header' data-section-name='introduction' ><a id='introduction' class='section-link'></a>
+Introduction</h3>
+
+<ul>
+<li><a href="/api/authentication">Authentication</a></li>
+<li><a href="/api/deduplication-and-extra-parameters">De-Duplication and Extra Parameters</a></li>
+<li><a href="/api/time-and-dates">Time and Dates</a></li>
+<li><a href="/api/paging">Paging</a></li>
+<li><a href="/api/layers-places-and-triggers">Layers, Places and Triggers</a></li>
+<li><a href="/api/geocoding">Geocoding</a></li>
+<li><a href="/api/error-codes">Error Codes</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='triggers' ><a id='triggers' class='section-link'></a>
+Triggers</h3>
+
+<ul>
+<li><a href="/api/trigger/create">trigger/create</a></li>
+<li><a href="/api/trigger/delete">trigger/delete</a></li>
+<li><a href="/api/trigger/list">trigger/list</a></li>
+<li><a href="/api/trigger/history">trigger/history</a></li>
+<li><a href="/api/trigger/run/:id">trigger/run/:id</a></li>
+<li><a href="/api/Trigger_Callback">Trigger Callback</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='geonotes' ><a id='geonotes' class='section-link'></a>
+Geonotes</h3>
+
+<ul>
+<li><a href="/api/geonote/create">geonote/create</a></li>
+<li><a href="/api/geonote/list_set">geonote/list_set</a></li>
+<li><a href="/api/geonote/list_recent">geonote/list_recent</a></li>
+<li><a href="/api/geonote/info/:id">geonote/info/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='location' ><a id='location' class='section-link'></a>
+Location</h3>
+
+<ul>
+<li><a href="/api/location/last">location/last</a></li>
+<li><a href="/api/location/history">location/history</a></li>
+<li><a href="/api/location/update">location/update</a></li>
+<li><a href="/api/location/delete_batch/:id">location/delete_batch/:id</a></li>
+<li><a href="/api/location/tracking_profile">location/tracking_profile</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='places' ><a id='places' class='section-link'></a>
+Places</h3>
+
+<ul>
+<li><a href="/api/place/create">place/create</a></li>
+<li><a href="/api/place/update/:id">place/update/:id</a></li>
+<li><a href="/api/place/list">place/list</a></li>
+<li><a href="/api/place/nearby">place/nearby</a></li>
+<li><a href="/api/place/info/:id">place/info/:id</a></li>
+<li><a href="/api/place/delete/:id">place/delete/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='layers' ><a id='layers' class='section-link'></a>
+Layers</h3>
+
+<ul>
+<li><a href="/api/layer/create">layer/create</a></li>
+<li><a href="/api/layer/nearby">layer/nearby</a></li>
+<li><a href="/api/layer/list">layer/list</a></li>
+<li><a href="/api/layer/info/:id">layer/info/:id</a></li>
+<li><a href="/api/layer/update/:id">layer/update/:id</a></li>
+<li><a href="/api/layer/delete/:id">layer/delete/:id</a></li>
+<li><a href="/api/layer/subscribe/:id">layer/subscribe/:id</a></li>
+<li><a href="/api/layer/unsubscribe/:id">layer/unsubscribe/:id</a></li>
+<li><a href="/api/layer/subscription/:id">layer/subscription/:id</a></li>
+<li><a href="/api/layer/users/:id">layer/users/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='users' ><a id='users' class='section-link'></a>
+Users</h3>
+
+<ul>
+<li><a href="/api/user/create">user/create</a></li>
+<li><a href="/api/user/create_anon">user/create_anon</a></li>
+<li><a href="/api/user/list">user/list</a></li>
+<li><a href="/api/user/info/:id">user/info/:id</a></li>
+<li><a href="/api/user/update/:id">user/update/:id</a></li>
+<li><a href="/api/user/delete/:id">user/delete/:id</a></li>
+<li><a href="/api/user/secure_delete/:id">user/secure_delete/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='groups' ><a id='groups' class='section-link'></a>
+Groups</h3>
+
+<ul>
+<li><a href="/api/group/create">group/create</a></li>
+<li><a href="/api/group/update/:token">group/update/:token</a></li>
+<li><a href="/api/group/delete/:token">group/delete/:token</a></li>
+<li><a href="/api/group/join/:token">group/join/:token</a></li>
+<li><a href="/api/group/leave/:token">group/leave/:token</a></li>
+<li><a href="/api/group/message/:token">group/message/:token</a></li>
+<li><a href="/api/group/list">group/list</a></li>
+<li><a href="/api/group/info/:token">group/info/:token</a></li>
+<li><a href="/api/group/members/:token">group/members/:token</a></li>
+<li><a href="/api/group/subscriptions">group/subscriptions</a></li>
+<li><a href="/api/group/messages/:token">group/messages/:token</a></li>
+<li><a href="/api/group/locations/:token">group/locations/:token</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='real-time-streaming' ><a id='real-time-streaming' class='section-link'></a>
+Real-Time Streaming</h3>
+
+<ul>
+<li><a href="/api/Streaming">Using the Geoloqi Streaming Server</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='account-methods' ><a id='account-methods' class='section-link'></a>
+Account Methods</h3>
+
+<ul>
+<li><a href="/api/account/username">account/username</a></li>
+<li><a href="/api/account/check_username">account/check_username</a></li>
+<li><a href="/api/account/profile">account/profile</a></li>
+<li><a href="/api/account/privacy">account/privacy</a></li>
+<li><a href="/api/account/connections">account/connections</a></li>
+<li><a href="/api/account/set_apn_token">account/set_apn_token</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='messaging' ><a id='messaging' class='section-link'></a>
+Messaging</h3>
+
+<ul>
+<li><a href="/api/message/send">message/send</a></li>
+<li><a href="/api/message/broadcast">message/broadcast</a></li>
+<li><a href="/api/message/count_broadcast">message/count_broadcast</a></li>
+<li><a href="/api/message/device">message/device</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='batching' ><a id='batching' class='section-link'></a>
+Batching</h3>
+
+<ul>
+<li><a href="/api/batch/run">batch/run</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='applications' ><a id='applications' class='section-link'></a>
+Applications</h3>
+
+<ul>
+<li><a href="/api/application/list">application/list</a></li>
+<li><a href="/api/application/info/:id">application/info/:id</a></li>
+<li><a href="/api/application/layers/:id">application/layers/:id</a></li>
+<li><a href="/api/application/usage/:id">application/usage/:id</a></li>
+<li><a href="/api/application/api_hits/:id">application/api_hits/:id</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='share-links' ><a id='share-links' class='section-link'></a>
+Share Links</h3>
+
+<ul>
+<li><a href="/api/link/create">link/create</a></li>
+<li><a href="/api/link/expire">link/expire</a></li>
+<li><a href="/api/link/activate">link/activate</a></li>
+<li><a href="/api/link/deactivate">link/deactivate</a></li>
+<li><a href="/api/link/stats">link/stats</a></li>
+<li><a href="/api/share/last">share/last</a></li>
+<li><a href="/api/share/history">share/history</a></li>
+<li><a href="/api/share/info">share/info</a></li>
+</ul>
+
+<h3 class='section-header' data-section-name='oauth-2.0' ><a id='oauth-2.0' class='section-link'></a>
+OAuth 2.0</h3>
+
+<ul>
+<li><a href="/api/authentication">Authentication</a></li>
+<li><a href="/api/oauth/token">oauth/token</a></li>
+</ul>
+
+  </aside>
+</div>
+
+			</div>
+      <div id="push"></div>
+		</div>
+
+		<footer id="footer">
+	<div id="site-footer">
+		<div class="inner">
+			<nav>
+				<h6 class="compress-bottom">Geoloqi</h6>
+				<ul>
+					<li><a href="https://geoloqi.com">Home</a></li>
+					<li><a href="/">Developers</a></li>
+					<li><a href="https://geoloqi.com/apps">Apps</a></li>
+					<li><a href="/pricing">Pricing</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">SDKs</h6>
+				<ul>
+					<li><a href="/ios">iOS</a></li>
+					<li><a href="/android">Android</a></li>
+					<li><a href="/titanium">Titanium</a></li>
+					<li><a href="/client-libraries">API Client Libraries</a></li>
+				</ul>
+			</nav>
+			<nav>
+				<h6 class="compress-bottom">Resources</h6>
+				<ul>
+					<li><a href="/sample-code">Sample Code</a></li>
+					<li><a href="/api/console">API Console</a></li>
+					<li><a href="https://geoloqi.com/press-kit">Logos</a></li>
+					<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+				</ul>
+			</nav>
+			<section class="apps">
+				<div class="box">
+					<nav class="ios">
+						<h6 class="compress icon-apple"> iPhone Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/iphone">Geonotes</a></li>
+							<!--
+
+								<li><a href="">Geotracks</a></li>
+							-->
+							<li><a href="http://geoloqi.com/app-store/dinodeals/iphone">DinoDeals</a></li>
+							<li><a href="http://geoloqi.com/app-store/everydaycity/iphone">Everyday City</a></li>
+						</ul>
+					</nav>
+					<nav class="android">
+						<h6 class="compress icon-android"> Android Apps</h6>
+						<ul>
+							<li><a href="http://geoloqi.com/app-store/geonotes/android">Geonotes</a></li>
+							<li><a href="http://geoloqi.com/app-store/geotracks/android">Geotracks</a></li>
+							<li><a href="http://geoloqi.com/app-store/dinodeals/android">DinoDeals</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="common-footer">
+		<div class="inner">
+			<a href="http://esri.com" id="logo-footer">Esri</a>
+			<div id="social-links">
+				<a href="https://twitter.com/geoloqi" class="icon-twitter"></a>
+				<a href="https://www.facebook.com/geoloqi" class="icon-facebook"></a>
+				<a href="https://github.com/geoloqi" class="icon-github"></a>
+			</div>
+			<section id="footer-menu">
+				<nav>
+					<ul>
+						<li><a href="https://geoloqi.com/about">About</a></li>
+						<li><a href="https://developers.geoloqi.com">Developers</a></li>
+						<li><a href="https://geoloqi.com/press">Press</a></li>
+						<li><a href="https://developers.geoloqi.com/partners-and-oems">Partners &amp; OEMs</a></li>
+						<li><a href="https://geoloqi.com/faq">FAQ</a></li>
+						<li><a href="https://geoloqi.com/blog">Blog</a></li>
+						<li><a href="https://status.geoloqi.com/">API Status</a></li>
+						<li><a href="https://geoloqi.com/privacy">Privacy</a></li>
+						<li><a href="https://developers.geoloqi.com/contact">Contact Us</a></li>
+					</ul>
+				</nav>
+				<small>&copy; Copyright 2010-2012 <a href="http://esri.com">Environmental Systems Research Institute, Inc.</a> and contributors.</small>
+			</section>
+			
+		</div>
+	</div>
+</footer>
+
+    <script>
+      var dojoConfig = {
+        async: true,
+        packages: [{
+          name: "loqi",
+          location: "/js/loqi"
+        },{ 
+          name: "arcgis",
+          location: "/js/arcgis"
+        }]
+      };
+    </script>
+    
+    
+		
+    <script src="/js/libs/underscore-min.js"></script>
+    <script src='/assets/main.840806.js'></script>
+
+    
+	</body>
+</html>
