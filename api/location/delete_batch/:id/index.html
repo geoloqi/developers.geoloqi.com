@@ -123,9 +123,77 @@
 				<div class="container">
 	<h1 class="api-method">location/delete_batch/:id</h1>
   <div id="main">
-		<section class="box api-method-doc" style="position:relative;">
-			Sorry, the page you requested was not found. We are still working on adding additional documentation, so please check back shortly. You can also <a href="/contact">contact us</a> if you need a specific API method documented sooner.
-		</section>	
+<section class="box api-method-doc" style="position:relative;">
+      <style type="text/css">/*<![CDATA[*/
+.source-code .source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+  line-height: normal; 
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-javascript .de1, .source-javascript .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-javascript  {font-family: monospace;}
+.source-javascript .imp {font-weight: bold; color: red;}
+.source-javascript li, .source-javascript li.li1 {font-weight: normal;}
+.source-javascript li.li2 {font-weight: bold;}
+.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.source-javascript .kw3 {color: #000066;}
+.source-javascript .co1 {color: #006600; font-style: italic;}
+.source-javascript .co2 {color: #009966; font-style: italic;}
+.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.source-javascript .es0 {color: #000099; font-weight: bold;}
+.source-javascript .br0 {color: #009900;}
+.source-javascript .sy0 {color: #339933;}
+.source-javascript .st0 {color: #3366CC;}
+.source-javascript .nu0 {color: #CC0000;}
+.source-javascript .me1 {color: #660066;}
+.source-javascript .ln-xtra, .source-javascript li.ln-xtra, .source-javascript div.ln-xtra {background-color: #ffc;}
+.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!-- start content -->
+          <a name="URL" id="URL"></a><h2> <span class="mw-headline"> URL </span></h2>
+<div style="float: right;"><a href="/api/console?method=location/delete_batch/:id" class="btn small primary">Run in Console</a></div>
+<p>https://api.geoloqi.com/1/location/delete_batch/:id
+</p>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Deletes the specified batch of locations. You can get a batch ID by querying <a href="/api/location/history" title="API/location/history">location history</a> and setting batch=true in the query string. You will get a batch ID that can be used to delete the locations that came back in the response.
+</p><p>This both improves the internal efficiency of deleting the points, and prevents you from unexpectedly deleting location data that you have not yet retrieved.
+</p>
+<a name="Response" id="Response"></a><h2> <span class="mw-headline"> Response </span></h2>
+<p>If the delete was successful, you will get back the number of points that were deleted.
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre><span class="br0">{</span>
+  <span class="st0">"deleted"</span><span class="sy0">:</span><span class="nu0">530</span>
+<span class="br0">}</span></pre></div></div>
+<p>If you try to delete a batch that was already deleted, you will get back a <code>304 Not Modified</code> response.
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre><span class="br0">{</span>
+  <span class="st0">"error_code"</span><span class="sy0">:</span><span class="nu0">304</span><span class="sy0">,</span>
+  <span class="st0">"error"</span><span class="sy0">:</span><span class="st0">"not_modified"</span><span class="sy0">,</span>
+  <span class="st0">"error_description"</span><span class="sy0">:</span><span class="st0">"This batch was already deleted"</span>
+<span class="br0">}</span></pre></div></div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 20/1000000
+Post-expand include size: 202/2097152 bytes
+Template argument size: 50/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key geoloqi_wiki:pcache:idhash:340-0!1!0!!en!2!edit=0 and timestamp 20130913175134 -->
+
+    </section>
 	</div>
 	
 	<aside id="sidebar">

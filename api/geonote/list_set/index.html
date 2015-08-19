@@ -123,9 +123,118 @@
 				<div class="container">
 	<h1 class="api-method">geonote/list_set</h1>
   <div id="main">
-		<section class="box api-method-doc" style="position:relative;">
-			Sorry, the page you requested was not found. We are still working on adding additional documentation, so please check back shortly. You can also <a href="/contact">contact us</a> if you need a specific API method documented sooner.
-		</section>	
+<section class="box api-method-doc" style="position:relative;">
+      <style type="text/css">/*<![CDATA[*/
+.source-code .source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+  line-height: normal; 
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-javascript .de1, .source-javascript .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-javascript  {font-family: monospace;}
+.source-javascript .imp {font-weight: bold; color: red;}
+.source-javascript li, .source-javascript li.li1 {font-weight: normal;}
+.source-javascript li.li2 {font-weight: bold;}
+.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.source-javascript .kw3 {color: #000066;}
+.source-javascript .co1 {color: #006600; font-style: italic;}
+.source-javascript .co2 {color: #009966; font-style: italic;}
+.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.source-javascript .es0 {color: #000099; font-weight: bold;}
+.source-javascript .br0 {color: #009900;}
+.source-javascript .sy0 {color: #339933;}
+.source-javascript .st0 {color: #3366CC;}
+.source-javascript .nu0 {color: #CC0000;}
+.source-javascript .me1 {color: #660066;}
+.source-javascript .ln-xtra, .source-javascript li.ln-xtra, .source-javascript div.ln-xtra {background-color: #ffc;}
+.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!-- start content -->
+          <table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#URL"><span class="tocnumber">1</span> <span class="toctext">URL</span></a></li>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">2</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Supported_Request_Methods"><span class="tocnumber">3</span> <span class="toctext">Supported Request Methods</span></a></li>
+<li class="toclevel-1"><a href="#Response"><span class="tocnumber">4</span> <span class="toctext">Response</span></a></li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="URL" id="URL"></a><h2> <span class="mw-headline"> URL </span></h2>
+<div style="float: right;"><a href="/api/console?method=geonote/list_set" class="btn small primary">Run in Console</a></div>
+<p>https://api.geoloqi.com/1/geonote/list_set
+</p>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Retrieves all the set (undelivered) Geonotes for the given user.
+</p>
+<a name="Supported_Request_Methods" id="Supported_Request_Methods"></a><h2> <span class="mw-headline"> Supported Request Methods </span></h2>
+<p>GET
+</p>
+<a name="Response" id="Response"></a><h2> <span class="mw-headline"> Response </span></h2>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre><span class="br0">{</span>
+  <span class="st0">"geonotes"</span><span class="sy0">:</span><span class="br0">[</span>
+    <span class="br0">{</span>
+      <span class="st0">"geonote_id"</span><span class="sy0">:</span><span class="st0">"rH6"</span><span class="sy0">,</span>
+      <span class="st0">"date_created"</span><span class="sy0">:</span><span class="st0">"2010-11-03 05:59:44"</span><span class="sy0">,</span>
+      <span class="st0">"date_created_ts"</span><span class="sy0">:</span> <span class="nu0">1289763984</span><span class="sy0">,</span>
+      <span class="st0">"text"</span><span class="sy0">:</span><span class="st0">"Testing Geonotes!"</span><span class="sy0">,</span>
+      <span class="st0">"latitude"</span><span class="sy0">:</span><span class="nu0">45.5521</span><span class="sy0">,</span>
+      <span class="st0">"longitude"</span><span class="sy0">:</span><span class="nu0">-122.62132</span><span class="sy0">,</span>
+      <span class="st0">"radius"</span><span class="sy0">:</span><span class="nu0">400</span><span class="sy0">,</span>
+      <span class="st0">"intersection"</span><span class="sy0">:</span><span class="st0">""</span><span class="sy0">,</span>
+      <span class="st0">"place_id"</span><span class="sy0">:</span> <span class="st0">"1E6"</span><span class="sy0">,</span>
+      <span class="st0">"place_name"</span><span class="sy0">:</span> <span class="st0">"Work"</span><span class="sy0">,</span>
+      <span class="st0">"from"</span><span class="sy0">:</span><span class="st0">"[me]"</span>
+    <span class="br0">}</span><span class="sy0">,</span>
+    <span class="br0">{</span>
+      <span class="st0">"geonote_id"</span><span class="sy0">:</span><span class="st0">"rHA"</span><span class="sy0">,</span>
+      <span class="st0">"date_created"</span><span class="sy0">:</span><span class="st0">"2010-11-09 15:00:17"</span><span class="sy0">,</span>
+      <span class="st0">"date_created_ts"</span><span class="sy0">:</span> <span class="nu0">1289763984</span><span class="sy0">,</span>
+      <span class="st0">"text"</span><span class="sy0">:</span><span class="st0">"Hello!"</span><span class="sy0">,</span>
+      <span class="st0">"latitude"</span><span class="sy0">:</span><span class="nu0">45.496455147144</span><span class="sy0">,</span>
+      <span class="st0">"longitude"</span><span class="sy0">:</span><span class="nu0">-122.61841614861</span><span class="sy0">,</span>
+      <span class="st0">"radius"</span><span class="sy0">:</span><span class="nu0">400</span><span class="sy0">,</span>
+      <span class="st0">"intersection"</span><span class="sy0">:</span><span class="st0">""</span><span class="sy0">,</span>
+      <span class="st0">"place_id"</span><span class="sy0">:</span> <span class="st0">"1E9"</span><span class="sy0">,</span>
+      <span class="st0">"place_name"</span><span class="sy0">:</span> <span class="st0">"Home"</span><span class="sy0">,</span>
+      <span class="st0">"from"</span><span class="sy0">:</span><span class="st0">"someone@example.com"</span>
+    <span class="br0">}</span><span class="sy0">,</span>
+    <span class="br0">{</span>
+      <span class="st0">"geonote_id"</span><span class="sy0">:</span><span class="st0">"rNa"</span><span class="sy0">,</span>
+      <span class="st0">"date_created"</span><span class="sy0">:</span><span class="st0">"2010-11-19 21:34:09"</span><span class="sy0">,</span>
+      <span class="st0">"date_created_ts"</span><span class="sy0">:</span> <span class="nu0">1289763984</span><span class="sy0">,</span>
+      <span class="st0">"text"</span><span class="sy0">:</span><span class="st0">"Ikea list: desk, lamps, mail trays"</span><span class="sy0">,</span>
+      <span class="st0">"latitude"</span><span class="sy0">:</span><span class="nu0">45.548928882171</span><span class="sy0">,</span>
+      <span class="st0">"longitude"</span><span class="sy0">:</span><span class="nu0">-122.39582675547</span><span class="sy0">,</span>
+      <span class="st0">"radius"</span><span class="sy0">:</span><span class="nu0">1350</span><span class="sy0">,</span>
+      <span class="st0">"intersection"</span><span class="sy0">:</span><span class="st0">""</span><span class="sy0">,</span>
+      <span class="st0">"place_id"</span><span class="sy0">:</span> <span class="st0">"1Eb"</span><span class="sy0">,</span>
+      <span class="st0">"place_name"</span><span class="sy0">:</span> <span class="st0">""</span><span class="sy0">,</span>
+      <span class="st0">"from"</span><span class="sy0">:</span><span class="st0">"[me]"</span>
+    <span class="br0">}</span>
+  <span class="br0">]</span>
+<span class="br0">}</span></pre></div></div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 18/1000000
+Post-expand include size: 184/2097152 bytes
+Template argument size: 32/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key geoloqi_wiki:pcache:idhash:241-0!1!0!!en!2!edit=0 and timestamp 20130913004940 -->
+
+    </section>
 	</div>
 	
 	<aside id="sidebar">

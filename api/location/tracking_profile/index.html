@@ -117,21 +117,64 @@
 
           
             <div class="flash-container container">
-              
-            </div>
-
-				<div class="container">
-	<h1 class="api-method">location/tracking_profile</h1>
+<div class="container">
+  <h1 class="api-method">location/tracking_profile</h1>
   <div id="main">
-		<section class="box api-method-doc" style="position:relative;">
-			Sorry, the page you requested was not found. We are still working on adding additional documentation, so please check back shortly. You can also <a href="/contact">contact us</a> if you need a specific API method documented sooner.
-		</section>	
-	</div>
-	
-	<aside id="sidebar">
-		<nav>
-		  <h3 style="padding-bottom: 10px"><a href="/api">API Overview</a></h3>
-			<h3 class='section-header' data-section-name='introduction' ><a id='introduction' class='section-link'></a>
+    <section class="box api-method-doc" style="position:relative;">
+      <!-- start content -->
+          <table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#URL"><span class="tocnumber">1</span> <span class="toctext">URL</span></a></li>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">2</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Supported_Request_Methods"><span class="tocnumber">3</span> <span class="toctext">Supported Request Methods</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Query"><span class="tocnumber">5</span> <span class="toctext">Query</span></a></li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="URL" id="URL"></a><h2> <span class="mw-headline"> URL </span></h2>
+<div style="float: right;"><a href="/api/console?method=location/tracking_profile" class="btn small primary">Run in Console</a></div>
+<p>https://api.geoloqi.com/1/location/tracking_profile
+</p>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Update the phone's tracking profile, or check to see the phone's current profile.
+</p>
+<a name="Supported_Request_Methods" id="Supported_Request_Methods"></a><h2> <span class="mw-headline"> Supported Request Methods </span></h2>
+<p>GET, POST
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<ul><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">profile</span>  </div><div style="color: #0c5d7e;">Must be one of: realtime, logging, adaptive, rough, or off</div><div style="color: #666;"></div>
+</li></ul>
+<p>You can read more about each profile here: <a href="/ios/tracking-profiles" class="external text" title="https://developers.geoloqi.com/ios/tracking-profiles" rel="nofollow">Tracking Profiles</a>.
+</p><p>Note that this will not take effect immediately. It will only take effect the next time the phone syncs data with the server. If the phone is currently in logging mode, this will take effect almost immediately. In "rough" or "adaptive" modes, it may take several minutes or longer. Currently, switching profiles from realtime to other modes is only supported on iPhone.
+</p><p>Warning: if you set the profile to "off" you will not have a way to set it to anything else again.
+</p>
+<a name="Query" id="Query"></a><h2> <span class="mw-headline"> Query </span></h2>
+<p>When querying the phone's current profile, you will get a response of the current profile and the date that profile was reported to the server.
+</p>
+<pre>{
+  "profile": "adaptive",
+  "date": "2012-08-22T02:56:07+00:00",
+  "date_ts": 1345604167
+}
+</pre>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 44/1000000
+Post-expand include size: 420/2097152 bytes
+Template argument size: 115/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key geoloqi_wiki:pcache:idhash:398-0!1!0!!en!2!edit=0 and timestamp 20130914011156 -->
+
+    </section>  
+  </div>
+  
+  <aside id="sidebar">
+    <nav>
+      <h3 style="padding-bottom: 10px"><a href="/api">API Overview</a></h3>
+      <h3 class="section-header" data-section-name="introduction"><a id="introduction" class="section-link"></a>
 Introduction</h3>
 
 <ul>
@@ -144,7 +187,7 @@ Introduction</h3>
 <li><a href="/api/error-codes">Error Codes</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='triggers' ><a id='triggers' class='section-link'></a>
+<h3 class="section-header" data-section-name="triggers"><a id="triggers" class="section-link"></a>
 Triggers</h3>
 
 <ul>
@@ -156,7 +199,7 @@ Triggers</h3>
 <li><a href="/api/Trigger_Callback">Trigger Callback</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='geonotes' ><a id='geonotes' class='section-link'></a>
+<h3 class="section-header" data-section-name="geonotes"><a id="geonotes" class="section-link"></a>
 Geonotes</h3>
 
 <ul>
@@ -166,7 +209,7 @@ Geonotes</h3>
 <li><a href="/api/geonote/info/:id">geonote/info/:id</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='location' ><a id='location' class='section-link'></a>
+<h3 class="section-header" data-section-name="location"><a id="location" class="section-link"></a>
 Location</h3>
 
 <ul>
@@ -177,7 +220,7 @@ Location</h3>
 <li><a href="/api/location/tracking_profile">location/tracking_profile</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='places' ><a id='places' class='section-link'></a>
+<h3 class="section-header" data-section-name="places"><a id="places" class="section-link"></a>
 Places</h3>
 
 <ul>
@@ -189,7 +232,7 @@ Places</h3>
 <li><a href="/api/place/delete/:id">place/delete/:id</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='layers' ><a id='layers' class='section-link'></a>
+<h3 class="section-header" data-section-name="layers"><a id="layers" class="section-link"></a>
 Layers</h3>
 
 <ul>
@@ -205,7 +248,7 @@ Layers</h3>
 <li><a href="/api/layer/users/:id">layer/users/:id</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='users' ><a id='users' class='section-link'></a>
+<h3 class="section-header" data-section-name="users"><a id="users" class="section-link"></a>
 Users</h3>
 
 <ul>
@@ -218,7 +261,7 @@ Users</h3>
 <li><a href="/api/user/secure_delete/:id">user/secure_delete/:id</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='groups' ><a id='groups' class='section-link'></a>
+<h3 class="section-header" data-section-name="groups"><a id="groups" class="section-link"></a>
 Groups</h3>
 
 <ul>
@@ -236,14 +279,14 @@ Groups</h3>
 <li><a href="/api/group/locations/:token">group/locations/:token</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='real-time-streaming' ><a id='real-time-streaming' class='section-link'></a>
+<h3 class="section-header" data-section-name="real-time-streaming"><a id="real-time-streaming" class="section-link"></a>
 Real-Time Streaming</h3>
 
 <ul>
 <li><a href="/api/Streaming">Using the Geoloqi Streaming Server</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='account-methods' ><a id='account-methods' class='section-link'></a>
+<h3 class="section-header" data-section-name="account-methods"><a id="account-methods" class="section-link"></a>
 Account Methods</h3>
 
 <ul>
@@ -255,7 +298,7 @@ Account Methods</h3>
 <li><a href="/api/account/set_apn_token">account/set_apn_token</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='messaging' ><a id='messaging' class='section-link'></a>
+<h3 class="section-header" data-section-name="messaging"><a id="messaging" class="section-link"></a>
 Messaging</h3>
 
 <ul>
@@ -265,14 +308,14 @@ Messaging</h3>
 <li><a href="/api/message/device">message/device</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='batching' ><a id='batching' class='section-link'></a>
+<h3 class="section-header" data-section-name="batching"><a id="batching" class="section-link"></a>
 Batching</h3>
 
 <ul>
 <li><a href="/api/batch/run">batch/run</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='applications' ><a id='applications' class='section-link'></a>
+<h3 class="section-header" data-section-name="applications"><a id="applications" class="section-link"></a>
 Applications</h3>
 
 <ul>
@@ -283,7 +326,7 @@ Applications</h3>
 <li><a href="/api/application/api_hits/:id">application/api_hits/:id</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='share-links' ><a id='share-links' class='section-link'></a>
+<h3 class="section-header" data-section-name="share-links"><a id="share-links" class="section-link"></a>
 Share Links</h3>
 
 <ul>
@@ -297,7 +340,7 @@ Share Links</h3>
 <li><a href="/api/share/info">share/info</a></li>
 </ul>
 
-<h3 class='section-header' data-section-name='oauth-2.0' ><a id='oauth-2.0' class='section-link'></a>
+<h3 class="section-header" data-section-name="oauth-2.0"><a id="oauth-2.0" class="section-link"></a>
 OAuth 2.0</h3>
 
 <ul>
@@ -305,10 +348,12 @@ OAuth 2.0</h3>
 <li><a href="/api/oauth/token">oauth/token</a></li>
 </ul>
 
-		</nav>
-	</aside>
-</div>
+    </nav>
+  </aside>
+</div>	
+            </div>
 
+	
 			</div>
       <div id="push"></div>
 		</div>

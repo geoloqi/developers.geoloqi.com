@@ -121,10 +121,170 @@
             </div>
 
 				<div class="container bump-sidebar">  
-	<div id="main" style="position:relative;">
-		Sorry, the page you requested was not found. We are still working on adding additional documentation, so please check back shortly. You can also <a href="/contact">contact us</a> if you need a specific API method documented sooner.  
-  </div>
+<div id="main" style="position:relative;">
+    <style type="text/css">/*<![CDATA[*/
+.source-code .source-ruby {line-height: normal;}
+.source-ruby li, .source-ruby pre {
+  line-height: normal; 
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for ruby
+ * CSS class: source-ruby, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-ruby .de1, .source-ruby .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-ruby  {font-family: monospace;}
+.source-ruby .imp {font-weight: bold; color: red;}
+.source-ruby li, .source-ruby li.li1 {font-weight: normal;}
+.source-ruby li.li2 {font-weight: bold;}
+.source-ruby .kw1 {color:#9966CC; font-weight:bold;}
+.source-ruby .kw2 {color:#0000FF; font-weight:bold;}
+.source-ruby .kw3 {color:#CC0066; font-weight:bold;}
+.source-ruby .kw4 {color:#CC00FF; font-weight:bold;}
+.source-ruby .co1 {color:#008000; font-style:italic;}
+.source-ruby .coMULTI {color:#000080; font-style:italic;}
+.source-ruby .es0 {color:#000099;}
+.source-ruby .br0 {color:#006600; font-weight:bold;}
+.source-ruby .sy0 {color:#006600; font-weight:bold;}
+.source-ruby .st0 {color:#996600;}
+.source-ruby .nu0 {color:#006666;}
+.source-ruby .me1 {color:#9900CC;}
+.source-ruby .re0 {color:#ff6633; font-weight:bold;}
+.source-ruby .re1 {color:#0066ff; font-weight:bold;}
+.source-ruby .re2 {color:#6666ff; font-weight:bold;}
+.source-ruby .re3 {color:#ff3333; font-weight:bold;}
+.source-ruby .ln-xtra, .source-ruby li.ln-xtra, .source-ruby div.ln-xtra {background-color: #ffc;}
+.source-ruby span.xtra { display:block; }
 
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-code .source-php {line-height: normal;}
+.source-php li, .source-php pre {
+  line-height: normal; 
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-php .de1, .source-php .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-php  {font-family: monospace;}
+.source-php .imp {font-weight: bold; color: red;}
+.source-php li, .source-php li.li1 {font-weight: normal;}
+.source-php li.li2 {font-weight: bold;}
+.source-php .kw1 {color: #b1b100;}
+.source-php .kw2 {color: #000000; font-weight: bold;}
+.source-php .kw3 {color: #990000;}
+.source-php .co1 {color: #666666; font-style: italic;}
+.source-php .co2 {color: #666666; font-style: italic;}
+.source-php .co3 {color: #0000cc; font-style: italic;}
+.source-php .coMULTI {color: #666666; font-style: italic;}
+.source-php .es0 {color: #000099; font-weight: bold;}
+.source-php .br0 {color: #009900;}
+.source-php .sy0 {color: #339933;}
+.source-php .st0 {color: #0000ff;}
+.source-php .nu0 {color: #cc66cc;}
+.source-php .me1 {color: #004000;}
+.source-php .me2 {color: #004000;}
+.source-php .re0 {color: #000088;}
+.source-php .ln-xtra, .source-php li.ln-xtra, .source-php div.ln-xtra {background-color: #ffc;}
+.source-php span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!-- start content -->
+          <a name="Create_the_Layer" id="Create_the_Layer"></a><h2> <span class="mw-headline"> Create the Layer </span></h2>
+<p></p><section class="well">
+You will first need to create a new layer to hold your collection of places. You can do this on the website by clicking the "New Layer" button from the layers page, <a href="http://geoloqi.com/layers" class="external free" title="https://geoloqi.com/layers" rel="nofollow">https://geoloqi.com/layers</a>, or you can create a layer via the API.
+<p></p>
+<div dir="ltr" style="text-align: left;"><div class="source-ruby" style="font-family: monospace;"><pre>  layer = geoloqi.<span class="me1">post</span> <span class="st0">'layer/create'</span>, <span class="br0">{</span>
+    <span class="re3">:name</span>        <span class="sy0">=&gt;</span> <span class="st0">'My Sweet Layer'</span>,
+    <span class="re3">:key</span>         <span class="sy0">=&gt;</span> <span class="st0">'my_layer'</span>,
+    <span class="re3">:description</span> <span class="sy0">=&gt;</span> <span class="st0">'My layer for testing'</span>
+  <span class="br0">}</span></pre></div></div>
+</section>
+<a name="Create_Places" id="Create_Places"></a><h2> <span class="mw-headline"> Create Places </span></h2>
+<p></p><section class="well">
+Places exist on a layer. You can create places by using the <a href="/api/place/create" title="API/place/create">place/create</a> API method.
+<p></p><p>For the Calagator layer which reminds people of upcoming events nearby, we create a place record corresponding to the venue of the event. The Geoloqi API will not create duplicate places with the same name, so it's safe to run this multiple times for the same venue.
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-php" style="font-family: monospace;"><pre><span class="kw2">&lt;?php</span>
+  <span class="re0">$place</span> <span class="sy0">=</span> <span class="re0">$geoloqi</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="br0">(</span><span class="st0">'place/create'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">(</span>
+    <span class="st0">'layer_id'</span>    <span class="sy0">=&gt;</span> <span class="re0">$layerID</span><span class="sy0">,</span>
+    <span class="st0">'name'</span>        <span class="sy0">=&gt;</span> <span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">venue</span><span class="sy0">-&gt;</span><span class="me1">title</span><span class="sy0">,</span>
+    <span class="st0">'description'</span> <span class="sy0">=&gt;</span> <span class="kw3">trim</span><span class="br0">(</span><span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">venue</span><span class="sy0">-&gt;</span><span class="me1">description</span><span class="sy0">.</span><span class="st0">' '</span><span class="sy0">.</span>
+                          <span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">venue</span><span class="sy0">-&gt;</span><span class="me1">address</span><span class="sy0">.</span><span class="st0">' '</span><span class="sy0">.</span>
+                          <span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">venue</span><span class="sy0">-&gt;</span><span class="me1">url</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="st0">'radius'</span>      <span class="sy0">=&gt;</span> <span class="nu0">500</span><span class="sy0">,</span>
+    <span class="st0">'latitude'</span>    <span class="sy0">=&gt;</span> <span class="re0">$lat</span><span class="sy0">,</span>
+    <span class="st0">'longitude'</span>   <span class="sy0">=&gt;</span> <span class="re0">$lng</span>
+  <span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw2">?&gt;</span></pre></div></div>
+<div dir="ltr" style="text-align: left;"><div class="source-ruby" style="font-family: monospace;"><pre>  place = geoloqi.<span class="me1">post</span> <span class="st0">'place/create'</span>, <span class="br0">{</span>
+    <span class="re3">:layer_id</span>    <span class="sy0">=&gt;</span> layer<span class="br0">[</span><span class="re3">:layer_id</span><span class="br0">]</span>,
+    <span class="re3">:name</span>        <span class="sy0">=&gt;</span> event<span class="br0">[</span><span class="re3">:venue</span><span class="br0">]</span><span class="br0">[</span><span class="re3">:title</span><span class="br0">]</span>,
+    <span class="re3">:description</span> <span class="sy0">=&gt;</span> event<span class="br0">[</span><span class="re3">:venue</span><span class="br0">]</span><span class="br0">[</span><span class="re3">:description</span><span class="br0">]</span>,
+    <span class="re3">:radius</span>      <span class="sy0">=&gt;</span> <span class="nu0">500</span>,
+    <span class="re3">:latitude</span>    <span class="sy0">=&gt;</span> event<span class="br0">[</span><span class="re3">:venue</span><span class="br0">]</span><span class="br0">[</span><span class="re3">:latitude</span><span class="br0">]</span>,
+    <span class="re3">:longitude</span>   <span class="sy0">=&gt;</span> event<span class="br0">[</span><span class="re3">:venue</span><span class="br0">]</span><span class="br0">[</span><span class="re3">:longitude</span><span class="br0">]</span>
+  <span class="br0">}</span></pre></div></div>
+</section>
+<a name="Create_Triggers" id="Create_Triggers"></a><h2> <span class="mw-headline"> Create Triggers </span></h2>
+<p></p><section class="well">
+Triggers can do things such as send messages when people enter places. There are other options as well, such as sending messages when users leave, or after they have been at a place for 5 minutes. You can see the full list of options on the <a href="/api/trigger/create" title="API/trigger/create">trigger/create</a> API documentation page.
+<p></p><p>For the Calagator layer, we create a trigger at a venue with the message we want to deliver to users. 
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-php" style="font-family: monospace;"><pre><span class="kw2">&lt;?php</span>
+  <span class="re0">$geoloqi</span><span class="sy0">-&gt;</span><span class="me1">request</span><span class="br0">(</span><span class="st0">'trigger/create'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">(</span>
+    <span class="st0">'place_id'</span>  <span class="sy0">=&gt;</span> <span class="re0">$place</span><span class="sy0">-&gt;</span><span class="me1">place_id</span><span class="sy0">,</span>
+    <span class="st0">'type'</span>      <span class="sy0">=&gt;</span> <span class="st0">'message'</span><span class="sy0">,</span>
+    <span class="st0">'date_from'</span> <span class="sy0">=&gt;</span> <span class="kw3">date</span><span class="br0">(</span><span class="st0">'c'</span><span class="sy0">,</span> <span class="kw3">strtotime</span><span class="br0">(</span><span class="st0">'-3 hours'</span><span class="sy0">,</span> <span class="kw3">strtotime</span><span class="br0">(</span><span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">dateStart</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="st0">'date_to'</span>   <span class="sy0">=&gt;</span> <span class="kw3">date</span><span class="br0">(</span><span class="st0">'c'</span><span class="sy0">,</span> <span class="kw3">strtotime</span><span class="br0">(</span><span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">dateStart</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">,</span>
+    <span class="st0">'one_time'</span>  <span class="sy0">=&gt;</span> <span class="nu0">1</span><span class="sy0">,</span>
+    <span class="st0">'text'</span>      <span class="sy0">=&gt;</span> <span class="re0">$message</span><span class="sy0">,</span>
+    <span class="st0">'url'</span>       <span class="sy0">=&gt;</span> <span class="st0">'http://calagator.org/events/'</span><span class="sy0">.</span><span class="re0">$event</span><span class="sy0">-&gt;</span><span class="me1">id</span>
+  <span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw2">?&gt;</span></pre></div></div>
+<p><b>date_from, date_to:</b> The trigger is set to be active 3 hours before the start of the event, and expires at the event start time so people won't get notifications of past events. 
+</p><p><b>one_time:</b> Setting this to "1" ensures a user will only receive this message the first time they enter the place, and will not receive it if they come back. Set to "0" or leave it out if you want the message to be recurring.
+</p><p><b>text:</b> The text is a sentence we constructed from the event data such as "Are You Smarter than Your Lawyer and Venture Capitalist? at Urban Airship at 11/01 6:30pm". If the text specified is longer than will fit in a push notification or SMS, it will be trimmed automatically.
+</p><p><b>url:</b> The URL is a link to the event on Calagator. If the message is sent via push notification, clicking on the notification will open the web page. If sent via SMS, the link will be appended to the end of the SMS.
+</p></section>
+<p></p>
+<a name="Timeline_Stories" id="Timeline_Stories"></a><h2> <span class="mw-headline"> Timeline Stories </span></h2>
+<p></p><section class="well">
+When a user picks up the message, it gets added to their timeline on the web, with links to the layer page and place page. The story will also contain a link to the URL provided in the trigger.  
+<p></p>
+<div class="center"><div class="floatnone"><img alt="" src="/wiki/images/thumb/7/75/calagator-timeline-story.png/500px-calagator-timeline-story.png" width="500" height="304" border="0"></div></div>
+</section>
+<a name="What_Next.3F" id="What_Next.3F"></a><h2> <span class="mw-headline"> What Next? </span></h2>
+<p></p><section class="well">
+<p></p>
+<ul><li> Check out a <a href="http://github.com/geoloqi/Sample-Geoloqi-Layer" class="external text" title="https://github.com/geoloqi/Sample-Geoloqi-Layer" rel="nofollow">sample project for creating a layer</a>
+</li><li> <a href="/api" class="external text" title="https://developers.geoloqi.com/api" rel="nofollow">Geoloqi API Documentation</a>
+</li><li> <a href="http://www.readwriteweb.com/archives/new_wikipedia_layer_on_geoloqi_gives_you_vision_be.php" class="external text" title="http://www.readwriteweb.com/archives/new_wikipedia_layer_on_geoloqi_gives_you_vision_be.php" rel="nofollow">New Wikipedia Layer on Geoloqi Gives You Vision Beyond the Greek Gods</a> (readwriteweb.com)
+</li></ul>
+</section>
+<!-- 
+NewPP limit report
+Preprocessor node count: 38/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key geoloqi_wiki:pcache:idhash:275-0!1!0!!en!2!edit=0 and timestamp 20120919154754 -->
+  
+  </div>
     <aside id="sidebar">
 		  <nav>
         

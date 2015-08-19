@@ -123,9 +123,127 @@
 				<div class="container">
 	<h1 class="api-method">user/create_anon</h1>
   <div id="main">
-		<section class="box api-method-doc" style="position:relative;">
-			Sorry, the page you requested was not found. We are still working on adding additional documentation, so please check back shortly. You can also <a href="/contact">contact us</a> if you need a specific API method documented sooner.
-		</section>	
+<section class="box api-method-doc" style="position:relative;">
+      <style type="text/css">/*<![CDATA[*/
+.source-code .source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+  line-height: normal; 
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-javascript .de1, .source-javascript .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-javascript  {font-family: monospace;}
+.source-javascript .imp {font-weight: bold; color: red;}
+.source-javascript li, .source-javascript li.li1 {font-weight: normal;}
+.source-javascript li.li2 {font-weight: bold;}
+.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.source-javascript .kw3 {color: #000066;}
+.source-javascript .co1 {color: #006600; font-style: italic;}
+.source-javascript .co2 {color: #009966; font-style: italic;}
+.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.source-javascript .es0 {color: #000099; font-weight: bold;}
+.source-javascript .br0 {color: #009900;}
+.source-javascript .sy0 {color: #339933;}
+.source-javascript .st0 {color: #3366CC;}
+.source-javascript .nu0 {color: #CC0000;}
+.source-javascript .me1 {color: #660066;}
+.source-javascript .ln-xtra, .source-javascript li.ln-xtra, .source-javascript div.ln-xtra {background-color: #ffc;}
+.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!-- start content -->
+          <table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#URL"><span class="tocnumber">1</span> <span class="toctext">URL</span></a></li>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">2</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Authentication"><span class="tocnumber">3</span> <span class="toctext">Authentication</span></a></li>
+<li class="toclevel-1"><a href="#Supported_Request_Methods"><span class="tocnumber">4</span> <span class="toctext">Supported Request Methods</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Optional"><span class="tocnumber">5.1</span> <span class="toctext">Optional</span></a></li>
+<li class="toclevel-2"><a href="#Layers_and_Groups"><span class="tocnumber">5.2</span> <span class="toctext">Layers and Groups</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Response"><span class="tocnumber">6</span> <span class="toctext">Response</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Success"><span class="tocnumber">6.1</span> <span class="toctext">Success</span></a></li>
+<li class="toclevel-2"><a href="#Error"><span class="tocnumber">6.2</span> <span class="toctext">Error</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="URL" id="URL"></a><h2> <span class="mw-headline"> URL </span></h2>
+<div style="float: right;"><a href="/api/console?method=user/create_anon" class="btn small primary">Run in Console</a></div>
+<p>https://api.geoloqi.com/1/user/create_anon
+</p>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Create a new anonymous account. Returns an OAuth access token on success. This method is for the mobile clients to bypass signup and start using the app immediately.
+</p>
+<a name="Authentication" id="Authentication"></a><h2> <span class="mw-headline"> Authentication </span></h2>
+<p>You must provide the API Key (Client ID) for this method, but the API Secret is not required. This means you do not need to include your client secret in your mobile apps.
+</p><p>If sending the client_id in post parameters, you can just omit the client_secret parameter. If you are using HTTP Basic Auth, you can use an empty string for the password.
+</p>
+<a name="Supported_Request_Methods" id="Supported_Request_Methods"></a><h2> <span class="mw-headline"> Supported Request Methods </span></h2>
+<p>POST
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<p>The request must be authenticated with the application's client ID and secret. You can do this by either passing them in post parameters or by using HTTP Basic auth.
+</p>
+<ul><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">client_id</span>  </div><div style="color: #0c5d7e;">Your application's client ID</div><div style="color: #666;"></div>
+</li></ul>
+<p>Alternatively, you can pass the authentication in via HTTP Basic auth if you are using a library that supports it. Use the client ID as the username and leave the password blank. See <a href="/api/Authentication" title="API/Authentication">API/Authentication</a> for more information.
+</p>
+<a name="Optional" id="Optional"></a><h3> <span class="mw-headline"> Optional </span></h3>
+<ul><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">key</span>  </div><div style="color: #0c5d7e;">A unique identifier for the user. Repeated API calls to user/create_anon with the same key value will not create a new account. Instead, the existing account's access token will be returned instead. You can use this to integrate Geoloqi user accounts with external user databases. See the page on <a href="/api/De-Duplication_and_Extra_Parameters" title="API/De-Duplication and Extra Parameters">De-Duplication</a> for more information.</div><div style="color: #666;"></div> <i>NOTE: You cannot use the "key" property from a mobile device or Javascript app, as this would be a major security hole allowing any user to log in as any other user if they know other keys.</i>
+</li><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">extra</span>  </div><div style="color: #0c5d7e;">A hash of keys and values to store along with the user. Whatever you store here will be returned whenever the user profile is read. See <a href="/api/Extra_Parameters" title="API/Extra Parameters" class="mw-redirect">Extra Parameters</a> for more details.</div><div style="color: #666;"></div>
+</li><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">device_id</span>  </div><div style="color: #0c5d7e;">If the account is being created from a mobile device, a UUID should be generated and sent at this time. This UUID will also be used when sending UDP location updates.</div><div style="color: #666;"></div>
+</li><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">mac</span>  </div><div style="color: #0c5d7e;">If the account is being created from a mobile device, the MAC address of the wifi adapter should be sent.</div><div style="color: #666;"></div>
+</li><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">apn_token</span>  </div><div style="color: #0c5d7e;">For iPhones, if the app has already registered for push notifications before calling create_anon, the token can be sent at this time.</div><div style="color: #666;"></div> 
+</li></ul>
+<a name="Layers_and_Groups" id="Layers_and_Groups"></a><h3> <span class="mw-headline"> Layers and Groups </span></h3>
+<p>You can automatically subscribe users to a layer or add them to a group when they are created. To do this, use the "layer_ids" and "group_tokens" parameters when creating the user.
+</p>
+<ul><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">layer_ids</span>  </div><div style="color: #0c5d7e;">An array of one or more layer IDs the user should be subscribed to when created. The layer must be "public", since this is equivalent to immediately running <a href="/api/layer/subscribe/:id" title="API/layer/subscribe/:id">layer/subscribe/:id</a> after the account is created.</div><div style="color: #666;"></div>
+</li><li> <div style=""><span style="font-size: 1.2em; font-weight: bold;">group_tokens</span>  </div><div style="color: #0c5d7e;">An array of one or more group tokens the user should be added to when created. The groups must be "public" or "open" since this is equivalent to immediately running <a href="/api/group/join/:token" title="API/group/join/:token">group/join/:token</a> after the account is created.</div><div style="color: #666;"></div>
+</li></ul>
+<a name="Response" id="Response"></a><h2> <span class="mw-headline"> Response </span></h2>
+<a name="Success" id="Success"></a><h3> <span class="mw-headline"> Success </span></h3>
+<p>On successful account creation, the response is identical to a call to <a href="/api/oauth/token" title="API/oauth/token">oauth/token</a> and will contain an access token and refresh token. The mobile client should make sure not to lose the refresh token, since the user has no password at this point and will have no way to log in via the mobile app until creating a password on their computer.
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre><span class="br0">{</span>
+  <span class="st0">"access_token"</span><span class="sy0">:</span> <span class="st0">"RsT5OjbzRn430zqMAZFh+QaLgVx+Q3Ia"</span><span class="sy0">,</span>
+  <span class="st0">"expires_in"</span><span class="sy0">:</span> <span class="nu0">3600</span><span class="sy0">,</span>
+  <span class="st0">"scope"</span><span class="sy0">:</span> <span class="kw2">null</span><span class="sy0">,</span>
+  <span class="st0">"refresh_token"</span><span class="sy0">:</span> <span class="st0">"e1qoXgfno1YTKc7aAZvIk2RRua48lXIV"</span>
+<span class="br0">}</span></pre></div></div>
+<a name="Error" id="Error"></a><h3> <span class="mw-headline"> Error </span></h3>
+<p>You will get a descriptive error message if there was a problem creating the account. See <a href="/api/Error_Codes" title="API/Error Codes">Error Codes</a> for more information.
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre><span class="br0">{</span>
+  <span class="st0">"error"</span><span class="sy0">:</span> <span class="st0">"access_denied"</span><span class="sy0">,</span>
+  <span class="st0">"error_description"</span><span class="sy0">:</span> <span class="st0">"This client does not have permission to create anonymous accounts"</span>
+<span class="br0">}</span></pre></div></div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 231/1000000
+Post-expand include size: 4556/2097152 bytes
+Template argument size: 1567/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key geoloqi_wiki:pcache:idhash:95-0!1!0!!en!2!edit=0 and timestamp 20130913033136 -->
+
+    </section>
 	</div>
 	
 	<aside id="sidebar">

@@ -123,9 +123,86 @@
 				<div class="container">
 	<h1 class="api-method">user/secure_delete/:id</h1>
   <div id="main">
-		<section class="box api-method-doc" style="position:relative;">
-			Sorry, the page you requested was not found. We are still working on adding additional documentation, so please check back shortly. You can also <a href="/contact">contact us</a> if you need a specific API method documented sooner.
-		</section>	
+<section class="box api-method-doc" style="position:relative;">
+      <!-- start content -->
+          <table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#URL"><span class="tocnumber">1</span> <span class="toctext">URL</span></a></li>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">2</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Supported_Request_Methods"><span class="tocnumber">3</span> <span class="toctext">Supported Request Methods</span></a></li>
+<li class="toclevel-1"><a href="#Authentication"><span class="tocnumber">4</span> <span class="toctext">Authentication</span></a></li>
+<li class="toclevel-1"><a href="#How_to_Use"><span class="tocnumber">5</span> <span class="toctext">How to Use</span></a></li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="URL" id="URL"></a><h2> <span class="mw-headline"> URL </span></h2>
+<div style="float: right;"><a href="/api/console?method=user/secure_delete/:id" class="btn small primary">Run in Console</a></div>
+<p>https://api.geoloqi.com/1/user/secure_delete/:id
+</p>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Securely delete a user and all associated user data. This will erase all profile data, all location history, and all groups, layers, places and triggers created by this user. 
+</p>
+<a name="Supported_Request_Methods" id="Supported_Request_Methods"></a><h2> <span class="mw-headline"> Supported Request Methods </span></h2>
+<p>POST
+</p>
+<a name="Authentication" id="Authentication"></a><h2> <span class="mw-headline"> Authentication </span></h2>
+<p>This method must be run with the application's API Key and Secret. See <a href="/api/Authentication" title="API/Authentication">Authentication</a> for more details.
+</p><p>Note: Your application must be whitelisted to use the secure_delete method. Please <a href="/contact">contact us</a> to request your application be approved to use this.
+</p>
+<a name="How_to_Use" id="How_to_Use"></a><h2> <span class="mw-headline"> How to Use </span></h2>
+<p>First, make a request to `user/secure_delete/:id`, and you will get back a token. 
+</p>
+<pre>POST user/secure_delete/XXXX
+
+{
+  "token":"BM6RHCS38A1RQv9rv_fE"
+}
+</pre>
+<p>Then, post to the same path again with the token in the query string or post body.
+</p>
+<pre>POST user/secure_delete/XXXX
+token=BM6RHCS38A1RQv9rv_fE
+
+{
+  "delete":"queued",
+  "status":"This user has been queued to be deleted"
+}
+</pre>
+<p>The user will be queued to be deleted. If you make the same request again you will get the status of the delete.
+</p>
+<pre>POST user/secure_delete/XXXX
+token=BM6RHCS38A1RQv9rv_fE
+
+{
+  "delete":"queued",
+  "status":"This user has already been queued to be deleted"
+}
+</pre>
+<p>Once the delete process begins you will get back a different status:
+</p>
+<pre>{
+  "delete":"in_progress",
+  "status":"This user is currently being deleted"
+}
+</pre>
+<p>When the delete is complete, you will see this:
+</p>
+<pre>{
+  "delete":"successful",
+  "status":"This user has been successfully deleted"
+}
+</pre>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 32/1000000
+Post-expand include size: 195/2097152 bytes
+Template argument size: 44/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key geoloqi_wiki:pcache:idhash:357-0!1!0!!en!2!edit=0 and timestamp 20130914004812 -->
+
+    </section>
 	</div>
 	
 	<aside id="sidebar">

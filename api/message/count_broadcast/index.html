@@ -123,9 +123,107 @@
 				<div class="container">
 	<h1 class="api-method">message/count_broadcast</h1>
   <div id="main">
-		<section class="box api-method-doc" style="position:relative;">
-			Sorry, the page you requested was not found. We are still working on adding additional documentation, so please check back shortly. You can also <a href="/contact">contact us</a> if you need a specific API method documented sooner.
-		</section>	
+<section class="box api-method-doc" style="position:relative;">
+      <style type="text/css">/*<![CDATA[*/
+.source-code .source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+  line-height: normal; 
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-javascript .de1, .source-javascript .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-javascript  {font-family: monospace;}
+.source-javascript .imp {font-weight: bold; color: red;}
+.source-javascript li, .source-javascript li.li1 {font-weight: normal;}
+.source-javascript li.li2 {font-weight: bold;}
+.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.source-javascript .kw3 {color: #000066;}
+.source-javascript .co1 {color: #006600; font-style: italic;}
+.source-javascript .co2 {color: #009966; font-style: italic;}
+.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.source-javascript .es0 {color: #000099; font-weight: bold;}
+.source-javascript .br0 {color: #009900;}
+.source-javascript .sy0 {color: #339933;}
+.source-javascript .st0 {color: #3366CC;}
+.source-javascript .nu0 {color: #CC0000;}
+.source-javascript .me1 {color: #660066;}
+.source-javascript .ln-xtra, .source-javascript li.ln-xtra, .source-javascript div.ln-xtra {background-color: #ffc;}
+.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!-- start content -->
+          <table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#URL"><span class="tocnumber">1</span> <span class="toctext">URL</span></a></li>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">2</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Supported_Request_Methods"><span class="tocnumber">3</span> <span class="toctext">Supported Request Methods</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Response"><span class="tocnumber">5</span> <span class="toctext">Response</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Success"><span class="tocnumber">5.1</span> <span class="toctext">Success</span></a></li>
+<li class="toclevel-2"><a href="#Errors"><span class="tocnumber">5.2</span> <span class="toctext">Errors</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="URL" id="URL"></a><h2> <span class="mw-headline"> URL </span></h2>
+<div style="float: right;"><a href="/api/console?method=message/count_broadcast" class="btn small primary">Run in Console</a></div>
+<p>https://api.geoloqi.com/1/message/count_broadcast
+</p>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Count the number of people that will receive your broadcast messages to all users within a specific region. You can only broadcast messages to users who have opted in to one of your layers.
+</p><p>Also see: <a href="/api/message/broadcast" title="API/message/broadcast">message/broadcast</a>.
+</p>
+<a name="Supported_Request_Methods" id="Supported_Request_Methods"></a><h2> <span class="mw-headline"> Supported Request Methods </span></h2>
+<p>POST
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<p>See <a href="/api/message/broadcast" title="API/message/broadcast">message/broadcast</a> for a list of parameters
+</p>
+<a name="Response" id="Response"></a><h2> <span class="mw-headline"> Response </span></h2>
+<a name="Success" id="Success"></a><h3> <span class="mw-headline"> Success </span></h3>
+<p>You will get a response that includes the number of messages that will be sent via push notification and SMS, as well as the total number of users.
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre>HTTP<span class="sy0">/</span><span class="nu0">1.1</span> <span class="nu0">200</span> OK
+&nbsp;
+<span class="br0">{</span>
+  <span class="st0">"result"</span><span class="sy0">:</span><span class="st0">"ok"</span><span class="sy0">,</span>
+  <span class="st0">"total"</span><span class="sy0">:</span><span class="nu0">35</span><span class="sy0">,</span>
+  <span class="st0">"push"</span><span class="sy0">:</span><span class="nu0">30</span><span class="sy0">,</span>
+  <span class="st0">"sms"</span><span class="sy0">:</span><span class="nu0">5</span>
+<span class="br0">}</span></pre></div></div>
+<p>To actually send the broadcast, repeat the same post input to the <a href="/api/message/broadcast" title="API/message/broadcast">message/broadcast</a> method.
+</p>
+<a name="Errors" id="Errors"></a><h3> <span class="mw-headline"> Errors </span></h3>
+<p>If there was a problem with the request, you will get a response with information about the error. This may look something like the following.
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-javascript" style="font-family: monospace;"><pre>HTTP<span class="sy0">/</span><span class="nu0">1.1</span> <span class="nu0">403</span> Forbidden
+&nbsp;
+<span class="br0">{</span>
+  <span class="st0">"error"</span><span class="sy0">:</span><span class="st0">"access_denied"</span><span class="sy0">,</span>
+  <span class="st0">"error_description"</span><span class="sy0">:</span><span class="st0">"Access denied to this layer"</span>
+<span class="br0">}</span></pre></div></div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 24/1000000
+Post-expand include size: 198/2097152 bytes
+Template argument size: 46/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key geoloqi_wiki:pcache:idhash:205-0!1!0!!en!2!edit=0 and timestamp 20130913013636 -->
+
+    </section>
 	</div>
 	
 	<aside id="sidebar">
